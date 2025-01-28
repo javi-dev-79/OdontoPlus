@@ -80,10 +80,15 @@
   color: #333333;
 }
 
-/* Media Queries */
+/* Para pantallas grandes (desktop y laptops) */
 @media (min-width: 1025px) {
   .mobile-actions {
     display: none; /* Oculta las acciones móviles en pantallas grandes */
+  }
+  
+  .dropdown-menu, 
+  .dropdown-menu.show {
+    display: none !important; /* Fuerza que el dropdown nunca se muestre en pantallas grandes */
   }
 }
 
