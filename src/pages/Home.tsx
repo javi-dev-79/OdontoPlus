@@ -5,7 +5,6 @@ const Home = () => {
   return (
     <div>
       <Header />
-      {/* Resto de tu contenido */}
     </div>
   )
 }

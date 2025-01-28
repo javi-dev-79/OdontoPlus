@@ -6,27 +6,27 @@ const Navigation = () => {
       <ul className='ButtonComponent'>
         <li>
           <a className='Home' href='#'>
-            Inicio
+            INICIO
           </a>
         </li>
         <li>
           <a className='Button' href='#'>
-            Servicios
+            SERVICIOS
           </a>
         </li>
         <li>
           <a className='Button' href='#'>
-            Sobre Nosotros
+            SOBRE NOSOTROS
           </a>
         </li>
         <li>
           <a className='Button' href='#'>
-            Contacto
+            CONTACTO
           </a>
         </li>
         <li>
           <a className='Button' href='#'>
-            Citas en Línea
+            CITAS EN LÍNEA
           </a>
         </li>
       </ul>
