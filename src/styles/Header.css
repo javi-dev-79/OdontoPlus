@@ -80,25 +80,25 @@
   color: #333333;
 }
 
-/* Para pantallas grandes (desktop y laptops) */
+
 @media (min-width: 1025px) {
   .mobile-actions {
-    display: none; /* Oculta las acciones móviles en pantallas grandes */
+    display: none;
   }
   
   .dropdown-menu, 
   .dropdown-menu.show {
-    display: none !important; /* Fuerza que el dropdown nunca se muestre en pantallas grandes */
+    display: none !important;
   }
 }
 
 @media (max-width: 1024px) {
   .desktop-actions {
-    display: none; /* Oculta las acciones de escritorio en pantallas pequeñas */
+    display: none;
   }
 
   .navbar {
-    height: 80px; /* Ajusta la altura del Header */
+    height: 80px;
   }
 
   .navbar-content {
@@ -106,7 +106,7 @@
   }
 
   .nav-links {
-    display: none; /* Oculta el Navigation */
+    display: none;
   }
 
   .mobile-actions {
@@ -116,51 +116,51 @@
 
   .sign-in-icon {
     display: flex;
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
-    width: 48px; /* Ajusta el tamaño del icono */
-    height: 48px; /* Ajusta el tamaño del icono */
-    color: #ffffff; /* Ajusta el color del icono */
-    font-size: 24px; /* Ajusta el tamaño del icono */
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: #ffffff;
+    font-size: 24px;
     cursor: pointer;
-    margin-right: 10px; /* Añade un margen a la derecha */
+    margin-right: 10px;
   }
 
   .hamburger-menu {
-    display: flex; /* Muestra el menú hamburguesa */
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
-    width: 48px; /* Ajusta el tamaño del icono */
-    height: 48px; /* Ajusta el tamaño del icono */
-    color: #ffffff; /* Ajusta el color del icono */
-    font-size: 48px; /* Ajusta el tamaño del icono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: #ffffff;
+    font-size: 48px;
     cursor: pointer;
   }
 
   .dropdown-menu {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: absolute;
-    top: 80px; /* Ajusta según la altura del header */
-    right: 0; /* Alineado al margen derecho */
-    width: 200px; /* Ancho fijo */
-    background-color: #b0d4d0; /* Color de fondo */
-    z-index: 998; /* Asegura que esté por encima de otros elementos */
-    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+    top: 80px;
+    right: 0;
+    width: 200px;
+    background-color: #b0d4d0;
+    z-index: 998;
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
   }
 
   .dropdown-menu.show {
-    display: block; /* Mostrado cuando tiene la clase show */
+    display: block;
   }
 
   .dropdown-menu a {
     display: block;
     padding: 15px;
     text-align: left;
-    color: #333333; /* Ajusta el color del texto */
-    font-family: 'Roboto', sans-serif; /* Ajusta la fuente */
-    font-weight: 600; /* Ajusta el peso de la fuente */
-    font-size: 14px; /* Ajusta el tamaño de la fuente */
-    line-height: 21px; /* Ajusta la altura de la línea */
+    color: #333333;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
     text-decoration: none;
   }
 
@@ -170,7 +170,7 @@
   }
 
   .logo-image {
-    width: 40px; /* Ajusta el tamaño del logo */
-    height: 40px; /* Ajusta el tamaño del logo */
+    width: 40px;
+    height: 40px;
   }
 }

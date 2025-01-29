@@ -1,16 +1,13 @@
-/* Asegúrate de que todos los elementos tengan un box-sizing adecuado */
 * {
   box-sizing: border-box;
 }
 
-/* Estilos generales para el cuerpo */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
 
-/* Contenedor principal */
 .container {
   width: 100%;
   max-width: 1200px;

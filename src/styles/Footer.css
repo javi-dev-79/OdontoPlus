@@ -1,5 +1,3 @@
-/* Mejoras en Footer.css */
-/* Mantener el footer siempre en la parte inferior */
 html,
 body {
   height: 100%;
@@ -122,7 +120,6 @@ body {
   padding: 2px;
 }
 
-/* Media Queries */
 @media (max-width: 1440px) {
   .footer {
     height: 200px;
@@ -172,7 +169,6 @@ body {
   }
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .footer {
     height: 140px;
@@ -184,12 +180,11 @@ body {
   }
 
   .footer-logo-image {
-    width: 50px; /* Reducido a 50px */
-    height: 50px; /* Reducido a 50px */
+    width: 50px;
+    height: 50px;
   }
 
-  /* Ajustes para FooterContactInfo */
-  .footer-info {
+   .footer-info {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 8px;
@@ -230,8 +225,7 @@ body {
   }
 }
 
-/* Nueva media query para pantallas muy pequeñas */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .footer {
     height: 110px;
   }
@@ -252,7 +246,7 @@ body {
   }
 
   .social-icon {
-    font-size: 20px; /* Ajusta el tamaño según tus necesidades */
+    font-size: 20px;
   }
 
   .social-icons {
@@ -265,7 +259,7 @@ body {
     font-size: 25px;
   }
   .cita-button {
-    font-size: 10px; /* Ajusta el tamaño según tus necesidades */
+    font-size: 10px;
     padding: 8px 12px;
   }
 }
