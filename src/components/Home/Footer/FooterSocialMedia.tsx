@@ -1,20 +1,26 @@
 import React from 'react'
+import {
+  FaInstagramSquare,
+  FaLinkedin,
+  FaFacebook
+} from 'react-icons/fa'
+import { IoLogoYoutube } from 'react-icons/io'
 
 const FooterSocialMedia: React.FC = () => {
   return (
     <div className='footer-social-media'>
       <div className='social-icons'>
         <a href='#' className='social-icon'>
-          <i className='fab fa-instagram'></i>
+          <FaInstagramSquare className='social-media-icon' />
         </a>
         <a href='#' className='social-icon'>
-          <i className='fa-brands fa-square-facebook'></i>
+          <FaFacebook className='social-media-icon-inv' />
         </a>
         <a href='#' className='social-icon'>
-          <i className='fab fa-linkedin'></i>
+          <FaLinkedin className='social-media-icon-inv' />
         </a>
         <a href='#' className='social-icon'>
-          <i className='fab fa-youtube'></i>
+          <IoLogoYoutube className='social-media-icon-inv' />
         </a>
       </div>
       <button className='cita-button'>PIDE TU CITA YA</button>
