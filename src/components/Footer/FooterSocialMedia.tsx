@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   FaInstagramSquare,
   FaLinkedin,
@@ -6,7 +5,7 @@ import {
 } from 'react-icons/fa'
 import { IoLogoYoutube } from 'react-icons/io'
 
-const FooterSocialMedia: React.FC = () => {
+const FooterSocialMedia = () => {
   return (
     <div className='footer-social-media'>
       <div className='social-icons'>

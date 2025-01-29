@@ -1,8 +1,7 @@
-import React from 'react'
-import logo from '../../../assets/images/Logo.webp'
-import '../../../styles/Header.css'
+import logo from '../../assets/images/Logo.webp'
+import '../../styles/Header.css'
 
-const Logo: React.FC = () => {
+const Logo = () => {
   return (
     <div className='logo'>
       <img src={logo} alt='OdontoPlus Logo' className='logo-image' />

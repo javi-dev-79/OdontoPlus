@@ -1,6 +1,4 @@
-import React from 'react'
-
-const FooterNavigationLinks: React.FC = () => {
+const FooterNavigationLinks= () => {
   return (
     <div className='footer-navigation-links'>
       <a href='/servicios' className='footer-link'>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Logo from './Header/Logo'
 import Navigation from './Header/Navigation'
 import UserActions from './Header/UserActions'
-import '../../styles/Header.css'
+import '../styles/Header.css'
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
