@@ -1,5 +1,4 @@
 /* Mejoras en Footer.css */
-
 /* Mantener el footer siempre en la parte inferior */
 html,
 body {
@@ -20,7 +19,7 @@ body {
 .footer {
   background-color: #cccccc;
   color: #333333;
-  min-height: 300px; /* Valor por defecto */
+  height: 200px;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -32,12 +31,13 @@ body {
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: nowrap; /* Asegurar que los elementos se mantengan en línea */
+  flex-wrap: nowrap;
   gap: 20px;
+  height: 100%;
 }
 
 .footer-logo-image {
@@ -82,7 +82,6 @@ body {
   text-decoration: none;
 }
 
-
 .social-icon:hover {
   opacity: 0.8;
 }
@@ -105,56 +104,168 @@ body {
   background-color: #ffffff;
   color: #333333;
   opacity: 0.9;
-    border: solid #004d40 3px;
+  border: solid #004d40 3px;
+}
+
+.social-media-icon {
+  font-size: 40px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  color: #004d40;
+}
+
+.social-media-icon-inv {
+  font-size: 40px;
+  background-color: #004d40;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 2px;
 }
 
 /* Media Queries */
 @media (max-width: 1440px) {
   .footer {
-    min-height: 200px; /* Laptops */
-  }
-}
-
-@media (max-width: 1024px) {
-  .footer {
-    min-height: 180px; /* Tablets y móviles */
-  }
-
-  .footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .social-icons {
-    justify-content: flex-end;
+    height: 200px;
   }
 
   .footer-logo-image {
     width: 90px;
     height: 90px;
   }
+
+  .social-icon {
+    font-size: 40px;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .footer {
-    min-height: 180px; /* Asegurar coherencia con tablets */
+    height: 180px;
   }
 
   .footer-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
-  }
-
-  .social-icons {
-    flex-wrap: wrap;
+    padding: 15px;
     gap: 10px;
-    justify-content: center;
   }
 
   .footer-logo-image {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .social-icon {
+    font-size: 35px;
+  }
+
+  .cita-button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .footer-link {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .footer-info {
+    font-size: 14px;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .footer {
+    height: 140px;
+  }
+
+  .footer-content {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .footer-logo-image {
+    width: 50px; /* Reducido a 50px */
+    height: 50px; /* Reducido a 50px */
+  }
+
+  /* Ajustes para FooterContactInfo */
+  .footer-info {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 8px;
+    line-height: 10px;
+  }
+
+  .footer-navigation-links {
+    line-height: 21px;
+  }
+
+  .footer-link {
+    font-size: 10px;
+    padding: 4px;
+    line-height: 12px;
+  }
+
+  .footer-info {
+    font-size: 10px;
+  }
+
+  .social-icon {
+    font-size: 30px;
+  }
+
+  .social-icons {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .social-media-icon,
+  .social-media-icon-inv {
+    font-size: 30px;
+  }
+
+  .cita-button {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
+
+/* Nueva media query para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  .footer {
+    height: 110px;
+  }
+
+  .footer-navigation-links {
+    line-height: 10px;
+  }
+
+  .footer-link {
+    font-size: 6px;
+    padding: 2px;
+    line-height: 10px;
+  }
+
+  .footer-info {
+    font-size: 6px;
+    line-height: 10px;
+  }
+
+  .social-icon {
+    font-size: 20px; /* Ajusta el tamaño según tus necesidades */
+  }
+
+  .social-icons {
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .social-media-icon,
+  .social-media-icon-inv {
+    font-size: 25px;
+  }
+  .cita-button {
+    font-size: 10px; /* Ajusta el tamaño según tus necesidades */
+    padding: 8px 12px;
   }
 }
