@@ -83,16 +83,15 @@
 
 // export default Carousel
 
-
 import ImageGallery from 'react-image-gallery'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import '../../styles/home.css'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { useState } from 'react'
 
-import Slide1 from '../../assets/images/Slide 1.webp'
-import Slide2 from '../../assets/images/Slide 2.webp'
-import Slide3 from '../../assets/images/Slide 3.webp'
+import Slide1 from '../../assets/images/Slide 1.png'
+import Slide2 from '../../assets/images/Slide 2.png'
+import Slide3 from '../../assets/images/Slide 3.png'
 
 const slidesInfo = [
   {
