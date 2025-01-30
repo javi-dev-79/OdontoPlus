@@ -46,6 +46,10 @@
   text-decoration: underline;
 }
 
+.footer-social-media {
+  text-align: center;
+}
+
 .social-icons {
   display: flex;
   gap: 20px;
@@ -64,14 +68,15 @@
 }
 
 .cita-button {
-  padding: 15px;
+  padding: 20px;
   background-color: #004d40;
   color: #ffffff;
   border: solid #ffffff 3px;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .cita-button:hover {

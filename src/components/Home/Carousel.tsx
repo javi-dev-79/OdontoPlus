@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ImageGallery from 'react-image-gallery'
 import 'react-image-gallery/styles/css/image-gallery.css'
 import '../../styles/home.css'
@@ -74,7 +75,9 @@ const Carousel = () => {
         <p className='carousel-description'>
           {slidesInfo[currentSlide].description}
         </p>
-        <button className='carousel-cta-button'>PIDE CITA</button>
+        <Link to='/contact' className='carousel-cta-button'>
+          PIDE CITA
+        </Link>
 
         {/* Paginadores */}
         <div className='carousel-pagination'>

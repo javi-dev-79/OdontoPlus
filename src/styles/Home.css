@@ -148,6 +148,7 @@
   letter-spacing: 1px;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 1.8rem;
+  text-decoration: none;
 }
 
 .carousel-cta-button:hover {

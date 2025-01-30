@@ -1,15 +1,36 @@
-const FooterNavigationLinks= () => {
+// const FooterNavigationLinks= () => {
+//   return (
+//     <div className='footer-navigation-links'>
+//       <a href='/servicios' className='footer-link'>
+//         SERVICIOS
+//       </a>
+//       <a href='/sobre-nosotros' className='footer-link'>
+//         SOBRE NOSOTROS
+//       </a>
+//       <a href='/contacto' className='footer-link'>
+//         CONTACTO
+//       </a>
+//     </div>
+//   )
+// }
+
+// export default FooterNavigationLinks
+
+
+import { Link } from 'react-router-dom'
+
+const FooterNavigationLinks = () => {
   return (
     <div className='footer-navigation-links'>
-      <a href='/servicios' className='footer-link'>
+      <Link to='/services' className='footer-link'>
         SERVICIOS
-      </a>
-      <a href='/sobre-nosotros' className='footer-link'>
+      </Link>
+      <Link to='/about-us' className='footer-link'>
         SOBRE NOSOTROS
-      </a>
-      <a href='/contacto' className='footer-link'>
+      </Link>
+      <Link to='/contact' className='footer-link'>
         CONTACTO
-      </a>
+      </Link>
     </div>
   )
 }
