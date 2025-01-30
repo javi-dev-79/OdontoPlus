@@ -4,7 +4,11 @@ import '../../styles/Header.css'
 const Logo = () => {
   return (
     <div className='logo'>
-      <img src={logo} alt='OdontoPlus Logo' className='logo-image' />
+      <img
+        src={logo}
+        alt='OdontoPlus Logo - Ir a la página principal'
+        className='logo-image'
+      />
     </div>
   )
 }

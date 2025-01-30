@@ -1,43 +1,9 @@
 import '../../styles/Header.css'
 import { Link } from 'react-router-dom'
 
-// const Navigation = () => {
-//   return (
-//     <nav className='nav-links'>
-//       <ul className='ButtonComponent'>
-//         <li>
-//           <a className='Home' href='#'>
-//             INICIO
-//           </a>
-//         </li>
-//         <li>
-//           <a className='Button' href='#'>
-//             SERVICIOS
-//           </a>
-//         </li>
-//         <li>
-//           <a className='Button' href='#'>
-//             SOBRE NOSOTROS
-//           </a>
-//         </li>
-//         <li>
-//           <a className='Button' href='#'>
-//             CONTACTO
-//           </a>
-//         </li>
-//         <li>
-//           <a className='Button' href='#'>
-//             CITAS EN LÍNEA
-//           </a>
-//         </li>
-//       </ul>
-//     </nav>
-//   )
-// }
-
 const Navigation = () => {
   return (
-    <nav className='nav-links'>
+    <nav className='nav-links' role='navigation' aria-label='Menú principal'>
       <ul className='ButtonComponent'>
         <li>
           <Link className='Home' to='/'>
@@ -45,22 +11,38 @@ const Navigation = () => {
           </Link>
         </li>
         <li>
-          <Link className='Button' to='/services'>
+          <Link
+            className='Button'
+            to='/services'
+            aria-label='Ir a la página de inicio'
+          >
             SERVICIOS
           </Link>
         </li>
         <li>
-          <Link className='Button' to='/about-us'>
+          <Link
+            className='Button'
+            to='/about-us'
+            aria-label='Ir a la página de sobre nosotros'
+          >
             SOBRE NOSOTROS
           </Link>
         </li>
         <li>
-          <Link className='Button' to='/contact'>
+          <Link
+            className='Button'
+            to='/contact'
+            aria-label='Ir a la página de contacto'
+          >
             CONTACTO
           </Link>
         </li>
         <li>
-          <Link className='Button' to='/online-dating'>
+          <Link
+            className='Button'
+            to='/online-dating'
+            aria-label='Ir a la página de citas en línea'
+          >
             CITAS EN LÍNEA
           </Link>
         </li>

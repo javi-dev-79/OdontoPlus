@@ -6,7 +6,7 @@ const Newsletter = () => {
   return (
     <div className='newsletter-container'>
       <div className='newsletter-image'>
-        <img src={image} alt='Newsletter' />
+        <img src={image} alt='Imagen de la newsletter' />
       </div>
       <div className='newsletter-content'>
         <NewsContent />

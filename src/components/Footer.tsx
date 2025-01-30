@@ -5,7 +5,7 @@ import '../styles/Footer.css'
 
 const Footer = () => {
   return (
-    <footer className='footer'>
+    <footer className='footer' aria-label='Pie de página'>
       <div className='footer-content'>
         <FooterContactInfo />
         <FooterNavigationLinks />

@@ -56,7 +56,11 @@ const NewsContent = () => {
         Únete a nuestra comunidad y recibe información exclusiva sobre
         tratamientos, consejos de salud bucal y promociones especiales.
       </p>
-      <form onSubmit={handleSubscribe} className='subscribe-form'>
+      <form
+        onSubmit={handleSubscribe}
+        className='subscribe-form'
+        aria-label='Formulario de suscripción a la newsletter'
+      >
         <div className='input-wrapper'>
           <label htmlFor='email'>
             <span className='visually-hidden'>Email</span>
@@ -69,7 +73,9 @@ const NewsContent = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder='Ingresa aquí tu email'
             required
+            aria-describedby='email-error'
           />
+          <span id='email-error' className='error-message'></span>
         </div>
         <button type='submit'>SUBSCRÍBETE</button>
       </form>

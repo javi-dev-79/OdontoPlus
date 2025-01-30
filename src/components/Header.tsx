@@ -21,14 +21,18 @@ const Header: React.FC = () => {
           <UserActions />
         </div>
         <div className='mobile-actions'>
-          <div className='sign-in-icon'>
+          <div className='sign-in-icon' aria-label='Iniciar sesión'>
             <i className='fas fa-sign-in-alt'></i>
           </div>
-          <div className='hamburger-menu' onClick={toggleMenu}>
+          <div
+            className='hamburger-menu'
+            onClick={toggleMenu}
+            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+          >
             {isOpen ? (
-              <i className='far fa-rectangle-xmark'></i>
+              <i className='far fa-rectangle-xmark' aria-hidden='true'></i>
             ) : (
-              <span>☰</span>
+              <span aria-hidden='true'>☰</span>
             )}
           </div>
         </div>

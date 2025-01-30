@@ -64,7 +64,13 @@ const VideoSection = () => {
         <source src={video} type='video/mp4' />
         Tu navegador no soporta el elemento de video.
       </video>
-      <button onClick={toggleTranscript} className='transcript-toggle-button'>
+      <button
+        onClick={toggleTranscript}
+        className='transcript-toggle-button'
+        aria-label={
+          showTranscript ? 'Ocultar Transcripción' : 'Mostrar Transcripción'
+        }
+      >
         {showTranscript ? 'Ocultar Transcripción' : 'Mostrar Transcripción'}
       </button>
       {showTranscript && (

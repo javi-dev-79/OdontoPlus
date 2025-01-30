@@ -12,32 +12,41 @@ import Slide3 from '../../assets/images/Slide 3.webp'
 const slidesInfo = [
   {
     image: Slide1,
-    title: 'IMPLANTOLOGÍA',
-    description: 'Tus implantes y dientes fijos en 24 horas'
+    title: 'ESTÉTICA DENTAL',
+    description: 'Hacemos realidad la sonrisa de tus sueños',
+    alt: 'Imagen de estética dental'
   },
   {
     image: Slide2,
     title: 'PERIODONCIA',
-    description: 'Recupera la salud de tus encías'
+    description: 'Recupera la salud de tus encías',
+    alt: 'Imagen de muela con tratamiento de periodoncia'
   },
   {
     image: Slide3,
-    title: 'ESTÉTICA DENTAL',
-    description: 'Hacemos realidad la sonrisa de tus sueños'
+    title: 'IMPLANTOLOGÍA',
+    description: 'Tus implantes y dientes fijos en 24 horas',
+    alt: 'Imagen de instrumental para implantes dentales'
   }
 ]
 
 const images = slidesInfo.map((slide) => ({
   original: slide.image,
-  thumbnail: slide.image
+  thumbnail: slide.image,
+  alt: slide.alt
 }))
 
 const renderLeftNav = (
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
   disabled: boolean
 ) => (
-  <button className='custom-left-nav' onClick={onClick} disabled={disabled}>
-    <FaChevronLeft />
+  <button
+    className='custom-left-nav'
+    onClick={onClick}
+    disabled={disabled}
+    aria-label='Anterior'
+  >
+    <FaChevronLeft aria-hidden='true' />
   </button>
 )
 
@@ -45,8 +54,13 @@ const renderRightNav = (
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
   disabled: boolean
 ) => (
-  <button className='custom-right-nav' onClick={onClick} disabled={disabled}>
-    <FaChevronRight />
+  <button
+    className='custom-right-nav'
+    onClick={onClick}
+    disabled={disabled}
+    aria-label='Siguiente'
+  >
+    <FaChevronRight aria-hidden='true' />
   </button>
 )
 
@@ -69,6 +83,7 @@ const Carousel = () => {
         renderLeftNav={renderLeftNav}
         renderRightNav={renderRightNav}
         onSlide={handleSlideChange} // Manejar el cambio de slide
+        aria-label='Carrusel de imágenes'
       />
       <div className='carousel-content'>
         <h1 className='carousel-title'>{slidesInfo[currentSlide].title}</h1>
@@ -85,6 +100,7 @@ const Carousel = () => {
             <div
               key={index}
               className={`carousel-pagination-dot ${index === currentSlide ? 'active' : ''}`}
+              aria-label={`Slide ${index + 1} de ${slidesInfo.length}`}
             />
           ))}
         </div>
