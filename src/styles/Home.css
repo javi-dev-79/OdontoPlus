@@ -291,6 +291,24 @@
   margin: 0;
 }
 
+.input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.email-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+  /* Asegura que el icono no interfiera con el input */
+  z-index: 1;
+}
+
 .subscribe-form {
   display: flex;
   gap: 10px;
@@ -298,8 +316,9 @@
 }
 
 .subscribe-form input {
-  flex: 1;
-  padding: 8px 10px;
+  width: 100%;
+  padding: 8px 10px 8px 35px;
+  /* Ajustado el padding izquierdo */
   border: 1px solid #ccc;
   border-radius: 8px;
 }
@@ -322,6 +341,17 @@
   background-color: #FFFFFF;
   color: #333333;
   border: 2px solid #004D40;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /* Desktop & Laptop */
@@ -476,10 +506,19 @@
     width: 200px;
   }
 
+  .email-icon {
+    width: 14px;
+    height: 14px;
+    left: 8px;
+  }
+
   .subscribe-form input {
-    padding: 0 0 0 8px;
+    padding: 0 0 0 24px;
+    font-size: 10px;
+    line-height: 22px;
     border: 1px solid #ccc;
     width: 150px;
+    height: 2rem;
     border-radius: 8px;
   }
 
@@ -611,7 +650,7 @@
   }
 
   .subscribe-form input {
-    padding: 0 0 0 8px;
+    padding: 0 0 0 26px;
     border: 1px solid #ccc;
     width: 110px;
     height: 30px;
