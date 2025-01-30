@@ -179,6 +179,10 @@
   .navbar {
     height: 70px;
   }
+
+  .dropdown-menu {
+    top: 70px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -194,11 +198,19 @@
   .hamburger-menu {
     font-size: 30px;
   }
+
+  .dropdown-menu {
+    top: 60px;
+  }
 }
 
 @media (max-width: 360px) {
   .navbar {
     height: 50px;
+  }
+
+  .dropdown-menu {
+    top: 50px;
   }
 }
 
