@@ -34,7 +34,7 @@
   opacity: 0.6;
 }
 
-.custom-left-nav,
+/* .custom-left-nav,
 .custom-right-nav {
   position: absolute;
   top: 50%;
@@ -45,21 +45,91 @@
   border: none;
   color: #004d40;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 100px 30px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .custom-left-nav {
-  left: 10px;
+  left: 0;
 }
 
 .custom-right-nav {
-  right: 10px;
+  right: 0;
 }
 
-.custom-left-nav:hover,
+.custom-left-nav:hover {
+  color: #cccccc;
+  background: radial-gradient(circle at left,
+      #05eed7 0%,
+      rgba(5, 238, 215, 0.6) 30%,
+      rgba(255, 255, 255, 0) 60%);
+}
+
 .custom-right-nav:hover {
   color: #cccccc;
+  background: radial-gradient(circle at right,
+      #05eed7 0%,
+      rgba(5, 238, 215, 0.6) 30%,
+      rgba(255, 255, 255, 0) 60%);
+} */
+
+.custom-left-nav,
+.custom-right-nav {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 5%;
+  z-index: 10;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: #969393;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.custom-left-nav {
+  left: 0;
+}
+
+.custom-right-nav {
+  right: 0;
+}
+
+.custom-left-nav:hover {
+  color: #004d40;
+  background: radial-gradient(ellipse at left,
+      #05eed7 0%,
+      rgba(5, 238, 215, 0.6) 10%,
+      rgba(255, 255, 255, 0) 50%);
+}
+
+.custom-right-nav:hover {
+  color: #004d40;
+  background: radial-gradient(ellipse at right,
+      #05eed7 0%,
+      rgba(5, 238, 215, 0.6) 10%,
+      rgba(255, 255, 255, 0) 50%);
+}
+
+.custom-left-nav,
+.custom-right-nav {
+  display: inline-flex;
+  /* Permite centrar el icono verticalmente */
+  align-items: center;
+  /* Centra verticalmente el contenido */
+}
+
+/* .custom-left-nav:hover,
+.custom-right-nav:hover {
+  color: #cccccc;
+  background: linear-gradient(to right, #05eed7 0%, rgba(255, 255, 255, 0) 100%);
+} */
 
 .carousel-cta-button {
   align-self: center;
@@ -128,7 +198,6 @@
   border-radius: 50%;
   background-color: #CCCCCC;
   transition: background-color 0.3s ease;
-
 }
 
 .carousel-pagination-dot.active {
@@ -142,7 +211,7 @@
     height: 12px;
   }
 
-  .carousel-container{
+  .carousel-container {
     height: 280px;
   }
 
@@ -154,7 +223,6 @@
   }
 }
 
-
 /* Tablet & Mobile */
 @media (max-width: 1024px) {
   .carousel-container {
@@ -165,19 +233,26 @@
   .carousel-cta-button {
     padding: 10px 20px;
     font-size: 14px;
-    border-width: 3px;
-    line-height: 25px;
-
+    border-width: 2px;
+    line-height: 20px;
     /* TODO: QUITAR BACKGROUND */
     background-color: yellow;
   }
 
   .carousel-title {
-    font-size: 2.2rem;
+    font-size: 1.5rem;
   }
 
   .carousel-description {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .carousel-pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #CCCCCC;
+    transition: background-color 0.3s ease;
   }
 }
 
