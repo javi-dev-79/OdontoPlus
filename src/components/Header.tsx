@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Logo from './Header/Logo'
 import Navigation from './Header/Navigation'
 import UserActions from './Header/UserActions'
@@ -32,11 +33,11 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div className={`dropdown-menu ${isOpen ? 'show' : ''}`}>
-          <a href='#'>Inicio</a>
-          <a href='#'>Servicios</a>
-          <a href='#'>Sobre Nosotros</a>
-          <a href='#'>Contacto</a>
-          <a href='#'>Citas en Línea</a>
+          <Link to='/'>Inicio</Link>
+          <Link to='/services'>Servicios</Link>
+          <Link to='/about-us'>Sobre Nosotros</Link>
+          <Link to='/contact'>Contacto</Link>
+          <Link to='/online-dating'>Citas en Línea</Link>
         </div>
       </div>
     </header>

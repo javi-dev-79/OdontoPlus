@@ -7,11 +7,10 @@
 
 .carousel-container {
   position: fixed;
-  /* Fija en la parte superior */
   top: 100px;
   left: 0;
   width: 100%;
-  height: 400px;
+  height: 350px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -28,16 +27,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.6;
+}
+
+.image-gallery-slide img {
+  opacity: 0.6;
 }
 
 .custom-left-nav,
 .custom-right-nav {
   position: absolute;
-  /* Posiciona las flechas dentro del carousel-container */
   top: 50%;
-  /* Centrado vertical dentro del contenedor */
   transform: translateY(-50%);
-  /* Ajuste para centrar perfectamente */
   z-index: 10;
   font-size: 20px;
   background: none;
@@ -60,47 +61,228 @@
   color: #cccccc;
 }
 
-/* Desktop */
-@media (min-width: 1440px) {
+.carousel-cta-button {
+  align-self: center;
+  z-index: 20;
+  background-color: #004d40;
+  color: #CCCCCC;
+  border: 2px solid #CCCCCC;
+  border-radius: 25px;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 21px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 1.8rem;
+}
+
+.carousel-cta-button:hover {
+  background-color: #FFFFFF;
+  color: #333333;
+  border-color: #004d40;
+}
+
+.carousel-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  text-align: center;
+  color: rgb(250, 253, 251);
+  width: 80%;
+  /* max-width: 800px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.carousel-title {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  color: #333333;
+}
+
+.carousel-description {
+  font-size: 1.2rem;
+  margin-bottom: 1.3rem;
+  color: #333333;
+  font-weight: 550;
+}
+
+.carousel-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.carousel-pagination-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #CCCCCC;
+  transition: background-color 0.3s ease;
+
+}
+
+.carousel-pagination-dot.active {
+  background-color: #004d40;
+}
+
+/* Desktop & Laptop */
+@media (max-width: 1440px) {
+  .carousel-pagination-dot {
+    width: 12px;
+    height: 12px;
+  }
 
   .carousel-container,
   .carousel-container img {
-    min-height: 400px;
-    /* Ajuste para desktop */
+    height: 280px;
+  }
+
+  .carousel-cta-button {
+    padding: 12px 25px;
+    font-size: 16px;
+    /* TODO: QUITAR BACKGROUND */
+    background-color: red;
   }
 }
 
-/* Laptop */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .carousel-container {
-    height: 250px;
-    /* Ajuste proporcional para laptop */
-  }
-}
 
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .carousel-container {
-    height: 200px;
-    top: 80px;
-    /* Ajuste proporcional para laptop */
-  }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
+/* Tablet & Mobile */
+@media (max-width: 1024px) {
   .carousel-container {
     height: 180px;
     top: 80px;
-    /* Ajuste proporcional para laptop */
+  }
+
+  .carousel-cta-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-width: 3px;
+    line-height: 25px;
+
+    /* TODO: QUITAR BACKGROUND */
+    background-color: yellow;
+  }
+
+  .carousel-title {
+    font-size: 2.2rem;
+  }
+
+  .carousel-description {
+    font-size: 1.1rem;
   }
 }
 
-/* Pantallas pequeñas menores de 480px */
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 180px;
+    top: 80px;
+  }
+
+  .carousel-cta-button {
+    line-height: 20px;
+    /* TODO: QUITAR BACKGROUND */
+    background-color: blue;
+  }
+
+  .carousel-title {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .carousel-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-pagination {
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel-pagination-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
 @media (max-width: 480px) {
   .carousel-container {
     height: 140px;
-    top: 80px;
-    /* Ajuste proporcional para laptop */
+    margin-top: 130px;
+  }
+
+  .carousel-cta-button {
+    padding: 6px 12px;
+    font-size: 10px;
+    line-height: 16px;
+    border-width: 1.5px;
+    margin-bottom: 0.8rem;
+    /* TODO: QUITAR BACKGROUND */
+    background-color: orange;
+  }
+
+  .carousel-title {
+    font-size: 1rem;
+  }
+
+  .carousel-description {
+    font-size: 0.7rem;
+  }
+
+  .carousel-content {
+    width: 90%;
+  }
+
+  .carousel-pagination {
+    margin-bottom: 0.8rem;
+  }
+
+  .custom-left-nav,
+  .custom-right-nav {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-cta-button {
+    padding: 4px 12px;
+    font-size: 8px;
+    line-height: 14px;
+    border-width: 1.5px;
+    margin-bottom: 0.6rem;
+    /* TODO: QUITAR BACKGROUND */
+    background-color: lightcoral;
+  }
+
+  .carousel-title {
+    font-size: 0.6rem;
+  }
+
+  .carousel-description {
+    font-size: 0.5rem;
+  }
+
+  .carousel-container {
+    height: 100px;
+    top: -50px;
+  }
+
+  .carousel-pagination {
+    margin-bottom: 1.2rem;
+  }
+
+  .carousel-pagination-dot {
+    width: 8px;
+    height: 8px;
   }
 }
