@@ -1,0 +1,188 @@
+.services-text-content {
+    padding-top: 4rem;
+}
+
+/* Estilo para el contenedor de los textos */
+.services-text-content h1,
+.services-text-content h2,
+.services-text-content p {
+    text-align: center;
+    /* Centrar los textos horizontalmente */
+}
+
+/* Estilo para el h1 */
+.services-text-contentn h1 {
+    font-family: 'Playfair Display', serif;
+    /* Fuente Playfair Display */
+    font-weight: bold;
+    /* Estilo bold */
+    font-size: 60px;
+    /* Tamaño de fuente 60px */
+    line-height: 72px;
+    /* Line height 72px */
+    color: #333333;
+    /* Color #333333 */
+    margin-bottom: 20px;
+    /* Espaciado inferior */
+}
+
+/* Estilo para el h2 */
+.services-text-content h2 {
+    font-family: 'Inter', sans-serif;
+    /* Fuente Inter */
+    font-weight: 600;
+    /* SemiBold */
+    font-size: 42px;
+    /* Tamaño de fuente 42px */
+    line-height: 55px;
+    /* Line height 55px */
+    color: #004D40;
+    /* Color #004D40 */
+    margin-bottom: 20px;
+    /* Espaciado inferior */
+}
+
+/* Estilo para el párrafo */
+.services-text-content p {
+    font-family: 'Inter', sans-serif;
+    /* Fuente Inter */
+    font-weight: normal;
+    /* Regular */
+    font-size: 16px;
+    /* Tamaño de fuente 16px */
+    line-height: 22px;
+    /* Line height 22px */
+    color: #000000;
+    /* Color negro */
+    margin-bottom: 40px;
+    /* Espaciado inferior */
+    max-width: 800px;
+    /* Ancho máximo para no estirarlo demasiado */
+    margin-left: auto;
+    /* Centrado horizontalmente */
+    margin-right: auto;
+    /* Centrado horizontalmente */
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 3rem;
+    padding: 1rem 3rem 9rem 3rem;
+    justify-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-card {
+    width: 350px;
+    height: 420px;
+    padding: 10px;
+    background-color: #4C5C5A;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    background-color: #CCCCCC;
+    color: #333333;
+}
+
+.service-card:hover .service-card-title,
+.service-card:hover .service-card-description {
+    color: #333333;
+}
+
+.service-card-image {
+    width: 330px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    margin-top: 0;
+    flex-shrink: 0;
+}
+
+.service-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 10px 15px;
+    justify-content: space-between;
+}
+
+.service-card-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 10px 0;
+}
+
+.service-card-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    display: flex;
+    /* Usa Flexbox */
+    align-items: center;
+    /* Centra el contenido verticalmente */
+    justify-content: center;
+    /* Centra el contenido horizontalmente (si es necesario) */
+    overflow: hidden;
+    height: 66px;
+    /* Mantiene la altura de la caja */
+    max-height: 66px;
+    /* Limita la altura máxima */
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+}
+
+.service-card-button {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    background-color: #FFFFFF;
+    color: #333333;
+    text-align: center;
+    line-height: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 3px solid #004D40;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 auto;
+}
+
+.service-card-button:hover {
+    background-color: #00796B;
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}

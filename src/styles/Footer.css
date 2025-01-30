@@ -1,28 +1,8 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.container {
-  flex: 1;
-}
-
 .footer {
   background-color: #cccccc;
   color: #333333;
   height: 200px;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin-top: auto;
 }
 
@@ -33,7 +13,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: nowrap;
   gap: 20px;
   height: 100%;
 }
@@ -67,6 +46,10 @@ body {
   text-decoration: underline;
 }
 
+.footer-social-media {
+  text-align: center;
+}
+
 .social-icons {
   display: flex;
   gap: 20px;
@@ -85,17 +68,15 @@ body {
 }
 
 .cita-button {
-  padding: 10px 20px;
+  padding: 20px;
   background-color: #004d40;
   color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 15px;
   border: solid #ffffff 3px;
-  border-radius: 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .cita-button:hover {
@@ -118,6 +99,17 @@ body {
   border-radius: 5px;
   color: #ffffff;
   padding: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 @media (max-width: 1440px) {
@@ -184,7 +176,7 @@ body {
     height: 50px;
   }
 
-   .footer-info {
+  .footer-info {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 8px;
@@ -258,6 +250,7 @@ body {
   .social-media-icon-inv {
     font-size: 25px;
   }
+
   .cita-button {
     font-size: 10px;
     padding: 8px 12px;

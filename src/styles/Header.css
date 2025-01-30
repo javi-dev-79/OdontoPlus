@@ -1,7 +1,7 @@
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 
 .navbar {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -85,8 +85,8 @@
   .mobile-actions {
     display: none;
   }
-  
-  .dropdown-menu, 
+
+  .dropdown-menu,
   .dropdown-menu.show {
     display: none !important;
   }
@@ -172,5 +172,44 @@
   .logo-image {
     width: 40px;
     height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+  }
+
+  .dropdown-menu {
+    top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 60px;
+  }
+
+  .logo-image {
+    width: 35px;
+    height: 35px;
+  }
+
+  .hamburger-menu {
+    font-size: 30px;
+  }
+
+  .dropdown-menu {
+    top: 60px;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar {
+    height: 50px;
+  }
+
+  .dropdown-menu {
+    top: 50px;
   }
 }

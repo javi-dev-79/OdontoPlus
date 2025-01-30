@@ -1,13 +1,17 @@
+import Carousel from '../components/Home/Carousel'
+import Newsletter from '../components/Home/Newsletter'
+import VideoSection from '../components/Home/VideoSection'
 import '../styles/Home.css'
-import Header from '../components/Home/Header'
-import Footer from '../components/Home/Footer'
 
 const Home = () => {
   return (
-    <div className='home'>
-      <Header />
-      <Footer />
-    </div>
+    <main>
+      <div className='full-width-section'>
+        <Carousel />
+        <VideoSection />
+        <Newsletter />
+      </div>
+    </main>
   )
 }
 

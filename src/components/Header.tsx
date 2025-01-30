@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Logo from './Header/Logo'
 import Navigation from './Header/Navigation'
 import UserActions from './Header/UserActions'
-import '../../styles/Header.css'
+import '../styles/Header.css'
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,23 +21,27 @@ const Header: React.FC = () => {
           <UserActions />
         </div>
         <div className='mobile-actions'>
-          <div className='sign-in-icon'>
+          <div className='sign-in-icon' aria-label='Iniciar sesión'>
             <i className='fas fa-sign-in-alt'></i>
           </div>
-          <div className='hamburger-menu' onClick={toggleMenu}>
+          <div
+            className='hamburger-menu'
+            onClick={toggleMenu}
+            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+          >
             {isOpen ? (
-              <i className='far fa-rectangle-xmark'></i>
+              <i className='far fa-rectangle-xmark' aria-hidden='true'></i>
             ) : (
-              <span>☰</span>
+              <span aria-hidden='true'>☰</span>
             )}
           </div>
         </div>
         <div className={`dropdown-menu ${isOpen ? 'show' : ''}`}>
-          <a href='#'>Inicio</a>
-          <a href='#'>Servicios</a>
-          <a href='#'>Sobre Nosotros</a>
-          <a href='#'>Contacto</a>
-          <a href='#'>Citas en Línea</a>
+          <Link to='/'>Inicio</Link>
+          <Link to='/services'>Servicios</Link>
+          <Link to='/about-us'>Sobre Nosotros</Link>
+          <Link to='/contact'>Contacto</Link>
+          <Link to='/online-dating'>Citas en Línea</Link>
         </div>
       </div>
     </header>
