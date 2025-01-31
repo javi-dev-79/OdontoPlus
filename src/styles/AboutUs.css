@@ -1,0 +1,186 @@
+/* Estilos generales */
+.about-us-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+/* Título */
+.about-us-title {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Descripción */
+.about-us-description {
+    background-color: #e0e9e7;
+    border: 2px solid #004D40;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #333333;
+    text-align: justify;
+}
+
+/* Contenedor de imágenes */
+.about-us-images {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: nowrap;
+    padding-top: 3rem;
+}
+
+/* Estilos para las imágenes */
+.about-us-image {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección del equipo médico */
+.about-us-team {
+    padding: 20px;
+}
+
+.about-us-team h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.about-us-team p {
+    background-color: #e0e9e7;
+    border: 2px solid #004D40;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 1.3rem;
+    color: #333333;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Sección de instalaciones */
+.about-us-facilities {
+    padding: 20px;
+    border-radius: 10px;
+    padding-bottom: 5rem;
+}
+
+.about-us-facilities h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.about-us-facilities p {
+    background-color: #e0e9e7;
+    border: 2px solid #004D40;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 1.3rem;
+    color: #333333;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+@media (max-width: 1440px) {
+    .about-us-container {
+        max-width: 1000px;
+        padding-top: 3rem;
+    }
+
+    .about-us-images {
+        padding-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-us-facilities {
+        padding-bottom: 3rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .about-us-container {
+        padding-top: 2rem;
+        max-width: 700px;
+    }
+
+    .about-us-images {
+        padding-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-us-facilities {
+        padding-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-container {
+        padding-top: 1rem;
+        max-width: 350px;
+    }
+
+    /* Título */
+    .about-us-title {
+        font-size: 1.5rem;
+    }
+
+    /* Descripción */
+    .about-us-description {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+    }
+
+    /* Contenedor de imágenes */
+    .about-us-images {
+        margin-bottom: 1rem;
+        padding-top: 2rem;
+    }
+
+    /* Estilos para las imágenes */
+    .about-us-image {
+        width: 250px;
+        height: auto;
+    }
+
+    .about-us-team h2 {
+        font-size: 1rem;
+    }
+
+    .about-us-team p {
+        width: 100%;
+        padding: 20px;
+        font-size: 0.8rem;
+        color: #333333;
+        line-height: 1.3rem;
+    }
+
+    /* Sección de instalaciones */
+    .about-us-facilities {
+        padding-bottom: 2rem;
+    }
+
+    .about-us-facilities h2 {
+        font-size: 1rem;
+        color: #2c3e50;
+        margin-bottom: 15px;
+    }
+
+    .about-us-facilities p {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+    }
+}

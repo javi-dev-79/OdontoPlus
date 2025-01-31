@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from './Header/Logo'
 import Navigation from './Header/Navigation'
@@ -7,10 +7,31 @@ import '../styles/Header.css'
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null) // Referencia al menú desplegable
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
+
+  // Cerrar el menú al hacer clic fuera de él
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false) // Cierra el menú si el clic fue fuera
+      }
+    }
+
+    // Agrega el listener al montar el componente
+    document.addEventListener('mousedown', handleClickOutside)
+
+    // Limpia el listener al desmontar el componente
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <header className='navbar'>
@@ -36,12 +57,25 @@ const Header: React.FC = () => {
             )}
           </div>
         </div>
-        <div className={`dropdown-menu ${isOpen ? 'show' : ''}`}>
-          <Link to='/'>Inicio</Link>
-          <Link to='/services'>Servicios</Link>
-          <Link to='/about-us'>Sobre Nosotros</Link>
-          <Link to='/contact'>Contacto</Link>
-          <Link to='/online-dating'>Citas en Línea</Link>
+        <div
+          className={`dropdown-menu ${isOpen ? 'show' : ''}`}
+          ref={dropdownRef} // Asigna la referencia al menú desplegable
+        >
+          <Link to='/' onClick={toggleMenu}>
+            Inicio
+          </Link>
+          <Link to='/services' onClick={toggleMenu}>
+            Servicios
+          </Link>
+          <Link to='/about-us' onClick={toggleMenu}>
+            Sobre Nosotros
+          </Link>
+          <Link to='/contact' onClick={toggleMenu}>
+            Contacto
+          </Link>
+          <Link to='/online-dating' onClick={toggleMenu}>
+            Citas en Línea
+          </Link>
         </div>
       </div>
     </header>
