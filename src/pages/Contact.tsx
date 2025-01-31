@@ -1,5 +1,17 @@
+import ContactForm from '../components/Contact/ContactForm'
+import ContactHead from '../components/Contact/ContactHead'
+import ContactInfo from '../components/Contact/ContactInfo'
+
 const Contact = () => {
-  return <h1>Contact Us</h1>
+  return (
+    <main>
+      <div className='full-width-section'>
+        <ContactHead />
+        <ContactForm />
+        <ContactInfo />
+      </div>
+    </main>
+  )
 }
 
 export default Contact
