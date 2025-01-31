@@ -190,3 +190,17 @@
     color: #333333;
     border: 3px solid #004D40;
 }
+
+/* Estilo para el placeholder general */
+input::placeholder,
+textarea::placeholder {
+    color: #999;
+    /* Color por defecto */
+}
+
+/* Estilo para los placeholders con errores */
+input.error::placeholder,
+textarea.error::placeholder {
+    color: red;
+    /* Color rojo para mensajes de error */
+}
