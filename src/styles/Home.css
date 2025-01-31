@@ -382,6 +382,14 @@
   text-align: justify;
 }
 
+.input-wrapper input.input-error {
+  color: red;
+}
+
+.input-wrapper input.input-error::placeholder {
+  color: red;
+}
+
 /* Desktop & Laptop */
 @media (max-width: 1440px) {
   .carousel-pagination-dot {
