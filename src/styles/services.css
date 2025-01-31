@@ -6,62 +6,40 @@
 .services-text-content h1,
 .services-text-content h2,
 .services-text-content p {
-    text-align: center;
-    /* Centrar los textos horizontalmente */
+    text-align: center
 }
 
 /* Estilo para el h1 */
-.services-text-contentn h1 {
+.services-text-content h1 {
     font-family: 'Playfair Display', serif;
-    /* Fuente Playfair Display */
-    font-weight: bold;
-    /* Estilo bold */
-    font-size: 60px;
-    /* Tamaño de fuente 60px */
-    line-height: 72px;
-    /* Line height 72px */
+    font-size: 30px;
+    line-height: 32px;
     color: #333333;
-    /* Color #333333 */
-    margin-bottom: 20px;
-    /* Espaciado inferior */
+    margin: 20px;
 }
 
 /* Estilo para el h2 */
 .services-text-content h2 {
     font-family: 'Inter', sans-serif;
-    /* Fuente Inter */
+    font-size: 32px;
     font-weight: 600;
-    /* SemiBold */
-    font-size: 42px;
-    /* Tamaño de fuente 42px */
     line-height: 55px;
-    /* Line height 55px */
     color: #004D40;
-    /* Color #004D40 */
     margin-bottom: 20px;
-    /* Espaciado inferior */
 }
+
 
 /* Estilo para el párrafo */
 .services-text-content p {
     font-family: 'Inter', sans-serif;
-    /* Fuente Inter */
-    font-weight: normal;
-    /* Regular */
-    font-size: 16px;
-    /* Tamaño de fuente 16px */
+    font-weight: 400;
+    font-size: 20px;
     line-height: 22px;
-    /* Line height 22px */
     color: #000000;
-    /* Color negro */
     margin-bottom: 40px;
-    /* Espaciado inferior */
-    max-width: 1090px;
-    /* Ancho máximo para no estirarlo demasiado */
+    max-width: 1095px;
     margin-left: auto;
-    /* Centrado horizontalmente */
     margin-right: auto;
-    /* Centrado horizontalmente */
     text-align: justify;
 }
 
@@ -137,16 +115,11 @@
     color: #FFFFFF;
     margin-bottom: 15px;
     display: flex;
-    /* Usa Flexbox */
     align-items: center;
-    /* Centra el contenido verticalmente */
     justify-content: center;
-    /* Centra el contenido horizontalmente (si es necesario) */
     overflow: hidden;
     height: 66px;
-    /* Mantiene la altura de la caja */
     max-height: 66px;
-    /* Limita la altura máxima */
     line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -155,11 +128,8 @@
 
 .service-card-button {
     display: flex;
-    /* Cambia a flexbox para controlar el alineamiento */
     justify-content: center;
-    /* Centra el contenido horizontalmente */
     align-items: center;
-    /* Centra el contenido verticalmente */
     width: 150px;
     height: 50px;
     background-color: #FFFFFF;
@@ -179,21 +149,6 @@
     color: #FFFFFF;
 }
 
-/* Tablet & Mobile */
-/* @media (max-width: 1024px) {}
-
-@media (max-width: 768px) {
-    .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .service-grid {
-        grid-template-columns: 1fr;
-    }
-} */
-
 /* Tablet y pantallas más pequeñas (1024px) */
 @media (max-width: 1440px) {
     .services-text-content {
@@ -208,76 +163,55 @@
 
     .services-text-content h1 {
         font-size: 30px;
-        /* Reduce el tamaño del h1 */
         line-height: 40px;
-        /* Ajusta el line-height */
         margin-bottom: 15px;
-        /* Reduce el margen inferior */
     }
 
     .services-text-content h2 {
         font-size: 20px;
-        /* Reduce el tamaño del h2 */
         line-height: 28px;
-        /* Ajusta el line-height */
         margin-bottom: 15px;
-        /* Reduce el margen inferior */
     }
 
     .services-text-content p {
         font-size: 14px;
-        /* Reduce el tamaño de la fuente del párrafo */
         line-height: 20px;
-        /* Ajusta el line-height */
         max-width: 670px;
-        /* Ajusta el máximo de ancho */
     }
 
     .service-grid {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 columnas */
         grid-template-rows: repeat(2, 1fr);
-        /* Ajusta la cantidad de filas si es necesario */
         padding: 0 2rem 5rem 2rem;
-        /* Ajusta el padding */
     }
 
     .service-card {
         width: 90%;
-        /* Ajusta el ancho de las tarjetas */
         height: auto;
-        /* Ajusta la altura de las tarjetas según el contenido */
     }
 
-    /* Ajustar tamaños de imágenes y contenedor */
     .service-card-image,
     .service-card-image-container {
         width: 100%;
         height: 180px;
-        /* Se mantiene una proporción uniforme */
         object-fit: cover;
     }
 
 
     .service-card-title {
         font-size: 14px;
-        /* Reduce el tamaño de la fuente */
     }
 
     .service-card-description {
         font-size: 12px;
-        /* Reduce el tamaño de la fuente */
         height: 40px;
-        /* Limita la altura */
         line-height: 14px;
 
     }
 
     .service-card-button {
         width: 140px;
-        /* Ajusta el ancho del botón */
         height: 45px;
-        /* Ajusta la altura del botón */
         font-size: 14px;
     }
 }
@@ -286,57 +220,40 @@
 @media (max-width: 768px) {
     .services-text-content {
         padding-top: 1rem;
-        /* Ajusta el espacio superior */
     }
 
     .services-text-content h1 {
         font-size: 14px;
-        /* Reduce el tamaño del h1 */
         line-height: 20px;
-        /* Ajusta el line-height */
         margin-bottom: 10px;
-        /* Reduce el margen inferior */
     }
 
     .services-text-content h2 {
         font-size: 12px;
-        /* Reduce el tamaño del h2 */
         line-height: 18px;
-        /* Ajusta el line-height */
         margin-bottom: 10px;
-        /* Reduce el margen inferior */
     }
 
     .services-text-content p {
         font-size: 10px;
-        /* Reduce el tamaño de la fuente del párrafo */
         line-height: 16px;
-        /* Ajusta el line-height */
         max-width: 295px;
-        /* Ajusta el máximo de ancho */
     }
 
     .service-grid {
         grid-template-columns: repeat(1, 1fr);
-        /* Una columna */
         grid-template-rows: auto;
-        /* Ajusta la cantidad de filas */
         padding: 0 1.5rem 4rem 1.5rem;
-        /* Ajusta el padding */
     }
 
     .service-card {
         width: 80%;
-        /* Las tarjetas ocupan todo el ancho disponible */
         height: auto;
-        /* Ajusta la altura de las tarjetas según el contenido */
     }
 
     .service-card-image {
         width: 100%;
-        /* Las imágenes ocupan todo el ancho disponible */
         height: auto;
-        /* Ajusta la altura de las imágenes */
     }
 
     /* Ajustar tamaños de imágenes y contenedor */
@@ -349,21 +266,16 @@
 
     .service-card-title {
         font-size: 12px;
-        /* Reduce el tamaño de la fuente */
     }
 
     .service-card-description {
         font-size: 10px;
-        /* Reduce el tamaño de la fuente */
         height: 30px;
-        /* Ajusta la altura del contenedor de descripción */
     }
 
     .service-card-button {
         width: 120px;
-        /* Ajusta el ancho del botón */
         height: 35px;
-        /* Ajusta la altura del botón */
         font-size: 12px;
     }
 }
@@ -372,52 +284,36 @@
 @media (max-width: 380px) {
     .services-text-content {
         padding-top: 2rem;
-        /* Ajusta el espacio superior */
     }
 
     .services-text-content h1 {
         font-size: 12px;
-        /* Reduce el tamaño del h1 */
         line-height: 14px;
-        /* Ajusta el line-height */
         margin-bottom: 10px;
-        /* Ajusta el margen inferior */
     }
 
     .services-text-content h2 {
         font-size: 10px;
-        /* Reduce el tamaño del h2 */
         line-height: 14px;
-        /* Ajusta el line-height */
         margin-bottom: 10px;
-        /* Ajusta el margen inferior */
     }
 
     .services-text-content p {
         font-size: 10px;
-        /* Reduce el tamaño de la fuente del párrafo */
         line-height: 14px;
-        /* Ajusta el line-height */
         max-width: 90%;
-        /* Ajusta el máximo de ancho */
         margin-left: auto;
-        /* Centrado horizontalmente */
         margin-right: auto;
-        /* Centrado horizontalmente */
     }
 
     .service-grid {
         grid-template-columns: 1fr;
-        /* Una columna */
         padding: 1rem 1rem 3rem 1rem;
-        /* Ajusta el padding */
     }
 
     .service-card {
         width: 80%;
-        /* Las tarjetas ocupan todo el ancho disponible */
         height: 95%;
-        /* Ajusta la altura de las tarjetas según el contenido */
     }
 
     /* Ajustar tamaños de imágenes y contenedor */
@@ -430,26 +326,19 @@
 
     .service-card-title {
         font-size: 10px;
-        /* Reduce el tamaño de la fuente */
     }
 
     .service-card-description {
         font-size: 8px;
         line-height: 12px;
-        /* Reduce el tamaño de la fuente */
         height: 30px;
-        /* Ajusta la altura del contenedor de descripción */
         max-height: 40px;
-        /* Limita la altura */
         line-clamp: 2;
-        /* Ajusta el número de líneas visibles */
         -webkit-line-clamp: 2;
     }
 
     .service-card-button {
         width: 120px;
-        /* Ajusta el ancho del botón */
         height: 35px;
-        /* Ajusta la altura del botón */
     }
 }

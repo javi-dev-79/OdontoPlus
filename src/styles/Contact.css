@@ -3,54 +3,145 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centra horizontalmente */
     justify-content: center;
-    /* Centra verticalmente */
     text-align: center;
-    /* Centra el texto dentro de los elementos */
     padding: 20px;
-    /* Espaciado interno */
 }
 
 .contact-head-title {
     font-family: 'Playfair Display', serif;
-    /* Fuente Playfair Display */
-    font-size: 40px;
-    /* Tamaño de fuente */
+    font-size: 30px;
     line-height: 32px;
-    /* Altura de línea */
     color: #333333;
-    /* Color del texto */
     margin: 20px;
-    /* Espaciado inferior */
 }
 
 .contact-head-subtitle {
     font-family: 'Inter', sans-serif;
-    /* Fuente Inter */
     font-size: 32px;
-    /* Tamaño de fuente */
     font-weight: 600;
-    /* SemiBold */
     line-height: 55px;
-    /* Altura de línea */
     color: #004D40;
-    /* Color del texto */
     margin-bottom: 20px;
-    /* Espaciado inferior */
 }
 
 .contact-head-description {
     font-family: 'Inter', sans-serif;
-    /* Fuente Inter */
     font-size: 20px;
-    /* Tamaño de fuente */
     font-weight: 400;
-    /* Regular */
     line-height: 22px;
-    /* Altura de línea */
     color: #000000;
-    /* Color del texto */
-    max-width: 1200px;
-    /* Ancho máximo del párrafo */
+    max-width: 1095px;
+}
+
+/* Estilos generales del formulario */
+.contact-form {
+    width: 800px;
+    height: 550px;
+    background-color: #FFFFFF;
+    border: 3px solid #004D40;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+.contact-form:hover {
+    background-color: #CCCCCC;
+}
+
+/* Estilos de los grupos de formulario */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000000;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 3px solid #004D40;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+/* Estilos del botón Enviar */
+.send-btn {
+    width: 100px;
+    height: 50px;
+    background-color: #004D40;
+    border: 3px solid #FFFFFF;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 22px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.send-btn:hover {
+    background-color: #FFFFFF;
+    color: #333333;
+    border-color: #004D40;
+}
+
+/* Estilos generales del contenedor de información de contacto */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    /* Los párrafos se colocan en vertical */
+    align-items: center;
+    /* Centra cada párrafo horizontalmente */
+    justify-content: center;
+    /* Centra el contenido verticalmente */
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000000;
+    background-color: #ffffff;
+    /* Fondo blanco */
+    padding: 20px;
+    /* Espaciado interno */
+    margin: 0 auto;
+    /* Centra el contenedor horizontalmente */
+    max-width: 800px;
+    /* Ancho máximo para evitar que se extienda demasiado */
+}
+
+/* Estilos de cada ítem de contacto */
+.contact-item {
+    display: flex;
+    align-items: center;
+    /* Centra el ícono y el texto verticalmente */
+    gap: 10px;
+    /* Espacio entre el ícono y el texto */
+    margin: 10px 0;
+    /* Espacio entre los párrafos */
+    text-align: center;
+    /* Centra el texto dentro del párrafo */
+}
+
+/* Estilos de los iconos */
+.contact-icon {
+    font-size: 24px;
+    color: #000000;
 }
