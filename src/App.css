@@ -8,8 +8,6 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  /* overflow-x: hidden; */
-  /* Evita barras de desplazamiento horizontal */
 }
 
 body {
@@ -23,11 +21,3 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
-/* Contenedor general para páginas que no son Home */
-/* .page-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-} */
