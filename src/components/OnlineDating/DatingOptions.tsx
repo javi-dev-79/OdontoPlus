@@ -168,7 +168,7 @@ import {
 } from 'firebase/firestore'
 import { useAuth } from '../../contexts/UseAuth'
 import '../../styles/online-dating.css'
-import { Appointment, Dentist, Patient } from './types'
+import { Appointment, Dentist, Patient } from '../types'
 import { useNavigate } from 'react-router-dom'
 
 const DatingOptions = () => {
@@ -222,18 +222,18 @@ const DatingOptions = () => {
     fetchAppointments()
   }, [currentUser, patient])
 
-    useEffect(() => {
-      const fetchDentists = async () => {
-        const querySnapshot = await getDocs(collection(db, 'dentists'))
-        const dentistsData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data()
-        })) as Dentist[] // Aseguramos que los datos sean del tipo Dentist
-        setDentists(dentistsData)
-      }
+  useEffect(() => {
+    const fetchDentists = async () => {
+      const querySnapshot = await getDocs(collection(db, 'dentists'))
+      const dentistsData = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      })) as Dentist[] // Aseguramos que los datos sean del tipo Dentist
+      setDentists(dentistsData)
+    }
 
-      fetchDentists()
-    }, [])
+    fetchDentists()
+  }, [])
 
   const handleCreateProfile = () => {
     navigate('/create-profile')

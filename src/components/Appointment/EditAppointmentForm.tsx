@@ -99,7 +99,7 @@
 import React, { useState, useEffect } from 'react'
 import { db } from '../../config/firebase-config'
 import { collection, doc, getDoc, getDocs, updateDoc } from 'firebase/firestore'
-import { Dentist } from '../OnlineDating/types'
+import { Dentist } from '../types'
 
 const EditAppointmentForm: React.FC<{ appointmentId: string }> = ({
   appointmentId

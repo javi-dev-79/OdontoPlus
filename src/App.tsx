@@ -10,13 +10,14 @@ import './App.css'
 import PrivateRoute from './components/PrivateRoute'
 import AdminPanel from './components/AdminPanel'
 import ApproveRejectUser from './pages/ApproveRejectUser'
-import { AuthProvider } from './contexts/AuthProvider' // Importa AuthProvider
+import { AuthProvider } from './contexts/AuthProvider'
 import RegisterService from './firebase/RegisterService'
 import LoginService from './firebase/LoginService'
 import CreateProfileForm from './components/Profile/CreateProfile'
 import EditProfileForm from './components/Profile/EditProfileForm'
 import CreateAppointmentForm from './components/Appointment/CreateAppointmentForm'
 import EditAppointmentForm from './components/Appointment/EditAppointmentForm'
+import CreateDentistForm from './components/Dentists/CreateDentistForm'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -51,6 +52,8 @@ function App() {
                 path='/approve-reject-user/:userId/:action'
                 element={<ApproveRejectUser />}
               />
+              <Route path='/add-dentist' element={<CreateDentistForm />} />{' '}
+              {/* ✅ Nueva ruta agregada */}
             </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>

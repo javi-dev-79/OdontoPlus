@@ -177,7 +177,7 @@ const Header: React.FC = () => {
   return (
     <header className='navbar'>
       <div className='navbar-content'>
-        <Logo />
+        <Logo className='logo-image' />
         <Navigation />
         <div className='desktop-actions'>
           <UserActions />

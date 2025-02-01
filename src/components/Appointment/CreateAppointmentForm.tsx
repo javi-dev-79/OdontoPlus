@@ -78,7 +78,7 @@ import React, { useState, useEffect } from 'react'
 import { db } from '../../config/firebase-config'
 import { addDoc, collection, getDocs } from 'firebase/firestore'
 import { useAuth } from '../../contexts/UseAuth'
-import { Dentist } from '../OnlineDating/types'
+import { Dentist } from '../types'
 
 const CreateAppointmentForm: React.FC = () => {
   const [date, setDate] = useState('')
