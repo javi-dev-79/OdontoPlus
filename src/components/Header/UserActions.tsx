@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
-import { AuthContext } from '../../contexts/AuthContext/Context' // Asegúrate de que la ruta sea correcta
+import { AuthContext } from '../../contexts/AuthContext' // Asegúrate de que la ruta sea correcta
 import { signOut } from 'firebase/auth'
 import { auth } from '../../config/firebase-config' // Asegúrate de que la ruta sea correcta
 import '../../styles/Header.css'

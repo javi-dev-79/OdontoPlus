@@ -10,7 +10,7 @@ import './App.css'
 import PrivateRoute from './components/PrivateRoute'
 import AdminPanel from './components/AdminPanel'
 import ApproveRejectUser from './pages/ApproveRejectUser'
-import { AuthProvider } from './contexts/AuthContext/Provider'
+import { AuthProvider } from './contexts/AuthProvider'; // Importa AuthProvider
 import RegisterService from './firebase/RegisterService'
 import LoginService from './firebase/LoginService'
 
