@@ -12,13 +12,38 @@
 
 .dating-options__table-container {
     overflow-x: auto;
-    margin-top: 20px;
+    margin: 20px auto;
+    border: 3px solid #004D40;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    max-width: 1200px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .dating-options__table {
     width: 100%;
     border-collapse: collapse;
     background-color: #fff;
+    border: 3px solid #004D40;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 1200px;
+    min-height: 80px;
+    margin: 0 auto;
+    /* 🔹 Centra la tabla horizontalmente */
+}
+
+.dating-options__table-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #004D40;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .dating-options__table th,
@@ -26,11 +51,39 @@
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
+    vertical-align: middle;
 }
 
 .dating-options__table th {
-    background-color: #f4f4f4;
+    background-color: #B0D4D0;
+    /* 🔹 Fondo del encabezado */
     font-weight: bold;
+    text-align: left;
+    padding: 12px;
+}
+
+.dating-options__appointment-button-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.dating-options__appointment-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #004D40;
+    border: 3px solid #CCCCCC;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.dating-options__appointment-button:hover {
+    background: #FFFFFF;
+    color: #333333;
+    border-color: #004D40;
 }
 
 .btn {

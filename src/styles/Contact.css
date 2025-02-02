@@ -31,7 +31,7 @@
     font-weight: 400;
     line-height: 22px;
     color: #000000;
-    max-width: 1095px;
+    max-width: 800px;
 }
 
 /* Estilos generales del formulario */
@@ -95,6 +95,10 @@
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .send-btn:hover {
@@ -172,17 +176,26 @@
     /* Border radius */
 }
 
+
 .get-directions-btn {
     background-color: #004D40;
     color: #FFFFFF;
     border-radius: 10px;
     font-weight: bold;
     border: 3px solid #CCCCCC;
-    width: 120px;
+    width: 150px;
     height: 50px;
-    display: block;
-    margin: auto;
-    margin-bottom: 5rem;
+
+    /* Centrar botón en la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    /* 🔹 Esto lo centra horizontalmente */
+
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .get-directions-btn:hover {
@@ -203,4 +216,181 @@ input.error::placeholder,
 textarea.error::placeholder {
     color: red;
     /* Color rojo para mensajes de error */
+}
+
+
+/* Pantallas medianas (1024px) */
+@media screen and (max-width: 1024px) {
+    .contact-form {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .map-container {
+        width: 90%;
+        height: 450px;
+    }
+}
+
+/* Tablets (768px) */
+@media screen and (max-width: 768px) {
+    .contact-head-container {
+        padding: 10px;
+    }
+
+    .contact-form {
+        width: 80%;
+        height: auto;
+        padding: 10px;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .map-container {
+        width: 80%;
+        height: 400px;
+    }
+
+    .contact-head-title {
+        font-size: 22px;
+        margin-top: 10px;
+    }
+
+    .contact-head-subtitle {
+        font-size: 24px;
+        line-height: 40px;
+    }
+
+    .contact-head-description {
+        font-size: 16px;
+        width: 600px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+    }
+
+    .send-btn {
+        width: 90px;
+        height: 45px;
+    }
+
+    .get-directions-btn {
+        width: 130px;
+        height: 40px;
+        font-size: 10px;
+    }
+}
+
+/* Móviles grandes (480px) */
+@media screen and (max-width: 480px) {
+    .contact-form {
+        width: 80%;
+        padding: 10px;
+    }
+
+    .map-container {
+        width: 80%;
+        height: 300px;
+    }
+
+    .contact-head-title {
+        font-size: 20px;
+        margin: 10px;
+    }
+
+    .contact-head-subtitle {
+        font-size: 13px;
+        line-height: 35px;
+        margin-bottom: 0;
+    }
+
+    .contact-head-description {
+        font-size: 14px;
+        width: 300px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .send-btn {
+        width: 80px;
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .get-directions-btn {
+        width: 120px;
+        height: 38px;
+        font-size: 10px;
+    }
+
+    .contact-info span {
+        font-size: 8px;
+        padding: -10px;
+    }
+
+    .contact-item {
+        gap: 8px;
+        margin: 4px 0;
+    }
+}
+
+/* Móviles pequeños (320px) */
+@media screen and (max-width: 320px) {
+    .contact-form {
+        width: 80%;
+        padding: 8px;
+    }
+
+    .map-container {
+        width: 80%;
+        height: 250px;
+    }
+
+    .contact-head-title {
+        font-size: 18px;
+    }
+
+    .contact-head-subtitle {
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 10px;
+    }
+
+    .contact-head-description {
+        font-size: 12px;
+        width: 260px;
+    }
+
+    .form-group label {
+        font-size: 12px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .send-btn {
+        width: 75px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .get-directions-btn {
+        width: 110px;
+        height: 35px;
+        font-size: 8px;
+    }
 }
