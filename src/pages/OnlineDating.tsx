@@ -1,7 +1,14 @@
-import '../styles/Home.css'
+import DatingOptions from '../components/OnlineDating/DatingOptions'
+import '../styles/online-dating.css'
 
 const OnlineDating = () => {
-  return <h1 className="prueba-h1">Online Dating for Dental Consultations</h1>
+    return (
+      <main>
+        <div className='full-width-section'>
+          <DatingOptions />
+        </div>
+      </main>
+    )
 }
 
 export default OnlineDating

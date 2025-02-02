@@ -1,4 +1,3 @@
-/* Estilos generales */
 .about-us-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -7,14 +6,12 @@
     padding-top: 5rem;
 }
 
-/* Título */
 .about-us-title {
     font-size: 2.5rem;
     color: #333333;
     margin-bottom: 20px;
 }
 
-/* Descripción */
 .about-us-description {
     background-color: #e0e9e7;
     border: 2px solid #004D40;
@@ -28,7 +25,6 @@
     text-align: justify;
 }
 
-/* Contenedor de imágenes */
 .about-us-images {
     display: flex;
     justify-content: center;
@@ -37,7 +33,6 @@
     padding-top: 3rem;
 }
 
-/* Estilos para las imágenes */
 .about-us-image {
     width: 400px;
     height: auto;
@@ -45,7 +40,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Sección del equipo médico */
 .about-us-team {
     padding: 20px;
 }
@@ -69,7 +63,6 @@
     text-align: justify;
 }
 
-/* Sección de instalaciones */
 .about-us-facilities {
     padding: 20px;
     border-radius: 10px;
@@ -133,24 +126,20 @@
         max-width: 350px;
     }
 
-    /* Título */
     .about-us-title {
         font-size: 1.5rem;
     }
 
-    /* Descripción */
     .about-us-description {
         font-size: 0.8rem;
         line-height: 1.3rem;
     }
 
-    /* Contenedor de imágenes */
     .about-us-images {
         margin-bottom: 1rem;
         padding-top: 2rem;
     }
 
-    /* Estilos para las imágenes */
     .about-us-image {
         width: 250px;
         height: auto;
@@ -168,7 +157,6 @@
         line-height: 1.3rem;
     }
 
-    /* Sección de instalaciones */
     .about-us-facilities {
         padding-bottom: 2rem;
     }

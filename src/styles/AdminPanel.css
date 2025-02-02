@@ -1,0 +1,174 @@
+.admin-panel {
+    max-width: 1200px;
+    margin: auto;
+    padding: 24px;
+}
+
+.admin-title {
+    font-size: 40px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    line-height: 55px;
+    color: #004D40;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.admin-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    color: #004D40;
+}
+
+.filter-select {
+    padding: 12px 16px;
+    border: 2px solid #004D40;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    /* background-color: #B0D4D0; */
+}
+
+.filter-select option {
+    background-color: #B0D4D0;
+}
+
+.user-list {
+    background: white;
+    border: 3px solid #004D40;
+    border-radius: 15px;
+    padding: 10px;
+    min-height: 100px;
+    margin-bottom: 5rem;
+}
+
+/* Tarjeta de usuario/dentista */
+.user-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s;
+    gap: 15px;
+}
+
+.user-card:hover {
+    background: #f9f9f9;
+}
+
+/* Información del usuario/dentista */
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Email del usuario/dentista */
+.user-email {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.user-dates {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    margin-top: 5px;
+    color: #555;
+}
+
+/* Detalles de estado y tipo */
+.user-details {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Botones de acción */
+.btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    border: 3px solid #CCCCCC;
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+/* Botón EDITAR */
+.btn-edit {
+    background: #125684;
+    border-color: #CCCCCC;
+}
+
+.btn-edit:hover {
+    background: #FFFFFF;
+    color: #125684;
+    border-color: #125684;
+}
+
+/* Botón ELIMINAR */
+.btn-delete {
+    background: #AE0B0B;
+    border-color: #CCCCCC;
+}
+
+.btn-delete:hover {
+    background: #FFFFFF;
+    color: #AE0B0B;
+    border-color: #AE0B0B;
+}
+
+.icon-btn {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilos para la sección vacía de usuarios o dentistas */
+.no-users {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    padding: 20px;
+}
+
+.admin-title-dentists {
+    font-size: 40px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    line-height: 55px;
+    color: #004D40;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+.dentist-list {
+    background: white;
+    border: 3px solid #004D40;
+    border-radius: 15px;
+    padding: 10px;
+    min-height: 100px;
+    margin-bottom: 5rem;
+}
+
+/* Botón para añadir dentista */
+.add-dentist {
+    display: block;
+    margin: 3rem auto;
+    padding: 12px 24px;
+    font-size: 18px;
+}

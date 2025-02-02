@@ -1,23 +1,18 @@
 import logo from '../../assets/images/Logo.webp'
 import '../../styles/Header.css'
 
-const Logo = () => {
-  return (
-    <div className='logo'>
-      <img
-        src={logo}
-        alt='OdontoPlus Logo - Ir a la página principal'
-        className='logo-image'
-      />
-    </div>
-  )
+interface LogoProps {
+  className?: string;
 }
 
-export default Logo
+const Logo: React.FC<LogoProps> = ({ className }) => {
+  return (
+    <img
+      src={logo}
+      alt='Logotipo de OdontoPlus'
+      className={`${className || ''}`}
+    />
+  );
+};
 
-
-
-
-
-
-
+export default Logo;

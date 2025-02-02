@@ -1,270 +1,26 @@
-// import { useEffect, useState } from 'react'
-// import {
-//   collection,
-//   getDocs,
-//   updateDoc,
-//   doc,
-//   deleteDoc
-// } from 'firebase/firestore'
-// import { db } from '../config/firebase-config'
-// import sendEmail from '../utils/SendEmail'
-// import {
-//   AlertCircle,
-//   CheckCircle,
-//   XCircle,
-//   Trash2,
-//   UserCheck,
-//   UserX
-// } from 'lucide-react'
-// import { getAuth, deleteUser } from 'firebase/auth'
-
-// interface User {
-//   userId: string
-//   email: string
-//   status: 'pending' | 'approved' | 'rejected'
-//   createdAt?: string
-// }
-
-// type FilterStatus = 'all' | 'pending' | 'approved' | 'rejected'
-
-// const AdminPanel = () => {
-//   const [users, setUsers] = useState<User[]>([])
-//   const [loading, setLoading] = useState(true)
-//   const [selectedFilter, setSelectedFilter] = useState<FilterStatus>('all')
-
-//   useEffect(() => {
-//     const fetchUsers = async () => {
-//       try {
-//         const usersCollection = collection(db, 'users')
-//         const snapshot = await getDocs(usersCollection)
-//         const usersList = snapshot.docs.map((doc) => ({
-//           userId: doc.id,
-//           ...doc.data()
-//         })) as User[]
-//         setUsers(
-//           usersList.sort((a, b) =>
-//             a.status === 'pending' ? -1 : b.status === 'pending' ? 1 : 0
-//           )
-//         )
-//       } catch (error) {
-//         console.error('Error fetching users:', error)
-//       } finally {
-//         setLoading(false)
-//       }
-//     }
-//     fetchUsers()
-//   }, [])
-
-//   // const handleUserAction = async (
-//   //   action: 'approve' | 'reject' | 'delete',
-//   //   user: User
-//   // ) => {
-//   //   try {
-//   //     const userRef = doc(db, 'users', user.userId)
-
-//   //     if (action === 'delete') {
-//   //       await deleteDoc(userRef)
-//   //       setUsers(users.filter((u) => u.userId !== user.userId))
-//   //     } else {
-//   //       const newStatus = action === 'approve' ? 'approved' : 'rejected'
-//   //       await updateDoc(userRef, { status: newStatus })
-
-//   //       if (action === 'reject') {
-//   //         const templateParams = { email: user.email }
-//   //         sendEmail(templateParams, 'TU_TEMPLATE_ID_RECHAZO')
-//   //       }
-
-//   //       setUsers(
-//   //         users.map((u) =>
-//   //           u.userId === user.userId ? { ...u, status: newStatus } : u
-//   //         )
-//   //       )
-//   //     }
-//   //   } catch (error) {
-//   //     console.error(`Error ${action}ing user:`, error)
-//   //   }
-//   // }
-
-//   const handleUserAction = async (
-//     action: 'approve' | 'reject' | 'delete',
-//     user: User
-//   ) => {
-//     try {
-//       const userRef = doc(db, 'users', user.userId)
-
-//       if (action === 'delete') {
-//         // Eliminar el usuario de Firebase Authentication
-//         const auth = getAuth()
-//         const firebaseUser = auth.currentUser
-
-//         if (firebaseUser && firebaseUser.uid === user.userId) {
-//           await deleteUser(firebaseUser)
-//         }
-
-//         // Eliminar el usuario de Firestore
-//         await deleteDoc(userRef)
-//         setUsers(users.filter((u) => u.userId !== user.userId))
-//       } else {
-//         const newStatus = action === 'approve' ? 'approved' : 'rejected'
-//         await updateDoc(userRef, { status: newStatus })
-
-//         if (action === 'reject') {
-//           const templateParams = { email: user.email }
-//           sendEmail(templateParams, 'TU_TEMPLATE_ID_RECHAZO')
-//         }
-
-//         setUsers(
-//           users.map((u) =>
-//             u.userId === user.userId ? { ...u, status: newStatus } : u
-//           )
-//         )
-//       }
-//     } catch (error) {
-//       console.error(`Error ${action}ing user:`, error)
-//     }
-//   }
-
-//   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//     setSelectedFilter(event.target.value as FilterStatus)
-//   }
-
-//   const filteredUsers = users.filter((user) =>
-//     selectedFilter === 'all' ? true : user.status === selectedFilter
-//   )
-
-//   const getStatusIcon = (status: string) => {
-//     switch (status) {
-//       case 'pending':
-//         return <AlertCircle className='w-5 h-5 text-yellow-500' />
-//       case 'approved':
-//         return <CheckCircle className='w-5 h-5 text-green-500' />
-//       case 'rejected':
-//         return <XCircle className='w-5 h-5 text-red-500' />
-//       default:
-//         return null
-//     }
-//   }
-
-//   if (loading) {
-//     return (
-//       <div className='flex justify-center items-center min-h-screen'>
-//         <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500'></div>
-//       </div>
-//     )
-//   }
-
-//   return (
-//     <div className='max-w-6xl mx-auto p-6'>
-//       <div className='flex justify-between items-center mb-6'>
-//         <h1 className='text-2xl font-bold'>Panel de Administración</h1>
-//         <div className='flex gap-2'>
-//           <select
-//             className='px-4 py-2 border rounded-lg'
-//             value={selectedFilter}
-//             onChange={handleFilterChange}
-//           >
-//             <option value='all'>Todos</option>
-//             <option value='pending'>Pendientes</option>
-//             <option value='approved'>Aprobados</option>
-//             <option value='rejected'>Rechazados</option>
-//           </select>
-//         </div>
-//       </div>
-
-//       <div className='bg-white rounded-lg shadow'>
-//         <div className='grid gap-4'>
-//           {filteredUsers.map((user) => (
-//             <div
-//               key={user.userId}
-//               className='p-4 border-b last:border-b-0 flex items-center justify-between hover:bg-gray-50'
-//             >
-//               <div className='flex items-center gap-3'>
-//                 {getStatusIcon(user.status)}
-//                 <div>
-//                   <p className='font-medium'>{user.email}</p>
-//                   <p className='text-sm text-gray-500 capitalize'>
-//                     Estado: {user.status}
-//                   </p>
-//                 </div>
-//               </div>
-
-//               <div className='flex gap-2'>
-//                 {user.status === 'pending' && (
-//                   <>
-//                     <button
-//                       onClick={() => handleUserAction('approve', user)}
-//                       className='flex items-center gap-1 px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200'
-//                     >
-//                       <UserCheck className='w-4 h-4' />
-//                       Aprobar
-//                     </button>
-//                     <button
-//                       onClick={() => handleUserAction('reject', user)}
-//                       className='flex items-center gap-1 px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200'
-//                     >
-//                       <UserX className='w-4 h-4' />
-//                       Rechazar
-//                     </button>
-//                   </>
-//                 )}
-//                 <button
-//                   onClick={() => handleUserAction('delete', user)}
-//                   className='flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200'
-//                 >
-//                   <Trash2 className='w-4 h-4' />
-//                   Eliminar
-//                 </button>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         {filteredUsers.length === 0 && (
-//           <div className='text-center py-8 text-gray-500'>
-//             No hay usuarios que mostrar
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default AdminPanel
-
-// ****************************************************************************************
-
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   collection,
-  getDocs,
-  updateDoc,
-  doc,
-  deleteDoc
+  getDocs
+  // deleteDoc
+  // doc,
+  // updateDoc
 } from 'firebase/firestore'
 import { db } from '../config/firebase-config'
-import sendEmail from '../utils/SendEmail'
-import {
-  AlertCircle,
-  CheckCircle,
-  XCircle,
-  Trash2,
-  UserCheck,
-  UserX
-} from 'lucide-react'
-
-interface User {
-  userId: string
-  email: string
-  status: 'pending' | 'approved' | 'rejected'
-  createdAt?: string
-}
-
-type FilterStatus = 'all' | 'pending' | 'approved' | 'rejected'
+import { Trash2, Edit, PlusCircle } from 'lucide-react'
+import '../styles/AdminPanel.css'
+import { User, Dentist } from './types'
+import { Timestamp } from 'firebase/firestore'
 
 const AdminPanel = () => {
   const [users, setUsers] = useState<User[]>([])
+  const [dentists, setDentists] = useState<Dentist[]>([])
   const [loading, setLoading] = useState(true)
-  const [selectedFilter, setSelectedFilter] = useState<FilterStatus>('all')
+  const [selectedFilter, setSelectedFilter] = useState<
+    'all' | 'pending' | 'approved' | 'rejected'
+  >('all')
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -275,206 +31,232 @@ const AdminPanel = () => {
           userId: doc.id,
           ...doc.data()
         })) as User[]
-        setUsers(
-          usersList.sort((a, b) =>
-            a.status === 'pending' ? -1 : b.status === 'pending' ? 1 : 0
-          )
-        )
+        setUsers(usersList)
       } catch (error) {
         console.error('Error fetching users:', error)
+      }
+    }
+
+    const fetchDentists = async () => {
+      try {
+        const dentistsCollection = collection(db, 'dentists')
+        const snapshot = await getDocs(dentistsCollection)
+        const dentistsList = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        })) as Dentist[]
+        setDentists(dentistsList)
+      } catch (error) {
+        console.error('Error fetching dentists:', error)
       } finally {
         setLoading(false)
       }
     }
+
     fetchUsers()
+    fetchDentists()
   }, [])
 
-  // const handleUserAction = async (
-  //   action: 'approve' | 'reject' | 'delete',
-  //   user: User
-  // ) => {
-  //   try {
-  //     const userRef = doc(db, 'users', user.userId)
+  const formatDate = (timestamp?: Timestamp) => {
+    return timestamp ? new Date(timestamp.toDate()).toLocaleString() : 'N/A'
+  }
 
-  //     if (action === 'delete') {
-  //       // Eliminar el usuario de Firebase Authentication
-  //       const auth = getAuth()
-  //       const firebaseUser = auth.currentUser
-
-  //       if (firebaseUser && firebaseUser.uid === user.userId) {
-  //         await deleteUser(firebaseUser)
-  //       }
-
-  //       // Eliminar el usuario de Firestore
-  //       await deleteDoc(userRef)
-  //       setUsers(users.filter((u) => u.userId !== user.userId))
-  //     } else {
-  //       const newStatus = action === 'approve' ? 'approved' : 'rejected'
-  //       await updateDoc(userRef, { status: newStatus })
-
-  //       if (action === 'reject') {
-  //         const templateParams = { email: user.email }
-  //         sendEmail(templateParams, 'TU_TEMPLATE_ID_RECHAZO')
-  //       }
-
-  //       setUsers(
-  //         users.map((u) =>
-  //           u.userId === user.userId ? { ...u, status: newStatus } : u
-  //         )
-  //       )
-  //     }
-  //   } catch (error) {
-  //     console.error(`Error ${action}ing user:`, error)
-  //   }
-  // }
-
-  const handleUserAction = async (
-    action: 'approve' | 'reject' | 'delete',
-    user: User
-  ) => {
+  // ⚠️ Temporalmente desactivado hasta que subas el backend en Netlify Functions
+  const handleDeleteUser = async (id: string) => {
     try {
-      const userRef = doc(db, 'users', user.userId)
+      console.log(`(Temporal) Eliminar usuario con ID: ${id}`)
 
-      if (action === 'delete') {
-        // Eliminar el usuario de Firestore
-        await deleteDoc(userRef)
+      /*
+      const response = await fetch('https://YOUR_NETLIFY_FUNCTION_URL/delete-user', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId: id })
+      });
 
-        // Eliminar el usuario de Firebase Authentication (llamada al backend)
-        const response = await fetch('http://localhost:3000/delete-user', {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ userId: user.userId })
-        })
-
-        if (!response.ok) {
-          throw new Error('Error eliminando usuario de Authentication')
-        }
-
-        // Actualizar el estado local
-        setUsers(users.filter((u) => u.userId !== user.userId))
-      } else {
-        const newStatus = action === 'approve' ? 'approved' : 'rejected'
-        await updateDoc(userRef, { status: newStatus })
-
-        if (action === 'reject') {
-          const templateParams = { email: user.email }
-          sendEmail(templateParams, 'TU_TEMPLATE_ID_RECHAZO')
-        }
-
-        setUsers(
-          users.map((u) =>
-            u.userId === user.userId ? { ...u, status: newStatus } : u
-          )
-        )
+      if (!response.ok) {
+        throw new Error('Error al eliminar usuario de Authentication');
       }
+
+      // Eliminar de Firestore
+      await deleteDoc(doc(db, 'users', id));
+
+      setUsers(users.filter((user) => user.userId !== id));
+      console.log('Usuario eliminado correctamente');
+      */
     } catch (error) {
-      console.error(`Error ${action}ing user:`, error)
+      console.error('Error eliminando usuario:', error)
     }
   }
 
-  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedFilter(event.target.value as FilterStatus)
+  // ⚠️ Temporalmente desactivado hasta que subas el backend en Netlify Functions
+  const handleEditUser = async (
+    id: string,
+    newRole: string,
+    newStatus: string
+  ) => {
+    try {
+      console.log(
+        `(Temporal) Editar usuario con ID: ${id}, Nuevo Rol: ${newRole}, Nuevo Estado: ${newStatus}`
+      )
+
+      /*
+      const response = await fetch('https://YOUR_NETLIFY_FUNCTION_URL/edit-user', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId: id, role: newRole, status: newStatus })
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al editar usuario en Authentication');
+      }
+
+      // Si la edición es exitosa, actualizarlo en Firestore
+      await updateDoc(doc(db, 'users', id), { role: newRole, status: newStatus });
+
+      setUsers(users.map((user) =>
+        user.userId === id ? { ...user, role: newRole, status: newStatus } : user
+      ));
+
+      console.log('Usuario actualizado correctamente');
+      */
+    } catch (error) {
+      console.error('Error editando usuario:', error)
+    }
   }
 
+  // 🔥 Filtrar usuarios según la opción seleccionada en el <select>
   const filteredUsers = users.filter((user) =>
     selectedFilter === 'all' ? true : user.status === selectedFilter
   )
 
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'pending':
-        return <AlertCircle className='w-5 h-5 text-yellow-500' />
-      case 'approved':
-        return <CheckCircle className='w-5 h-5 text-green-500' />
-      case 'rejected':
-        return <XCircle className='w-5 h-5 text-red-500' />
-      default:
-        return null
-    }
-  }
-
   if (loading) {
     return (
-      <div className='flex justify-center items-center min-h-screen'>
-        <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500'></div>
+      <div className='loading-container'>
+        <div className='loading-spinner'></div>
       </div>
     )
   }
 
   return (
-    <div className='max-w-6xl mx-auto p-6'>
-      <div className='flex justify-between items-center mb-6'>
-        <h1 className='text-2xl font-bold'>Panel de Administración</h1>
-        <div className='flex gap-2'>
-          <select
-            className='px-4 py-2 border rounded-lg'
-            value={selectedFilter}
-            onChange={handleFilterChange}
-          >
-            <option value='all'>Todos</option>
-            <option value='pending'>Pendientes</option>
-            <option value='approved'>Aprobados</option>
-            <option value='rejected'>Rechazados</option>
-          </select>
-        </div>
+    <div className='admin-panel'>
+      <h1 className='admin-title'>PANEL DE ADMINISTRACIÓN</h1>
+
+      <div className='admin-panel-header '>
+        <h2>PANEL DE USUARIOS</h2>
+        <select
+          className='filter-select'
+          value={selectedFilter}
+          onChange={(e) =>
+            setSelectedFilter(
+              e.target.value as 'all' | 'pending' | 'approved' | 'rejected'
+            )
+          }
+        >
+          <option value='all'>Todos</option>
+          <option value='pending'>Pendientes</option>
+          <option value='approved'>Aprobados</option>
+          <option value='rejected'>Rechazados</option>
+        </select>
       </div>
 
-      <div className='bg-white rounded-lg shadow'>
-        <div className='grid gap-4'>
-          {filteredUsers.map((user) => (
-            <div
-              key={user.userId}
-              className='p-4 border-b last:border-b-0 flex items-center justify-between hover:bg-gray-50'
-            >
-              <div className='flex items-center gap-3'>
-                {getStatusIcon(user.status)}
-                <div>
-                  <p className='font-medium'>{user.email}</p>
-                  <p className='text-sm text-gray-500 capitalize'>
-                    Estado: {user.status}
-                  </p>
+      <div className='user-list'>
+        {filteredUsers.length > 0 ? (
+          filteredUsers.map((user) => (
+            <div key={user.userId} className='user-card'>
+              <div className='user-info'>
+                <p className='user-email'>{user.email}</p>
+                <div className='user-details'>
+                  <span>
+                    <strong>Estado:</strong> {user.status}
+                  </span>
+                  <span>
+                    <strong>Tipo:</strong> {user.role}
+                  </span>
+                </div>
+                <div className='user-dates'>
+                  <span>
+                    <strong>Creado:</strong> {formatDate(user.createdAt)}
+                  </span>
+                  <span>
+                    <strong>Actualizado:</strong> {formatDate(user.updatedAt)}
+                  </span>
                 </div>
               </div>
 
-              <div className='flex gap-2'>
-                {user.status === 'pending' && (
-                  <>
-                    <button
-                      onClick={() => handleUserAction('approve', user)}
-                      className='flex items-center gap-1 px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200'
-                    >
-                      <UserCheck className='w-4 h-4' />
-                      Aprobar
-                    </button>
-                    <button
-                      onClick={() => handleUserAction('reject', user)}
-                      className='flex items-center gap-1 px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200'
-                    >
-                      <UserX className='w-4 h-4' />
-                      Rechazar
-                    </button>
-                  </>
-                )}
+              <div className='user-actions'>
                 <button
-                  onClick={() => handleUserAction('delete', user)}
-                  className='flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200'
+                  className='btn btn-edit'
+                  onClick={() =>
+                    handleEditUser(user.userId, 'admin', 'approved')
+                  }
                 >
-                  <Trash2 className='w-4 h-4' />
-                  Eliminar
+                  <Edit className='icon-btn' />
+                  EDITAR
+                </button>
+
+                <button
+                  className='btn btn-delete'
+                  onClick={() => handleDeleteUser(user.userId)}
+                >
+                  <Trash2 className='icon-btn' />
+                  ELIMINAR
                 </button>
               </div>
             </div>
-          ))}
-        </div>
-
-        {filteredUsers.length === 0 && (
-          <div className='text-center py-8 text-gray-500'>
-            No hay usuarios que mostrar
-          </div>
+          ))
+        ) : (
+          <div className='no-users'>No hay usuarios que mostrar</div>
         )}
       </div>
+
+      <h2 className='admin-panel-header'>GESTIÓN DE DENTISTAS</h2>
+
+      <div className='user-list'>
+        {dentists.length > 0 ? (
+          dentists.map((dentist) => (
+            <div key={dentist.id} className='user-card'>
+              <div className='user-info'>
+                <p className='user-email'>{dentist.fullName}</p>
+                <div className='user-details'>
+                  <span>
+                    <strong>Especialidad:</strong> {dentist.specialty}
+                  </span>
+                </div>
+              </div>
+
+              <div className='user-actions'>
+                <button
+                  className='btn btn-edit'
+                  onClick={() => navigate(`/edit-dentist/${dentist.id}`)}
+                >
+                  <Edit className='icon-btn' />
+                  EDITAR
+                </button>
+
+                <button
+                  className='btn btn-delete'
+                  onClick={() => handleDeleteUser(dentist.id)}
+                >
+                  <Trash2 className='icon-btn' />
+                  ELIMINAR
+                </button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className='no-users'>No hay dentistas que mostrar</div>
+        )}
+      </div>
+
+      {/* ✅ Botón "AÑADIR DENTISTA" restaurado con su lógica */}
+      <button className='add-dentist' onClick={() => navigate('/add-dentist')}>
+        <PlusCircle className='icon-btn' />
+        AÑADIR DENTISTA
+      </button>
     </div>
   )
 }
