@@ -177,5 +177,3 @@ const EditProfileForm: React.FC = () => {
 }
 
 export default EditProfileForm
-
-// **************************************************************************

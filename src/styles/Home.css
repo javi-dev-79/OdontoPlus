@@ -34,47 +34,6 @@
   opacity: 0.6;
 }
 
-/* .custom-left-nav,
-.custom-right-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  font-size: 20px;
-  background: none;
-  border: none;
-  color: #004d40;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 100px 30px;
-  display: inline-flex;
-  align-items: center;
-}
-
-.custom-left-nav {
-  left: 0;
-}
-
-.custom-right-nav {
-  right: 0;
-}
-
-.custom-left-nav:hover {
-  color: #cccccc;
-  background: radial-gradient(circle at left,
-      #05eed7 0%,
-      rgba(5, 238, 215, 0.6) 30%,
-      rgba(255, 255, 255, 0) 60%);
-}
-
-.custom-right-nav:hover {
-  color: #cccccc;
-  background: radial-gradient(circle at right,
-      #05eed7 0%,
-      rgba(5, 238, 215, 0.6) 30%,
-      rgba(255, 255, 255, 0) 60%);
-} */
-
 .custom-left-nav,
 .custom-right-nav {
   position: absolute;
@@ -120,16 +79,8 @@
 .custom-left-nav,
 .custom-right-nav {
   display: inline-flex;
-  /* Permite centrar el icono verticalmente */
   align-items: center;
-  /* Centra verticalmente el contenido */
 }
-
-/* .custom-left-nav:hover,
-.custom-right-nav:hover {
-  color: #cccccc;
-  background: linear-gradient(to right, #05eed7 0%, rgba(255, 255, 255, 0) 100%);
-} */
 
 .carousel-cta-button {
   align-self: center;
@@ -404,8 +355,6 @@
   .carousel-cta-button {
     padding: 12px 25px;
     font-size: 16px;
-    /* TODO: QUITAR BACKGROUND */
-    background-color: red;
   }
 
   .video-section {
@@ -431,8 +380,6 @@
     font-size: 14px;
     border-width: 2px;
     line-height: 20px;
-    /* TODO: QUITAR BACKGROUND */
-    background-color: yellow;
   }
 
   .carousel-title {
@@ -479,8 +426,6 @@
 
   .carousel-cta-button {
     line-height: 20px;
-    /* TODO: QUITAR BACKGROUND */
-    background-color: blue;
   }
 
   .carousel-title {
@@ -594,8 +539,6 @@
     line-height: 16px;
     border-width: 1.5px;
     margin-bottom: 0.8rem;
-    /* TODO: QUITAR BACKGROUND */
-    background-color: orange;
   }
 
   .carousel-title {
@@ -627,8 +570,6 @@
     line-height: 14px;
     border-width: 1.5px;
     margin-bottom: 0.6rem;
-    /* TODO: QUITAR BACKGROUND */
-    background-color: lightcoral;
   }
 
   .carousel-title {

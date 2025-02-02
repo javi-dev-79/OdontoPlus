@@ -94,3 +94,89 @@
     color: #004D40;
     border-color: #004D40;
 }
+
+.edit-dentist-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 24px;
+    background: white;
+    border: 3px solid #004D40;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.edit-dentist__title {
+    font-size: 40px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    color: #004D40;
+    margin-bottom: 20px;
+}
+
+.edit-dentist__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.edit-dentist__input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.edit-dentist__input-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #004D40;
+    margin-bottom: 5px;
+}
+
+.edit-dentist__input-group input,
+.edit-dentist__input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #004D40;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+}
+
+.edit-dentist__input-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+.edit-dentist__btn {
+    background: #004D40;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #FFFFFF;
+    border: 3px solid #CCCCCC;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 180px;
+}
+
+.edit-dentist__btn:hover {
+    background: #FFFFFF;
+    color: #004D40;
+    border-color: #004D40;
+}
+
+.edit-dentist__btn--cancel {
+    background: #CCCCCC;
+    border-color: #666666;
+    color: #333333;
+}
+
+.edit-dentist__btn--cancel:hover {
+    background: #FFFFFF;
+    color: #004D40;
+    border-color: #004D40;
+}

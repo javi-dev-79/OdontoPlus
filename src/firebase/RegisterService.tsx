@@ -22,7 +22,7 @@
 //       const user = userCredential.user
 
 //       // Crea el documento del usuario en Firestore con los nuevos campos
-//       const userRef = doc(db, 'users', user.uid)
+//       const userRef = doc(db, 'app-users', user.uid)
 //       await setDoc(userRef, {
 //         email: email,
 //         role: 'patient', // Rol por defecto
@@ -126,7 +126,7 @@ const RegisterService = () => {
       const user = userCredential.user
 
       // Crea el documento del usuario en Firestore
-      const userRef = doc(db, 'users', user.uid)
+      const userRef = doc(db, 'app-users', user.uid)
       await setDoc(userRef, {
         email: email,
         role: 'patient', // Rol por defecto

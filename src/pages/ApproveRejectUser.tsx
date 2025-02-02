@@ -21,7 +21,7 @@ const ApproveRejectUser = () => {
       }
 
       try {
-        const userRef = doc(db, 'users', userId)
+        const userRef = doc(db, 'app-users', userId)
         const newStatus = action === 'approve' ? 'approved' : 'rejected'
         await updateDoc(userRef, { status: newStatus })
         navigate('/admin-panel')

@@ -30,7 +30,6 @@
     font-size: 16px;
     font-weight: bold;
     outline: none;
-    /* background-color: #B0D4D0; */
 }
 
 .filter-select option {
@@ -46,7 +45,6 @@
     margin-bottom: 5rem;
 }
 
-/* Tarjeta de usuario/dentista */
 .user-card {
     display: flex;
     justify-content: space-between;
@@ -61,13 +59,11 @@
     background: #f9f9f9;
 }
 
-/* Información del usuario/dentista */
 .user-info {
     display: flex;
     flex-direction: column;
 }
 
-/* Email del usuario/dentista */
 .user-email {
     font-size: 28px;
     font-weight: bold;
@@ -81,7 +77,6 @@
     color: #555;
 }
 
-/* Detalles de estado y tipo */
 .user-details {
     display: flex;
     gap: 20px;
@@ -89,7 +84,6 @@
     margin-top: 5px;
 }
 
-/* Botones de acción */
 .btn {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
@@ -108,7 +102,6 @@
     min-width: 180px;
 }
 
-/* Botón EDITAR */
 .btn-edit {
     background: #125684;
     border-color: #CCCCCC;
@@ -120,7 +113,6 @@
     border-color: #125684;
 }
 
-/* Botón ELIMINAR */
 .btn-delete {
     background: #AE0B0B;
     border-color: #CCCCCC;
@@ -137,7 +129,6 @@
     height: 20px;
 }
 
-/* Estilos para la sección vacía de usuarios o dentistas */
 .no-users {
     text-align: center;
     font-size: 16px;
@@ -165,10 +156,30 @@
     margin-bottom: 5rem;
 }
 
-/* Botón para añadir dentista */
 .add-dentist {
     display: block;
     margin: 3rem auto;
     padding: 12px 24px;
     font-size: 18px;
+}
+
+.admin-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #004D40;
+    border: 3px solid #CCCCCC;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.admin-button:hover {
+    background: white;
+    color: #004D40;
+    border-color: #004D40;
 }
