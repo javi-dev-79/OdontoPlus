@@ -1,0 +1,95 @@
+.profile-form-container {
+    max-width: 500px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background: #FFFFFF;
+    border: 3px solid #004D40;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #004D40;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.profile-form label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.profile-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 3px solid #004D40;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.profile-form input:focus {
+    border-color: #002D26;
+}
+
+.profile-form button {
+    background: #004D40;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    border: 3px solid #CCCCCC;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-form button:hover {
+    background: #FFFFFF;
+    color: #004D40;
+    border-color: #004D40;
+}
+
+/* ✅ Botón CANCELAR con estilos modificados */
+.profile-form .btn-cancel {
+    background: #CCCCCC;
+    color: #333333;
+    border: 3px solid #CCCCCC;
+}
+
+.profile-form .btn-cancel:hover {
+    background: #FFFFFF;
+    color: #333333;
+    border-color: #004D40;
+}
+
+.profile-form-message {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.profile-form-message.success {
+    font-size: 18px;
+    color: #008000;
+    margin-bottom: 20px;
+}
+
+.profile-form-message.error {
+    font-size: 18px;
+    color: #AE0B0B;
+    margin-bottom: 20px;
+}

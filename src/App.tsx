@@ -36,7 +36,10 @@ function App() {
             <Route element={<PrivateRoute />}>
               <Route path='/online-dating' element={<OnlineDating />} />
               <Route path='/create-profile' element={<CreateProfileForm />} />
-              <Route path='/edit-profile' element={<EditProfileForm />} />
+              <Route
+                path='/edit-profile/:userId'
+                element={<EditProfileForm />}
+              />
               <Route
                 path='/create-appointment'
                 element={<CreateAppointmentForm />}
