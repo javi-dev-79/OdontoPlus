@@ -1,10 +1,13 @@
+/* === Estilos globales importados desde App.css === */
+@import './../App.css';
+
 .profile-form-container {
     max-width: 500px;
     margin: 5rem auto;
-    padding: 2rem;
-    background: #FFFFFF;
-    border: 3px solid #004D40;
-    border-radius: 12px;
+    padding: var(--spacing);
+    background: white;
+    border: 3px solid var(--primary-color);
+    border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -12,28 +15,28 @@
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 1.5rem;
-    color: #004D40;
+    margin-bottom: var(--spacing);
+    color: var(--primary-color);
 }
 
 .profile-form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: var(--spacing);
 }
 
 .profile-form label {
-    font-size: 20px;
+    font-size: var(--font-size-base);
     font-weight: 600;
-    color: #333;
+    color: var(--text-color);
 }
 
 .profile-form input {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 3px solid #004D40;
-    border-radius: 8px;
+    padding: var(--spacing);
+    font-size: var(--font-size-base);
+    border: 3px solid var(--primary-color);
+    border-radius: var(--border-radius);
     outline: none;
     transition: border-color 0.3s;
 }
@@ -43,53 +46,90 @@
 }
 
 .profile-form button {
-    background: #004D40;
-    font-family: 'Inter', sans-serif;
+    background: var(--primary-color);
     font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-    color: #FFFFFF;
-    border: 3px solid #CCCCCC;
-    padding: 12px 24px;
-    border-radius: 8px;
+    font-size: var(--font-size-base);
+    color: white;
+    border: 3px solid var(--secondary-color);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .profile-form button:hover {
-    background: #FFFFFF;
-    color: #004D40;
-    border-color: #004D40;
+    background: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
-/* ✅ Botón CANCELAR con estilos modificados */
-.profile-form .btn-cancel {
-    background: #CCCCCC;
-    color: #333333;
-    border: 3px solid #CCCCCC;
+.btn-cancel {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border: 3px solid var(--secondary-color);
 }
 
-.profile-form .btn-cancel:hover {
-    background: #FFFFFF;
-    color: #333333;
-    border-color: #004D40;
+.btn-cancel:hover {
+    background: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .profile-form-message {
     text-align: center;
     font-size: 14px;
     font-weight: bold;
-    margin-top: 1rem;
+    margin-top: var(--spacing);
 }
 
 .profile-form-message.success {
     font-size: 18px;
     color: #008000;
-    margin-bottom: 20px;
 }
 
 .profile-form-message.error {
     font-size: 18px;
-    color: #AE0B0B;
-    margin-bottom: 20px;
+    color: var(--danger-color);
+}
+
+/* === Media Queries === */
+@media (max-width: var(--bp-tablet)) {
+    .profile-form-container {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: var(--bp-mobile)) {
+    .profile-form-container {
+        max-width: 350px;
+    }
+
+    .profile-form-title {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: var(--bp-small)) {
+    .profile-form-container {
+        max-width: 300px;
+    }
+
+    .profile-form-title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: var(--bp-xsmall)) {
+    .profile-form-container {
+        max-width: 250px;
+    }
+
+    .profile-form-title {
+        font-size: 16px;
+    }
+
+    .profile-form button {
+        font-size: 12px;
+        padding: 6px;
+    }
 }

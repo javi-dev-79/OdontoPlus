@@ -1,6 +1,9 @@
+/* === Estilos globales importados desde App.css === */
+@import './../App.css';
+
 .footer {
-  background-color: #cccccc;
-  color: #333333;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   height: 200px;
   width: 100%;
   margin-top: auto;
@@ -9,18 +12,18 @@
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: var(--spacing);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
+  gap: var(--spacing);
   height: 100%;
 }
 
 .footer-logo-image {
   width: 100px;
   height: 100px;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 .footer-navigation-links {
@@ -32,14 +35,14 @@
 .footer-navigation-links nav {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--spacing);
 }
 
 .footer-link {
   text-decoration: none;
-  color: #333333;
-  font-size: 16px;
-  padding: 10px;
+  color: var(--text-color);
+  font-size: var(--font-size-base);
+  padding: var(--spacing);
 }
 
 .footer-link:hover {
@@ -52,13 +55,13 @@
 
 .social-icons {
   display: flex;
-  gap: 20px;
+  gap: var(--spacing);
   margin-bottom: 30px;
   justify-content: flex-end;
 }
 
 .social-icon {
-  color: #004d40;
+  color: var(--primary-color);
   font-size: 50px;
   text-decoration: none;
 }
@@ -68,10 +71,10 @@
 }
 
 .cita-button {
-  padding: 20px;
-  background-color: #004d40;
-  color: #ffffff;
-  border: solid #ffffff 3px;
+  padding: var(--spacing);
+  background-color: var(--primary-color);
+  color: white;
+  border: solid white 3px;
   border-radius: 25px;
   cursor: pointer;
   font-size: 18px;
@@ -80,24 +83,24 @@
 }
 
 .cita-button:hover {
-  background-color: #ffffff;
-  color: #333333;
+  background-color: white;
+  color: var(--text-color);
   opacity: 0.9;
-  border: solid #004d40 3px;
+  border: solid var(--primary-color) 3px;
 }
 
 .social-media-icon {
   font-size: 40px;
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 5px;
-  color: #004d40;
+  color: var(--primary-color);
 }
 
 .social-media-icon-inv {
   font-size: 40px;
-  background-color: #004d40;
+  background-color: var(--primary-color);
   border-radius: 5px;
-  color: #ffffff;
+  color: white;
   padding: 2px;
 }
 
@@ -112,29 +115,10 @@
   border: 0;
 }
 
-@media (max-width: 1440px) {
-  .footer {
-    height: 200px;
-  }
-
-  .footer-logo-image {
-    width: 90px;
-    height: 90px;
-  }
-
-  .social-icon {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 1024px) {
+/* === Media Queries === */
+@media (max-width: var(--bp-tablet)) {
   .footer {
     height: 180px;
-  }
-
-  .footer-content {
-    padding: 15px;
-    gap: 10px;
   }
 
   .footer-logo-image {
@@ -143,25 +127,11 @@
   }
 
   .social-icon {
-    font-size: 35px;
-  }
-
-  .cita-button {
-    font-size: 14px;
-    padding: 12px;
-  }
-
-  .footer-link {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  .footer-info {
-    font-size: 14px;
+    font-size: 40px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: var(--bp-mobile)) {
   .footer {
     height: 140px;
   }
@@ -176,38 +146,12 @@
     height: 50px;
   }
 
-  .footer-info {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 8px;
-    line-height: 10px;
-  }
-
-  .footer-navigation-links {
-    line-height: 21px;
-  }
-
   .footer-link {
     font-size: 10px;
     padding: 4px;
-    line-height: 12px;
-  }
-
-  .footer-info {
-    font-size: 10px;
   }
 
   .social-icon {
-    font-size: 30px;
-  }
-
-  .social-icons {
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-
-  .social-media-icon,
-  .social-media-icon-inv {
     font-size: 30px;
   }
 
@@ -217,42 +161,47 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: var(--bp-small)) {
   .footer {
     height: 110px;
-  }
-
-  .footer-navigation-links {
-    line-height: 10px;
   }
 
   .footer-link {
     font-size: 6px;
     padding: 2px;
-    line-height: 10px;
-  }
-
-  .footer-info {
-    font-size: 6px;
-    line-height: 10px;
   }
 
   .social-icon {
     font-size: 20px;
   }
 
-  .social-icons {
-    gap: 4px;
-    margin-bottom: 10px;
-  }
-
-  .social-media-icon,
-  .social-media-icon-inv {
-    font-size: 25px;
-  }
-
   .cita-button {
     font-size: 10px;
     padding: 8px 12px;
+  }
+}
+
+
+@media (max-width: var(--bp-xsmall)) {
+  .footer {
+    height: 90px;
+  }
+
+  .footer-logo-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-link {
+    font-size: 12px;
+  }
+
+  .social-icon {
+    font-size: 30px;
+  }
+
+  .cita-button {
+    font-size: 12px;
+    padding: 6px 10px;
   }
 }

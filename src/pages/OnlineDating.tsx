@@ -1,5 +1,5 @@
 import DatingOptions from '../components/OnlineDating/DatingOptions'
-import '../styles/online-dating.css'
+import '../styles/OnlineDating.css'
 
 const OnlineDating = () => {
     return (

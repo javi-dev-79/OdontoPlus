@@ -1,0 +1,124 @@
+/* === Estilos globales importados desde App.css === */
+@import './../App.css';
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--light-bg);
+}
+
+.auth-form {
+    background-color: white;
+    border: 3px solid var(--primary-color);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+    max-width: 500px;
+}
+
+.auth-form:hover {
+    background-color: var(--secondary-color);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: bold;
+}
+
+.input-group label {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+}
+
+.input-group input {
+    font-size: var(--font-size-base);
+    padding: var(--spacing);
+    border: 3px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #002D27;
+}
+
+button {
+    font-size: var(--font-size-base);
+    font-weight: 550;
+    padding: var(--spacing);
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: white;
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+}
+
+.error-message {
+    color: red;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.call-to-action {
+    margin: 2rem 0 .3rem 0;
+}
+
+/* === Media Queries === */
+@media (max-width: var(--bp-tablet)) {
+    .auth-form {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: var(--bp-mobile)) {
+    .auth-form {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: var(--bp-small)) {
+    .auth-form {
+        max-width: 300px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: var(--bp-xsmall)) {
+    .auth-form {
+        max-width: 250px;
+    }
+
+    .auth-title {
+        font-size: 18px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+}

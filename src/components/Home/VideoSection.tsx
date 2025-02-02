@@ -41,7 +41,7 @@
 // export default VideoSection
 
 import { useState } from 'react'
-import '../../styles/home.css'
+import '../../styles/Home.css'
 import video from '../../assets/videos/Olivia-Noble.mp4'
 
 const VideoSection = () => {

@@ -1,5 +1,5 @@
 import NewsContent from './NewsContent'
-import '../../styles/home.css'
+import '../../styles/Home.css'
 import image from '../../assets/images/newsletter-image.webp'
 
 const Newsletter = () => {

@@ -80,6 +80,7 @@
 .custom-right-nav {
   display: inline-flex;
   align-items: center;
+  border: none;
 }
 
 .carousel-cta-button {

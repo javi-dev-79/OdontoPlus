@@ -33,7 +33,7 @@
 import { Link } from 'react-router-dom'
 import { FaInstagramSquare, FaLinkedin, FaFacebook } from 'react-icons/fa'
 import { IoLogoYoutube } from 'react-icons/io'
-import '../../styles/footer.css'
+import '../../styles/Footer.css'
 
 const FooterSocialMedia = () => {
   return (

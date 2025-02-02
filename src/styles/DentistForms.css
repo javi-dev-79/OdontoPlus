@@ -1,182 +1,137 @@
-.create-dentist-container {
-    max-width: 600px;
-    margin: 3rem auto;
-    padding: 24px;
-    background: white;
-    border: 3px solid #004D40;
-    border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+/* === Estilos globales importados desde App.css === */
+@import './../App.css';
 
-.title {
-    font-size: 40px;
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    line-height: 55px;
-    color: #004D40;
-    margin-bottom: 20px;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.input-group label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #004D40;
-    margin-bottom: 5px;
-}
-
-.input-group input,
-.input-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #004D40;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-    outline: none;
-}
-
-.input-group textarea {
-    height: 100px;
-    resize: none;
-}
-
-.btn {
-    background: #004D40;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-    color: #FFFFFF;
-    border: 3px solid #CCCCCC;
-    padding: 10px 16px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    /* ✅ Espacio entre icono y texto */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 180px;
-}
-
-.btn:hover {
-    background: #FFFFFF;
-    color: #333333;
-    border-color: #004D40;
-}
-
-.btn-submit {
-    margin-top: 20px;
-}
-
-.btn-cancel {
-    background: #CCCCCC;
-    border-color: #666666;
-    color: #333333;
-}
-
-.btn-cancel:hover {
-    background: #FFFFFF;
-    color: #004D40;
-    border-color: #004D40;
-}
-
+.create-dentist-container,
 .edit-dentist-container {
     max-width: 600px;
     margin: 3rem auto;
     padding: 24px;
     background: white;
-    border: 3px solid #004D40;
-    border-radius: 15px;
+    border: 3px solid var(--primary-color);
+    border-radius: var(--border-radius);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
+.title,
 .edit-dentist__title {
     font-size: 40px;
     font-family: 'Playfair Display', serif;
     font-weight: bold;
-    color: #004D40;
+    color: var(--primary-color);
     margin-bottom: 20px;
 }
 
+.form-container,
 .edit-dentist__form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--spacing);
 }
 
+.input-group,
 .edit-dentist__input-group {
     display: flex;
     flex-direction: column;
     text-align: left;
 }
 
+.input-group label,
 .edit-dentist__input-group label {
-    font-size: 16px;
+    font-size: var(--font-size-base);
     font-weight: bold;
-    color: #004D40;
+    color: var(--primary-color);
     margin-bottom: 5px;
 }
 
+.input-group input,
+.input-group textarea,
 .edit-dentist__input-group input,
 .edit-dentist__input-group textarea {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #004D40;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
+    padding: var(--spacing);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
     outline: none;
 }
 
+.input-group textarea,
 .edit-dentist__input-group textarea {
     height: 100px;
     resize: none;
 }
 
+.btn,
 .edit-dentist__btn {
-    background: #004D40;
+    background: var(--primary-color);
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 16px;
-    color: #FFFFFF;
-    border: 3px solid #CCCCCC;
+    font-size: var(--font-size-base);
+    color: white;
+    border: 3px solid var(--secondary-color);
     padding: 10px 16px;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 180px;
 }
 
+.btn:hover,
 .edit-dentist__btn:hover {
-    background: #FFFFFF;
-    color: #004D40;
-    border-color: #004D40;
+    background: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
+.btn-cancel,
 .edit-dentist__btn--cancel {
-    background: #CCCCCC;
-    border-color: #666666;
-    color: #333333;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border: 3px solid var(--secondary-color);
 }
 
+.btn-cancel:hover,
 .edit-dentist__btn--cancel:hover {
-    background: #FFFFFF;
-    color: #004D40;
-    border-color: #004D40;
+    background: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* === Media Queries === */
+@media (max-width: var(--bp-tablet)) {
+    .create-dentist-container, .edit-dentist-container {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: var(--bp-mobile)) {
+    .create-dentist-container, .edit-dentist-container {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: var(--bp-small)) {
+    .create-dentist-container, .edit-dentist-container {
+        max-width: 350px;
+    }
+
+    .title, .edit-dentist__title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: var(--bp-xsmall)) {
+    .create-dentist-container, .edit-dentist-container {
+        max-width: 280px;
+    }
+
+    .title, .edit-dentist__title {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
 }

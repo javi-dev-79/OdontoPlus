@@ -12,7 +12,7 @@ import {
 import { useAuth } from '../../contexts/UseAuth'
 import { useNavigate } from 'react-router-dom'
 import { Appointment, Dentist } from '../types'
-import '../../styles/online-dating.css'
+import '../../styles/OnlineDating.css'
 
 const DatingOptions = () => {
   const [appointments, setAppointments] = useState<Appointment[]>([])

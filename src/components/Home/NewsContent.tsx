@@ -51,7 +51,7 @@
 
 import React, { useState } from 'react'
 import { MdEmail } from 'react-icons/md'
-import '../../styles/home.css'
+import '../../styles/Home.css'
 
 const NewsContent = () => {
   const [email, setEmail] = useState('')

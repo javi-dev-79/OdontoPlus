@@ -1,17 +1,16 @@
-@import '@fortawesome/fontawesome-free/css/all.min.css';
+/* === Estilos globales importados desde App.css === */
+@import './../App.css';
 
 .navbar {
-  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 100vw;
   height: 100px;
-  background-color: #004d40;
+  background-color: var(--primary-color);
   z-index: 999;
   display: flex;
   justify-content: center;
-  padding: 0 20px;
+  padding: 0 var(--spacing);
   box-sizing: border-box;
 }
 
@@ -25,84 +24,86 @@
 
 .nav-links ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
-}
-
-.nav-links li {
-  margin-right: 20px;
+  gap: var(--spacing);
 }
 
 .nav-links a {
   text-decoration: none;
   color: white;
-  font-size: 14px;
-  font-family: 'Roboto', sans-serif;
+  font-size: var(--font-size-base);
   font-weight: 550;
-  line-height: 22px;
-  padding: 15px;
-  border-radius: 8px;
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
 }
 
 .nav-links a:hover {
-  background-color: #ffffff;
-  color: #333333;
+  background-color: white;
+  color: var(--text-color);
 }
 
 .logo-image {
   width: 70px;
   height: 70px;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 .user-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-right: 20px;
 }
 
 .sign-in-button {
-  background-color: #fff;
-  color: #004d40;
-  border: 1px solid #004d40;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 22px;
+  background-color: white;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
   font-weight: bold;
-  font-family: 'Roboto', sans-serif;
 }
 
 .sign-in-button:hover {
-  color: #333333;
+  color: var(--text-color);
 }
 
-
-@media (min-width: 1025px) {
-  .mobile-actions {
-    display: none;
-  }
-
-  .dropdown-menu,
-  .dropdown-menu.show {
-    display: none !important;
-  }
+/* Mobile & Dropdown Menu */
+.mobile-actions {
+  display: none;
 }
 
-@media (max-width: 1024px) {
-  .desktop-actions {
-    display: none;
-  }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 200px;
+  background-color: var(--secondary-color);
+  z-index: 998;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+}
 
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 15px;
+  text-align: left;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #a0bebb;
+}
+
+@media (max-width: var(--bp-tablet)) {
   .navbar {
     height: 80px;
-  }
-
-  .navbar-content {
-    max-width: 100%;
   }
 
   .nav-links {
@@ -120,10 +121,9 @@
     justify-content: center;
     width: 48px;
     height: 48px;
-    color: #ffffff;
+    color: white;
     font-size: 24px;
     cursor: pointer;
-    margin-right: 10px;
   }
 
   .hamburger-menu {
@@ -132,50 +132,13 @@
     justify-content: center;
     width: 48px;
     height: 48px;
-    color: #ffffff;
+    color: white;
     font-size: 48px;
     cursor: pointer;
   }
-
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 80px;
-    right: 0;
-    width: 200px;
-    background-color: #b0d4d0;
-    z-index: 998;
-    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
-  }
-
-  .dropdown-menu.show {
-    display: block;
-  }
-
-  .dropdown-menu a {
-    display: block;
-    padding: 15px;
-    text-align: left;
-    color: #333333;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
-    text-decoration: none;
-  }
-
-  .dropdown-menu a:hover {
-    background-color: #a0bebb;
-    color: #333333;
-  }
-
-  .logo-image {
-    width: 40px;
-    height: 40px;
-  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: var(--bp-mobile)) {
   .navbar {
     height: 70px;
   }
@@ -185,18 +148,14 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: var(--bp-small)) {
   .navbar {
     height: 60px;
   }
 
   .logo-image {
-    width: 35px;
-    height: 35px;
-  }
-
-  .hamburger-menu {
-    font-size: 30px;
+    width: 40px;
+    height: 40px;
   }
 
   .dropdown-menu {
@@ -204,9 +163,19 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: var(--bp-xsmall)) {
   .navbar {
     height: 50px;
+  }
+
+  .logo-image {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sign-in-button {
+    font-size: 12px;
+    padding: 6px;
   }
 
   .dropdown-menu {

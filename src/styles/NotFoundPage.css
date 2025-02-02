@@ -1,4 +1,5 @@
-/* NotFoundPage.css */
+/* === Estilos globales importados desde App.css === */
+@import './../App.css';
 
 .not-found-container {
     display: flex;
@@ -6,48 +7,50 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f3f4f6;
+    background-color: var(--light-bg);
+    text-align: center;
+    padding: var(--spacing);
 }
 
 .not-found-card {
     background: white;
-    padding: 2rem;
-    border-radius: 12px;
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 500px;
     width: 100%;
-    border: 3px solid #004D40;
+    border: 3px solid var(--primary-color);
 }
 
 .not-found-title {
-    color: #004D40;
+    color: var(--primary-color);
     font-size: 1.8rem;
     font-weight: bold;
 }
 
 .not-found-text {
-    color: #333333;
+    color: var(--text-color);
     font-size: 1.5rem;
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
 }
 
 .not-found-button {
-    background-color: #004D40;
-    border: 3px solid #CCCCCC;
-    color: #FFFFFF;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 8px;
+    background-color: var(--primary-color);
+    border: 3px solid var(--secondary-color);
+    color: white;
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 1.2rem;
 }
 
 .not-found-button:hover {
-    background-color: #FFFFFF;
-    border: 3px solid #004D40;
+    background-color: white;
+    border: 3px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
 .not-found-logo {
@@ -56,4 +59,62 @@
     max-width: 100%;
     display: block;
     margin: 0 auto;
+}
+
+/* === Media Queries === */
+@media (max-width: var(--bp-tablet)) {
+    .not-found-card {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: var(--bp-mobile)) {
+    .not-found-card {
+        max-width: 350px;
+    }
+
+    .not-found-title {
+        font-size: 1.5rem;
+    }
+
+    .not-found-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: var(--bp-small)) {
+    .not-found-card {
+        max-width: 300px;
+    }
+
+    .not-found-title {
+        font-size: 1.3rem;
+    }
+
+    .not-found-text {
+        font-size: 1rem;
+    }
+
+    .not-found-button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: var(--bp-xsmall)) {
+    .not-found-card {
+        max-width: 250px;
+    }
+
+    .not-found-title {
+        font-size: 18px;
+    }
+
+    .not-found-text {
+        font-size: 16px;
+    }
+
+    .not-found-button {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
 }

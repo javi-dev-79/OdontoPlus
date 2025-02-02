@@ -1,3 +1,6 @@
+/* === Estilos globales importados desde App.css === */
+@import './../App.css';
+
 .about-us-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -88,42 +91,18 @@
     text-align: justify;
 }
 
-@media (max-width: 1440px) {
+/* === Media Queries === */
+@media (max-width: var(--bp-tablet)) {
     .about-us-container {
-        max-width: 1000px;
-        padding-top: 3rem;
-    }
-
-    .about-us-images {
-        padding-top: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .about-us-facilities {
-        padding-bottom: 3rem;
-    }
-}
-
-@media (max-width: 1024px) {
-    .about-us-container {
-        padding-top: 2rem;
         max-width: 700px;
-    }
-
-    .about-us-images {
         padding-top: 3rem;
-        margin-bottom: 1rem;
-    }
-
-    .about-us-facilities {
-        padding-bottom: 2rem;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: var(--bp-mobile)) {
     .about-us-container {
-        padding-top: 1rem;
         max-width: 350px;
+        padding-top: 2rem;
     }
 
     .about-us-title {
@@ -135,40 +114,45 @@
         line-height: 1.3rem;
     }
 
-    .about-us-images {
-        margin-bottom: 1rem;
-        padding-top: 2rem;
+    .about-us-image {
+        width: 250px;
+    }
+
+    .about-us-team h2, .about-us-facilities h2 {
+        font-size: 1rem;
+    }
+
+    .about-us-team p, .about-us-facilities p {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+    }
+}
+
+@media (max-width: var(--bp-xsmall)) {
+    .about-us-container {
+        max-width: 280px;
+        padding-top: 1rem;
+    }
+
+    .about-us-title {
+        font-size: 1.2rem;
+    }
+
+    .about-us-description {
+        font-size: 0.7rem;
+        line-height: 1.2rem;
     }
 
     .about-us-image {
-        width: 250px;
-        height: auto;
+        width: 200px;
     }
 
-    .about-us-team h2 {
-        font-size: 1rem;
+    .about-us-team h2, .about-us-facilities h2 {
+        font-size: 0.9rem;
     }
 
-    .about-us-team p {
-        width: 100%;
-        padding: 20px;
-        font-size: 0.8rem;
-        color: #333333;
-        line-height: 1.3rem;
-    }
-
-    .about-us-facilities {
-        padding-bottom: 2rem;
-    }
-
-    .about-us-facilities h2 {
-        font-size: 1rem;
-        color: #2c3e50;
-        margin-bottom: 15px;
-    }
-
-    .about-us-facilities p {
-        font-size: 0.8rem;
-        line-height: 1.3rem;
+    .about-us-team p, .about-us-facilities p {
+        font-size: 0.7rem;
+        line-height: 1.1rem;
     }
 }

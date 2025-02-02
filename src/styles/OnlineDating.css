@@ -1,0 +1,111 @@
+/* === Estilos globales importados desde App.css === */
+@import './../App.css';
+
+.dating-options {
+    padding: var(--spacing);
+    font-family: Arial, sans-serif;
+}
+
+.dating-options__title {
+    font-size: 24px;
+    margin-bottom: var(--spacing);
+    font-weight: bold;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.dating-options__table-container {
+    overflow-x: auto;
+    margin-top: var(--spacing);
+}
+
+.dating-options__table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.dating-options__table th,
+.dating-options__table td {
+    border: 1px solid var(--secondary-color);
+    padding: var(--spacing);
+    text-align: left;
+}
+
+.dating-options__table th {
+    background-color: var(--light-bg);
+    font-weight: bold;
+}
+
+.btn--confirm {
+    background-color: #218838;
+    color: white;
+}
+
+.btn--confirm:hover {
+    background-color: #1e7e34;
+}
+
+.btn--cancel {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.btn--cancel:hover {
+    background-color: #b3b3b3;
+}
+
+.btn--edit {
+    background-color: #125684;
+    color: white;
+}
+
+.btn--edit:hover {
+    background-color: #0e4466;
+}
+
+.btn--delete {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn--delete:hover {
+    background-color: #8c0909;
+}
+
+/* === Media Queries === */
+@media (max-width: var(--bp-tablet)) {
+    .dating-options__table {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: var(--bp-mobile)) {
+    .dating-options__title {
+        font-size: 20px;
+    }
+
+    .dating-options__table {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: var(--bp-small)) {
+    .dating-options__title {
+        font-size: 18px;
+    }
+
+    .dating-options__table {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: var(--bp-xsmall)) {
+    .dating-options__title {
+        font-size: 16px;
+    }
+
+    .dating-options__table {
+        font-size: 9px;
+    }
+}

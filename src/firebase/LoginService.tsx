@@ -86,7 +86,7 @@ import { useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { doc, getDoc } from 'firebase/firestore'
 import { auth, db } from '../config/firebase-config'
-import '../styles/login-register.css'
+import '../styles/LoginRegister.css'
 
 const LoginService = () => {
   const [email, setEmail] = useState('')

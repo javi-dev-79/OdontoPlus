@@ -3,7 +3,7 @@
 // import { createUserWithEmailAndPassword } from 'firebase/auth'
 // import { doc, setDoc, Timestamp } from 'firebase/firestore'
 // import { auth, db } from '../config/firebase-config'
-// import '../styles/login-register.css'
+// import '../styles/LoginRegister.css'
 
 // const RegisterService = () => {
 //   const [email, setEmail] = useState('')
@@ -82,7 +82,7 @@ import { useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { doc, setDoc, Timestamp } from 'firebase/firestore'
 import { auth, db } from '../config/firebase-config'
-import '../styles/login-register.css'
+import '../styles/LoginRegister.css'
 
 const RegisterService = () => {
   const [email, setEmail] = useState('')
