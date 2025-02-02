@@ -12,9 +12,11 @@ const ContactMapButton: React.FC<ContactMapButtonProps> = ({ location }) => {
   }
 
   return (
-    <button className='get-directions-btn' onClick={handleGetDirections}>
-      Como llegar...
-    </button>
+    <div className='get-directions-container'>
+      <button className='get-directions-btn' onClick={handleGetDirections}>
+        Como llegar...
+      </button>
+    </div>
   )
 }
 
