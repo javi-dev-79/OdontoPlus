@@ -146,7 +146,7 @@ const AdminPanel = () => {
       <h1 className='admin-title'>PANEL DE ADMINISTRACIÓN</h1>
 
       <div className='admin-panel-header '>
-        <h2 className='admin-panel-subtitle'>PANEL DE USUARIOS</h2>
+        <h2>PANEL DE USUARIOS</h2>
         <select
           className='filter-select'
           value={selectedFilter}
@@ -213,7 +213,7 @@ const AdminPanel = () => {
         )}
       </div>
 
-      <h2 className='admin-panel-subtitle'>GESTIÓN DE DENTISTAS</h2>
+      <h2 className='admin-panel-header'>GESTIÓN DE DENTISTAS</h2>
 
       <div className='user-list'>
         {dentists.length > 0 ? (

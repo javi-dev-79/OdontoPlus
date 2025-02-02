@@ -103,7 +103,6 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    /* ✅ Espacio entre icono y texto */
     cursor: pointer;
     transition: all 0.3s ease;
     min-width: 180px;
