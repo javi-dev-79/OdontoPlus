@@ -1,0 +1,123 @@
+.create-appointment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 1rem;
+}
+
+.create-appointment {
+    max-width: 500px;
+    width: 100%;
+    padding: 2rem;
+    border: 3px solid #004D40;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.create-appointment__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #004D40;
+    margin-bottom: 1.5rem;
+}
+
+.create-appointment__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.create-appointment__label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.create-appointment__input,
+.create-appointment__select {
+    padding: 12px;
+    border: 3px solid #004D40;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.create-appointment__input:focus,
+.create-appointment__select:focus {
+    border-color: #002d26;
+}
+
+.create-appointment__button {
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #004D40;
+    border: 3px solid #CCCCCC;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 1.5rem;
+}
+
+.create-appointment__button:hover {
+    background: #fff;
+    color: #333;
+    border-color: #004D40;
+}
+
+/* ✅ Para pantallas menores a 480px (tablets y móviles) */
+@media (max-width: 480px) {
+    .create-appointment {
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+
+    .create-appointment__title {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+
+    .create-appointment__input,
+    .create-appointment__select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .create-appointment__button {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+/* ✅ Para pantallas menores a 320px (móviles pequeños) */
+@media (max-width: 320px) {
+    .create-appointment {
+        max-width: 95%;
+        padding: 1rem;
+    }
+
+    .create-appointment__title {
+        font-size: 18px;
+        margin-bottom: 0.8rem;
+    }
+
+    .create-appointment__input,
+    .create-appointment__select {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .create-appointment__button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
