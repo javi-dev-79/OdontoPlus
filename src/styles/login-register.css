@@ -80,16 +80,10 @@ button:hover {
 }
 
 .error-message {
-    background-color: #ffdddd;
-    color: #d8000c;
-    border: 1px solid #d8000c;
-    padding: 10px;
-    border-radius: 4px;
+    color: red;
+    font-size: 20px;
+    margin-bottom: 1rem;
     text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    width: 100%;
-    max-width: 300px;
 }
 
 .call-to-action {

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../../config/firebase-config'
-import '../../styles/CreateDentistForm.css'
+import '../../styles/DentistForms.css'
 
 const CreateDentistForm = () => {
   const [fullName, setFullName] = useState('')
@@ -74,7 +74,10 @@ const CreateDentistForm = () => {
         </button>
       </form>
 
-      <button className='btn btn-cancel' onClick={() => navigate('/admin-panel')}>
+      <button
+        className='btn btn-cancel'
+        onClick={() => navigate('/admin-panel')}
+      >
         CANCELAR
       </button>
     </div>

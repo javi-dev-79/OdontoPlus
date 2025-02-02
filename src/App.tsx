@@ -16,9 +16,10 @@ import LoginService from './firebase/LoginService'
 import CreateProfileForm from './components/Profile/CreateProfile'
 import EditProfileForm from './components/Profile/EditProfileForm'
 import CreateAppointmentForm from './components/Appointment/CreateAppointmentForm'
-import EditAppointmentForm from './components/Appointment/EditAppointmentForm'
+// import EditAppointmentForm from './components/Appointment/EditAppointmentForm'
 import CreateDentistForm from './components/Dentists/CreateDentistForm'
 import NotFound from './pages/NotFound'
+import EditDentistForm from './components/Dentists/EditDentistForm'
 
 function App() {
   return (
@@ -36,15 +37,18 @@ function App() {
             <Route element={<PrivateRoute />}>
               <Route path='/online-dating' element={<OnlineDating />} />
               <Route path='/create-profile' element={<CreateProfileForm />} />
-              <Route path='/edit-profile' element={<EditProfileForm />} />
+              <Route
+                path='/edit-profile/:userId'
+                element={<EditProfileForm />}
+              />
               <Route
                 path='/create-appointment'
                 element={<CreateAppointmentForm />}
               />
-              <Route
+              {/* <Route
                 path='/edit-appointment/:appointmentId'
                 element={<EditAppointmentForm appointmentId={''} />}
-              />
+              /> */}
             </Route>
             <Route element={<PrivateRoute adminOnly={true} />}>
               <Route path='/admin-panel' element={<AdminPanel />} />
@@ -53,7 +57,7 @@ function App() {
                 element={<ApproveRejectUser />}
               />
               <Route path='/add-dentist' element={<CreateDentistForm />} />{' '}
-              {/* ✅ Nueva ruta agregada */}
+              <Route path='/edit-dentist/:id' element={<EditDentistForm />} />
             </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>

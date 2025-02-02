@@ -1,64 +1,123 @@
-/* styles/online-dating.css */
 .dating-options {
     padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
-.buttons {
+.dating-options__title {
+    font-size: 24px;
     margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
 }
 
-.buttons button {
-    margin-right: 10px;
+.dating-options__table-container {
+    overflow-x: auto;
+    margin-top: 20px;
 }
 
-table {
+.dating-options__table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #fff;
 }
 
-table, th, td {
+.dating-options__table th,
+.dating-options__table td {
     border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 8px;
+    padding: 10px;
     text-align: left;
 }
 
-th {
-    background-color: #f2f2f2;
+.dating-options__table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin-bottom: 10px;
-}
-
-form input, form select {
-    padding: 8px;
-    margin-top: 5px;
-}
-
-form button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+.btn {
+    padding: 8px 12px;
     border: none;
     cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-form button:hover {
-    background-color: #45a049;
+.btn--confirm {
+    background-color: #218838;
+    color: white;
+}
+
+.btn--confirm:hover {
+    background-color: #1e7e34;
+}
+
+.btn--cancel {
+    background-color: #CCCCCC;
+    color: black;
+}
+
+.btn--cancel:hover {
+    background-color: #b3b3b3;
+}
+
+.btn--edit {
+    background-color: #125684;
+    color: white;
+}
+
+.btn--edit:hover {
+    background-color: #0e4466;
+}
+
+.btn--delete {
+    background-color: #AE0B0B;
+    color: white;
+}
+
+.btn--delete:hover {
+    background-color: #8c0909;
+}
+
+.dating-options__modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dating-options__modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dating-options__modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.btn--modal-cancel {
+    background-color: #CCCCCC;
+    color: black;
+}
+
+.btn--modal-cancel:hover {
+    background-color: #b3b3b3;
+}
+
+.btn--modal-confirm {
+    background-color: #218838;
+    color: white;
+}
+
+.btn--modal-confirm:hover {
+    background-color: #1e7e34;
 }

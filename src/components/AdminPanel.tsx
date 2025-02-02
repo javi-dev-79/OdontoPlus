@@ -10,11 +10,11 @@ import {
 import { db } from '../config/firebase-config'
 import { Trash2, Edit, PlusCircle } from 'lucide-react'
 import '../styles/AdminPanel.css'
-import { User, Dentist } from './types'
+import { AppUser, Dentist } from './types'
 import { Timestamp } from 'firebase/firestore'
 
 const AdminPanel = () => {
-  const [users, setUsers] = useState<User[]>([])
+  const [appusers, setUsers] = useState<AppUser[]>([])
   const [dentists, setDentists] = useState<Dentist[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedFilter, setSelectedFilter] = useState<
@@ -25,15 +25,15 @@ const AdminPanel = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const usersCollection = collection(db, 'users')
+        const usersCollection = collection(db, 'app-users')
         const snapshot = await getDocs(usersCollection)
         const usersList = snapshot.docs.map((doc) => ({
           userId: doc.id,
           ...doc.data()
-        })) as User[]
+        })) as AppUser[]
         setUsers(usersList)
       } catch (error) {
-        console.error('Error fetching users:', error)
+        console.error('Error fetching app-users:', error)
       }
     }
 
@@ -80,9 +80,9 @@ const AdminPanel = () => {
       }
 
       // Eliminar de Firestore
-      await deleteDoc(doc(db, 'users', id));
+      await deleteDoc(doc(db, 'app-users', id));
 
-      setUsers(users.filter((user) => user.userId !== id));
+      setUsers(app-users.filter((user) => user.userId !== id));
       console.log('Usuario eliminado correctamente');
       */
     } catch (error) {
@@ -115,9 +115,9 @@ const AdminPanel = () => {
       }
 
       // Si la edición es exitosa, actualizarlo en Firestore
-      await updateDoc(doc(db, 'users', id), { role: newRole, status: newStatus });
+      await updateDoc(doc(db, 'app-users', id), { role: newRole, status: newStatus });
 
-      setUsers(users.map((user) =>
+      setUsers(app-users.map((user) =>
         user.userId === id ? { ...user, role: newRole, status: newStatus } : user
       ));
 
@@ -129,7 +129,7 @@ const AdminPanel = () => {
   }
 
   // 🔥 Filtrar usuarios según la opción seleccionada en el <select>
-  const filteredUsers = users.filter((user) =>
+  const filteredUsers = appusers.filter((user) =>
     selectedFilter === 'all' ? true : user.status === selectedFilter
   )
 
@@ -262,3 +262,5 @@ const AdminPanel = () => {
 }
 
 export default AdminPanel
+
+// ********************************************************************************************

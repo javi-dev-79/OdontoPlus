@@ -30,7 +30,7 @@
 
 import { Timestamp } from 'firebase/firestore'
 
-export interface User {
+export interface AppUser {
   userId: string
   email: string
   userType: string
