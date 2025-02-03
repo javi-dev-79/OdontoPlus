@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '../../styles/Services.css'
+import '../../styles/services.css'
 
 interface ServiceCardProps {
   imageUrl: string
