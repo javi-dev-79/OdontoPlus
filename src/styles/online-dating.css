@@ -35,7 +35,6 @@
     max-width: 1200px;
     min-height: 80px;
     margin: 0 auto;
-    /* 🔹 Centra la tabla horizontalmente */
 }
 
 .dating-options__table-title {
@@ -56,7 +55,6 @@
 
 .dating-options__table th {
     background-color: #B0D4D0;
-    /* 🔹 Fondo del encabezado */
     font-weight: bold;
     text-align: left;
     padding: 12px;

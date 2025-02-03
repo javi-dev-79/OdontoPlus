@@ -1,5 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from 'react'
-import '../../styles/Contact.css' // Importamos los estilos
+import '../../styles/Contact.css'
 
 interface FormData {
   nombre: string
@@ -41,7 +41,6 @@ const ContactForm = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
 
-    // Validación
     const newErrors: FormErrors = { nombre: '', email: '', asunto: '' }
 
     if (!formData.nombre) {
@@ -60,10 +59,8 @@ const ContactForm = () => {
 
     setErrors(newErrors)
 
-    // Si no hay errores, puedes procesar el formulario (por ejemplo, enviarlo)
     if (Object.values(newErrors).every((error) => !error)) {
       console.log('Formulario enviado correctamente')
-      // Aquí podrías realizar alguna acción, como enviar el formulario a un servidor
     }
   }
 

@@ -1,4 +1,3 @@
-// src/utils/registerUser.ts
 import { setDoc, doc } from 'firebase/firestore'
 import { db } from '../config/firebase-config'
 
@@ -12,8 +11,8 @@ const registerUser = async (userId: string, email: string) => {
   try {
     const newUser: User = {
       email,
-      role: 'user', // Rol por defecto
-      status: 'pending' // Estado "pending"
+      role: 'user',
+      status: 'pending'
     }
 
     await setDoc(doc(db, 'users', userId), newUser)

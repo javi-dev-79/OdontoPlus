@@ -1,21 +1,21 @@
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
-import { AuthContext } from '../../contexts/AuthContext' // Asegúrate de que la ruta sea correcta
+import { AuthContext } from '../../contexts/AuthContext'
 import { signOut } from 'firebase/auth'
-import { auth } from '../../config/firebase-config' // Asegúrate de que la ruta sea correcta
+import { auth } from '../../config/firebase-config'
 import '../../styles/Header.css'
 
 const UserActions = () => {
   const navigate = useNavigate()
-  const { currentUser } = useContext(AuthContext) // Consume el contexto de autenticación
+  const { currentUser } = useContext(AuthContext)
 
   const handleLogin = () => {
-    navigate('/login') // Redirige a la página de inicio de sesión
+    navigate('/login')
   }
 
   const handleLogout = async () => {
     try {
-      await signOut(auth) // Cierra la sesión del usuario
+      await signOut(auth)
       console.log('Usuario cerró sesión correctamente')
     } catch (error) {
       console.error('Error al cerrar sesión:', error)

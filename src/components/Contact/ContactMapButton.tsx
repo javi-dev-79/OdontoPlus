@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/Contact.css' // Importa el archivo CSS
+import '../../styles/Contact.css'
 
 interface ContactMapButtonProps {
   location: [number, number]

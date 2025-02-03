@@ -22,7 +22,7 @@ interface Patient {
 }
 
 const EditProfileForm: React.FC = () => {
-  const { currentUser } = useAuth() // ✅ Obtenemos el usuario actual
+  const { currentUser } = useAuth()
   const [patientId, setPatientId] = useState<string | null>(null)
   const [patient, setPatient] = useState<Patient | null>(null)
   const [fullName, setFullName] = useState('')
@@ -42,7 +42,6 @@ const EditProfileForm: React.FC = () => {
       try {
         console.log(`Buscando perfil donde id == ${currentUser.uid}`)
 
-        // ✅ Realizamos una consulta para encontrar el documento donde el campo "id" coincida con currentUser.uid
         const q = query(
           collection(db, 'patients'),
           where('id', '==', currentUser.uid)
@@ -50,13 +49,12 @@ const EditProfileForm: React.FC = () => {
         const querySnapshot = await getDocs(q)
 
         if (!querySnapshot.empty) {
-          const docSnapshot = querySnapshot.docs[0] // Obtenemos el primer resultado
+          const docSnapshot = querySnapshot.docs[0]
           const data = docSnapshot.data() as Patient
 
-          setPatientId(docSnapshot.id) // Guardamos el ID del documento en Firestore
+          setPatientId(docSnapshot.id)
           setPatient(data)
 
-          // ✅ Mostrar los datos actuales en el formulario
           setFullName(data.fullName || '')
           setPhone(data.phone || '')
           setDateOfBirth(
@@ -82,7 +80,7 @@ const EditProfileForm: React.FC = () => {
   }, [currentUser])
 
   const isValidPhone = (phone: string) => {
-    const phoneRegex = /^[0-9]{9,15}$/ // Solo números, entre 9 y 15 dígitos
+    const phoneRegex = /^[0-9]{9,15}$/
     return phoneRegex.test(phone)
   }
 
@@ -99,7 +97,7 @@ const EditProfileForm: React.FC = () => {
     }
 
     if (patientId) {
-      const docRef = doc(db, 'patients', patientId) // ✅ Corrección aquí
+      const docRef = doc(db, 'patients', patientId)
 
       try {
         await updateDoc(docRef, {

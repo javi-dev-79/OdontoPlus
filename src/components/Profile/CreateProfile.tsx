@@ -14,13 +14,13 @@ const CreateProfileForm = () => {
   const navigate = useNavigate()
 
   const isValidPhone = (phone: string) => {
-    const phoneRegex = /^[0-9]{9,15}$/ // Solo números, entre 9 y 15 dígitos
+    const phoneRegex = /^[0-9]{9,15}$/
     return phoneRegex.test(phone)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setErrorMessage(null) // Limpiar errores previos
+    setErrorMessage(null)
 
     if (!isValidPhone(phone)) {
       setErrorMessage(
@@ -40,7 +40,7 @@ const CreateProfileForm = () => {
       })
 
       console.log('Perfil creado correctamente')
-      navigate('/online-dating') // Redirigir a la página de citas en línea
+      navigate('/online-dating')
     }
   }
 

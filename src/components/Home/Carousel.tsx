@@ -82,7 +82,7 @@ const Carousel = () => {
         slideInterval={5000}
         renderLeftNav={renderLeftNav}
         renderRightNav={renderRightNav}
-        onSlide={handleSlideChange} // Manejar el cambio de slide
+        onSlide={handleSlideChange}
         aria-label='Carrusel de imágenes'
       />
       <div className='carousel-content'>
@@ -94,7 +94,7 @@ const Carousel = () => {
           PIDE CITA
         </Link>
 
-        {/* Paginadores */}
+        {/* Paginators */}
         <div className='carousel-pagination'>
           {slidesInfo.map((_, index) => (
             <div
