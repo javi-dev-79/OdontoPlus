@@ -8,15 +8,12 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>OdontoPlus | Tu Sonrisa, Nuestra Pasión</title>
+        <title>Inicio | OdontoPlus</title>
         <meta
           name='description'
           content='Bienvenido a OdontoPlus, la mejor clínica dental para el cuidado de tu sonrisa.'
         />
-        <meta
-          property='og:title'
-          content='OdontoPlus | Tu Sonrisa, Nuestra Pasión'
-        />
+        <meta property='og:title' content='Inicio | OdontoPlus' />
         <meta
           property='og:description'
           content='Descubre nuestros tratamientos dentales y agenda tu cita con nuestros especialistas.'
