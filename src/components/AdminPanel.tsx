@@ -61,11 +61,11 @@ const AdminPanel = () => {
     return timestamp ? new Date(timestamp.toDate()).toLocaleString() : 'N/A'
   }
 
-  // ⚠️ Temporalmente desactivado hasta que subas el backend en Netlify Functions
+  // ⚠️ Temporalmente desactivado hasta que suba el backend en Netlify Functions
   const handleDeleteUser = async (id: string) => {
     try {
       console.log(`(Temporal) Eliminar usuario con ID: ${id}`)
-
+  
       /*
       const response = await fetch('https://YOUR_NETLIFY_FUNCTION_URL/delete-user', {
         method: 'DELETE',
@@ -90,7 +90,7 @@ const AdminPanel = () => {
     }
   }
 
-  // ⚠️ Temporalmente desactivado hasta que subas el backend en Netlify Functions
+  // ⚠️ Temporalmente desactivado hasta que suba el backend en Netlify Functions
   const handleEditUser = async (
     id: string,
     newRole: string,
@@ -128,7 +128,6 @@ const AdminPanel = () => {
     }
   }
 
-  // 🔥 Filtrar usuarios según la opción seleccionada en el <select>
   const filteredUsers = appusers.filter((user) =>
     selectedFilter === 'all' ? true : user.status === selectedFilter
   )
@@ -252,7 +251,6 @@ const AdminPanel = () => {
         )}
       </div>
 
-      {/* ✅ Botón "AÑADIR DENTISTA" restaurado con su lógica */}
       <button className='add-dentist' onClick={() => navigate('/add-dentist')}>
         <PlusCircle className='icon-btn' />
         AÑADIR DENTISTA
@@ -262,5 +260,3 @@ const AdminPanel = () => {
 }
 
 export default AdminPanel
-
-// ********************************************************************************************

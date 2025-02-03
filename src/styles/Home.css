@@ -117,7 +117,6 @@
   text-align: center;
   color: rgb(250, 253, 251);
   width: 80%;
-  /* max-width: 800px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -163,7 +162,6 @@
   text-align: center;
   padding: 24px;
   margin-top: 400px;
-  /* Ajusta este valor según la altura del carrusel */
 }
 
 .video-title {
@@ -178,7 +176,6 @@
 .video-player {
   width: 100%;
   max-width: 800px;
-  /* border-radius: 16px; */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border: 3px solid #004d40;
 }
@@ -186,7 +183,6 @@
 .newsletter-container {
   display: flex;
   align-items: center;
-  /* Ya lo tienes, está correcto */
   border: 3px solid #005B4F;
   border-radius: 15px;
   max-width: 1200px;
@@ -196,22 +192,16 @@
 
 .newsletter-image {
   display: flex;
-  /* Añadido */
   align-items: center;
-  /* Añadido */
   justify-content: center;
-  /* Añadido */
   height: 100%;
-  /* Añadido */
 }
 
 .newsletter-image img {
   height: 300px;
   border-radius: 10px 0 0 10px;
   object-fit: cover;
-  /* Añadido */
   width: 100%;
-  /* Añadido */
 }
 
 .newsletter-content {
@@ -257,7 +247,6 @@
   transform: translateY(-50%);
   color: #666;
   pointer-events: none;
-  /* Asegura que el icono no interfiera con el input */
   z-index: 1;
 }
 
@@ -270,7 +259,6 @@
 .subscribe-form input {
   width: 100%;
   padding: 8px 10px 8px 35px;
-  /* Ajustado el padding izquierdo */
   border: 1px solid #ccc;
   border-radius: 8px;
 }
@@ -341,7 +329,6 @@
   color: red;
 }
 
-/* Desktop & Laptop */
 @media (max-width: 1440px) {
   .carousel-pagination-dot {
     width: 12px;
@@ -368,7 +355,6 @@
   }
 }
 
-/* Tablet & Mobile */
 @media (max-width: 1024px) {
   .carousel-container {
     height: 180px;

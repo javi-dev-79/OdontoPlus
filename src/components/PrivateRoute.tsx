@@ -2,7 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 import { useAuth } from '../contexts/UseAuth'
 
 interface PrivateRouteProps {
-  adminOnly?: boolean // Propiedad para indicar si la ruta es solo para administradores
+  adminOnly?: boolean
 }
 
 const PrivateRoute = ({ adminOnly = false }: PrivateRouteProps) => {
@@ -17,7 +17,7 @@ const PrivateRoute = ({ adminOnly = false }: PrivateRouteProps) => {
   console.log('   🔹 Cargando:', loading)
 
   if (loading || !userData) {
-    return <p>Cargando...</p> // Esperamos hasta que userData esté disponible
+    return <p>Cargando...</p>
   }
 
   if (!currentUser) {
@@ -33,7 +33,7 @@ const PrivateRoute = ({ adminOnly = false }: PrivateRouteProps) => {
   }
 
   console.log('✅ Acceso permitido, mostrando componente')
-  return <Outlet /> // Renderiza la ruta protegida
+  return <Outlet />
 }
 
 export default PrivateRoute

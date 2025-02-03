@@ -74,7 +74,6 @@
     border-color: #004D40;
 }
 
-/* ✅ Para pantallas menores a 480px (tablets y móviles) */
 @media (max-width: 480px) {
     .create-appointment {
         max-width: 90%;
@@ -98,7 +97,6 @@
     }
 }
 
-/* ✅ Para pantallas menores a 320px (móviles pequeños) */
 @media (max-width: 320px) {
     .create-appointment {
         max-width: 95%;

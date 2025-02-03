@@ -1,4 +1,4 @@
-import '../../styles/Contact.css' // Importar el archivo CSS
+import '../../styles/Contact.css'
 
 const ContactHead = () => {
   return (

@@ -1,102 +1,3 @@
-// // components/EditAppointmentForm.tsx
-// import React, { useState, useEffect } from 'react'
-// import { db } from '../../config/firebase-config'
-// import { doc, getDoc, updateDoc, Timestamp } from 'firebase/firestore'
-
-// const EditAppointmentForm: React.FC<{ appointmentId: string }> = ({
-//   appointmentId
-// }) => {
-//   const [date, setDate] = useState('')
-//   const [time, setTime] = useState('')
-//   const [dentistId, setDentistId] = useState('')
-//   const [treatment, setTreatment] = useState('')
-//   const [status, setStatus] = useState('')
-
-//   useEffect(() => {
-//     const fetchAppointment = async () => {
-//       const docRef = doc(db, 'appointments', appointmentId)
-//       const docSnap = await getDoc(docRef)
-//       if (docSnap.exists()) {
-//         const data = docSnap.data()
-//         const appointmentDate = data.date.toDate()
-//         setDate(appointmentDate.toISOString().split('T')[0])
-//         setTime(appointmentDate.toTimeString().split(' ')[0])
-//         setDentistId(data.dentistId)
-//         setTreatment(data.treatment)
-//         setStatus(data.status)
-//       }
-//     }
-
-//     fetchAppointment()
-//   }, [appointmentId])
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault()
-//     const appointmentDate = new Date(`${date}T${time}`)
-//     await updateDoc(doc(db, 'appointments', appointmentId), {
-//       date: Timestamp.fromDate(appointmentDate),
-//       dentistId,
-//       treatment,
-//       status,
-//       updatedAt: Timestamp.now()
-//     })
-//     alert('Cita actualizada exitosamente')
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <label>
-//         Fecha:
-//         <input
-//           type='date'
-//           value={date}
-//           onChange={(e) => setDate(e.target.value)}
-//           required
-//         />
-//       </label>
-//       <label>
-//         Hora:
-//         <input
-//           type='time'
-//           value={time}
-//           onChange={(e) => setTime(e.target.value)}
-//           required
-//         />
-//       </label>
-//       <label>
-//         Dentista:
-//         <input
-//           type='text'
-//           value={dentistId}
-//           onChange={(e) => setDentistId(e.target.value)}
-//           required
-//         />
-//       </label>
-//       <label>
-//         Tratamiento:
-//         <input
-//           type='text'
-//           value={treatment}
-//           onChange={(e) => setTreatment(e.target.value)}
-//           required
-//         />
-//       </label>
-//       <label>
-//         Estado:
-//         <select value={status} onChange={(e) => setStatus(e.target.value)}>
-//           <option value='pendiente'>Pendiente</option>
-//           <option value='confirmada'>Confirmada</option>
-//           <option value='cancelada'>Cancelada</option>
-//         </select>
-//       </label>
-//       <button type='submit'>Actualizar Cita</button>
-//     </form>
-//   )
-// }
-
-// export default EditAppointmentForm
-
-
 import { useEffect, useState } from 'react'
 import { db } from '../../config/firebase-config'
 import {
@@ -114,7 +15,7 @@ import '../../styles/online-dating.css'
 
 const DatingOptions = () => {
   const [appointments, setAppointments] = useState<Appointment[]>([])
-  const [patientsMap, setPatientsMap] = useState<{ [key: string]: string }>({}) // 🔥 Mapa de pacientes
+  const [patientsMap, setPatientsMap] = useState<{ [key: string]: string }>({})
   const { currentUser, userData } = useAuth()
   const navigate = useNavigate()
 
@@ -128,12 +29,12 @@ const DatingOptions = () => {
 
         let q
         if (userData?.role === 'admin') {
-          q = query(collection(db, 'appointments')) // 🔥 ADMIN obtiene todas las citas
+          q = query(collection(db, 'appointments'))
         } else if (userData?.role === 'patient') {
           q = query(
             collection(db, 'appointments'),
             where('patientId', '==', currentUser.uid)
-          ) // 🔥 PATIENT obtiene solo sus citas
+          ) 
         }
 
         if (q) {
@@ -146,7 +47,6 @@ const DatingOptions = () => {
           setAppointments(appointmentsData)
           console.log('✅ Citas obtenidas:', appointmentsData)
 
-          // 🔥 Obtener nombres de pacientes para citas de admin
           if (userData?.role === 'admin') {
             const uniquePatientIds = [
               ...new Set(appointmentsData.map((appt) => appt.patientId))
@@ -175,7 +75,6 @@ const DatingOptions = () => {
     fetchAppointments()
   }, [currentUser, userData])
 
-  // 🔥 Función para actualizar el estado de la cita en Firestore
   const updateAppointmentStatus = async (
     appointmentId: string,
     newStatus: 'pending' | 'confirmed' | 'cancelled' | 'completed'
@@ -198,7 +97,6 @@ const DatingOptions = () => {
     <div className='dating-options'>
       {userData?.role === 'admin' || userData?.role === 'patient' ? (
         <>
-          {/* 🔥 TABLA DE CITAS (ADMIN y PATIENT) */}
           <div className='dating-options__table-container'>
             {appointments.length > 0 ? (
               <table className='dating-options__table'>
@@ -207,7 +105,6 @@ const DatingOptions = () => {
                     <th>Fecha</th>
                     <th>Hora</th>
                     {userData?.role === 'admin' && <th>Paciente</th>}{' '}
-                    {/* 🔥 Solo admin ve este campo */}
                     <th>Dentista</th>
                     <th>Tratamiento</th>
                     <th>Estado</th>
@@ -222,7 +119,7 @@ const DatingOptions = () => {
                       {userData?.role === 'admin' && (
                         <td>
                           {patientsMap[appointment.patientId] || 'Cargando...'}
-                        </td> // 🔥 Muestra nombre del paciente
+                        </td>
                       )}
                       <td>{appointment.dentistId}</td>
                       <td>{appointment.treatment}</td>

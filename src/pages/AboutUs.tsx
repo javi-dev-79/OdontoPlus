@@ -6,10 +6,8 @@ import clinicStaff from '../assets/images/Equipo médico OdontoPlus.webp'
 const AboutUs = () => {
   return (
     <div className='about-us-container'>
-      {/* Título principal */}
       <h1 className='about-us-title'>Sobre Nosotros</h1>
 
-      {/* Descripción */}
       <div className='about-us-description'>
         <p>
           En <strong>OdontoPlus</strong>, nos dedicamos a brindar atención
@@ -25,16 +23,14 @@ const AboutUs = () => {
         </p>
       </div>
 
-      {/* Imágenes */}
       <div className='about-us-images'>
         <img
-          src={clinicStaff} // Ruta de la imagen
+          src={clinicStaff}
           alt='Equipo médico de la clínica'
           className='about-us-image'
         />
       </div>
 
-      {/* Sección del equipo médico */}
       <div className='about-us-team'>
         <h2>Nuestro Equipo Médico</h2>
         <p>
@@ -45,16 +41,14 @@ const AboutUs = () => {
         </p>
       </div>
 
-      {/* Imágenes */}
       <div className='about-us-images'>
         <img
-          src={clinicImage} // Ruta de la imagen (ajusta según tu estructura de archivos)
+          src={clinicImage} 
           alt='Exterior de la clínica'
           className='about-us-image'
         />
       </div>
 
-      {/* Sección de instalaciones */}
       <div className='about-us-facilities'>
         <h2>Nuestras Instalaciones</h2>
         <p>

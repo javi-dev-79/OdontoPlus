@@ -27,7 +27,7 @@ const CreateDentistForm = () => {
         specialty,
         biography
       })
-      navigate('/admin-panel') // Redirige a la vista de administración
+      navigate('/admin-panel')
     } catch (error) {
       console.error('Error al agregar dentista:', error)
     } finally {
