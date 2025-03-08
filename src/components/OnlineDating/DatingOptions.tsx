@@ -23,8 +23,79 @@ const DatingOptions = () => {
   const [dentistToDelete, setDentistToDelete] = useState<string | null>(null)
   const { currentUser, userData } = useAuth()
   const navigate = useNavigate()
+  const [showAuthModal, setShowAuthModal] = useState(false)
+
+  // useEffect(() => {
+  //   const fetchAppointments = async () => {
+  //     if (currentUser) {
+  //       const q =
+  //         userData?.role === 'admin'
+  //           ? query(collection(db, 'appointments'))
+  //           : query(
+  //               collection(db, 'appointments'),
+  //               where('patientId', '==', currentUser.uid)
+  //             )
+
+  //       const querySnapshot = await getDocs(q)
+  //       const appointmentsData = querySnapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data()
+  //       })) as Appointment[]
+
+  //       setAppointments(appointmentsData)
+
+  //       const uniquePatientIds = [
+  //         ...new Set(appointmentsData.map((appt) => appt.patientId))
+  //       ]
+  //       const uniqueDentistIds = [
+  //         ...new Set(appointmentsData.map((appt) => appt.dentistId))
+  //       ]
+
+  //       const patientsData: { [key: string]: string } = {}
+  //       const dentistsData: { [key: string]: string } = {}
+
+  //       for (const patientId of uniquePatientIds) {
+  //         const patientSnapshot = await getDocs(
+  //           query(collection(db, 'patients'), where('id', '==', patientId))
+  //         )
+  //         patientsData[patientId] = patientSnapshot.empty
+  //           ? 'Desconocido'
+  //           : patientSnapshot.docs[0].data().fullName
+  //       }
+
+  //       for (const dentistId of uniqueDentistIds) {
+  //         const dentistSnapshot = await getDocs(
+  //           query(collection(db, 'dentists'), where('id', '==', dentistId))
+  //         )
+  //         dentistsData[dentistId] = dentistSnapshot.empty
+  //           ? 'Desconocido'
+  //           : dentistSnapshot.docs[0].data().fullName
+  //       }
+
+  //       setPatientsMap(patientsData)
+  //       setDentistsMap(dentistsData)
+  //     }
+  //   }
+
+  //   fetchAppointments()
+  // }, [currentUser, userData])
 
   useEffect(() => {
+    // Si el usuario no está autenticado, muestra el modal y redirige a /login
+    if (!currentUser) {
+      setShowAuthModal(true)
+      setTimeout(() => {
+        navigate('/login')
+      }, 3000)
+      return
+    }
+
+    // Si el usuario no tiene un role asignado, redirige a /create-profile
+    if (!userData?.role) {
+      navigate('/create-profile')
+      return
+    }
+
     const fetchAppointments = async () => {
       if (currentUser) {
         const q =
@@ -77,7 +148,7 @@ const DatingOptions = () => {
     }
 
     fetchAppointments()
-  }, [currentUser, userData])
+  }, [currentUser, userData, navigate])
 
   useEffect(() => {
     const fetchDentists = async () => {
@@ -116,6 +187,26 @@ const DatingOptions = () => {
 
   return (
     <div className='dating-options'>
+      {/* Modal de acceso restringido */}
+      {showAuthModal && (
+        <div className='restricted-access-modal__overlay'>
+          <div className='restricted-access-modal'>
+            <h2 className='restricted-access-modal__title'>
+              Acceso Restringido
+            </h2>
+            <p className='restricted-access-modal__text'>
+              Debes estar registrado e iniciar sesión para acceder a esta
+              sección.
+            </p>
+            <button
+              className='restricted-access-modal__button'
+              onClick={() => navigate('/login')}
+            >
+              Ir a Login
+            </button>
+          </div>
+        </div>
+      )}
       <h2 className='dating-options__title'>
         {userData?.role === 'admin' ? 'GESTIÓN DE CITAS' : 'MIS CITAS'}
       </h2>

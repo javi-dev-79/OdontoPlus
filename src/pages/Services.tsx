@@ -12,6 +12,7 @@ import ImageCard6 from '../assets/images/cirugia-maxilofacial-cabecera.webp'
 import ImageCard7 from '../assets/images/tratamientos_dolor_orofacial.webp'
 import ImageCard8 from '../assets/images/antiage-1.webp'
 import ImageCard9 from '../assets/images/apena_sueno_dispositivo_dia.webp'
+import { Helmet } from 'react-helmet-async'
 
 const images = [
   {
@@ -86,32 +87,56 @@ const images = [
 
 const Services = () => {
   return (
-    <main>
-      <div className='services-text-content'>
-        <h1>NUESTROS TRATAMIENTOS</h1>
-        <h2>ESPECIALIDADES PARA UNA SONRISA PERFECTA</h2>
-        <p>
-          En OdontoPlus, ofrecemos tratamientos de vanguardia, adaptados a tus
-          necesidades y realizados por un equipo de expertos. Con la última
-          tecnología, te ayudamos a lograr una sonrisa saludable y radiante. A
-          continuación, te presentamos las especialidades y tratamientos que
-          ponemos a tu disposición, para que consigas la sonrisa que mereces.
-        </p>
-      </div>
+    <>
+      <Helmet>
+        <title>Servicios | OdontoPlus</title>
+        <meta
+          name='description'
+          content='Explora nuestros tratamientos dentales especializados para el cuidado de tu salud bucal.'
+        />
+        <meta property='og:title' content='Servicios | OdontoPlus' />
+        <meta
+          property='og:description'
+          content='Conoce los tratamientos de ortodoncia, implantes, blanqueamiento y más en OdontoPlus.'
+        />
+        <meta
+          property='og:image'
+          content='https://odontoplus.netlify.app/services.webp'
+        />
+        <meta
+          property='og:url'
+          content='https://odontoplus.netlify.app/services'
+        />
+        <meta property='og:type' content='website' />
+      </Helmet>
 
-      <div className='service-grid'>
-        {images.map((image, index) => (
-          <ServiceCard
-            key={index}
-            imageUrl={image.imageUrl}
-            hoverImageUrl={image.hoverImageUrl}
-            title={image.title}
-            description={image.description}
-            moreInfoUrl={image.moreInfoUrl}
-          />
-        ))}
-      </div>
-    </main>
+      <main>
+        <div className='services-text-content'>
+          <h1>NUESTROS TRATAMIENTOS</h1>
+          <h2>ESPECIALIDADES PARA UNA SONRISA PERFECTA</h2>
+          <p>
+            En OdontoPlus, ofrecemos tratamientos de vanguardia, adaptados a tus
+            necesidades y realizados por un equipo de expertos. Con la última
+            tecnología, te ayudamos a lograr una sonrisa saludable y radiante. A
+            continuación, te presentamos las especialidades y tratamientos que
+            ponemos a tu disposición, para que consigas la sonrisa que mereces.
+          </p>
+        </div>
+
+        <div className='service-grid'>
+          {images.map((image, index) => (
+            <ServiceCard
+              key={index}
+              imageUrl={image.imageUrl}
+              hoverImageUrl={image.hoverImageUrl}
+              title={image.title}
+              description={image.description}
+              moreInfoUrl={image.moreInfoUrl}
+            />
+          ))}
+        </div>
+      </main>
+    </>
   )
 }
 

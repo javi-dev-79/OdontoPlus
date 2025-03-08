@@ -17,6 +17,7 @@ const UserActions = () => {
     try {
       await signOut(auth)
       console.log('Usuario cerró sesión correctamente')
+      navigate('/home')
     } catch (error) {
       console.error('Error al cerrar sesión:', error)
     }
