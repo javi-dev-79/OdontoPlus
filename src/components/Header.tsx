@@ -1,114 +1,114 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { signOut } from 'firebase/auth'
-import { auth } from '../config/firebase-config'
-import { useAuth } from '../contexts/UseAuth'
-import Logo from './Header/Logo'
-import Navigation from './Header/Navigation'
-import UserActions from './Header/UserActions'
-import '../styles/Header.css'
+import { useRef, useEffect } from "react";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../config/firebase-config";
+import { useAuth } from "../contexts/UseAuth";
+import Logo from "./Header/Logo";
+import Navigation from "./Header/Navigation";
+import UserActions from "./Header/UserActions";
+import {
+  Box,
+  Flex,
+  IconButton,
+  VStack,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerBody,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { FaSignOutAlt, FaSignInAlt, FaBars, FaTimes } from "react-icons/fa";
 
-const Header: React.FC = () => {
-  const { currentUser } = useAuth()
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null) 
-  const navigate = useNavigate()
-
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+const Header = () => {
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleLogout = async () => {
     try {
-      await signOut(auth)
-      console.log('Usuario cerró sesión correctamente')
-      navigate('/')
+      await signOut(auth);
+      console.log("Usuario cerró sesión correctamente");
+      navigate("/");
     } catch (error) {
-      console.error('Error al cerrar sesión:', error)
+      console.error("Error al cerrar sesión:", error);
     }
-  }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false)
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        onClose();
       }
-    }
+    };
 
-    document.addEventListener('mousedown', handleClickOutside)
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
 
   return (
-    <header className='navbar'>
-      <div className='navbar-content'>
-        <Logo className='logo-image' />
-        <Navigation />
-        <div className='desktop-actions'>
-          <UserActions />
-        </div>
-        <div className='mobile-actions'>
-          <div
-            className='sign-in-icon'
-            aria-label={currentUser ? 'Cerrar sesión' : 'Iniciar sesión'}
-            onClick={currentUser ? handleLogout : () => navigate('/login')}
-          >
-            {/* Changes the icon depending on the authentication status */}
-            {currentUser ? (
-              <i className='fas fa-sign-out-alt'></i>
-            ) : (
-              <i className='fas fa-sign-in-alt'></i>
-            )}
-          </div>
-          <div
-            className='hamburger-menu'
-            onClick={toggleMenu}
-            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            {isOpen ? (
-              <i className='far fa-rectangle-xmark' aria-hidden='true'></i>
-            ) : (
-              <span aria-hidden='true'>☰</span>
-            )}
-          </div>
-        </div>
-        {/* Dropdown menu */}
-        <div
-          className={`dropdown-menu ${isOpen ? 'show' : ''}`}
-          ref={dropdownRef}
-        >
-          <Link to='/' onClick={toggleMenu}>
-            Inicio
-          </Link>
-          <Link to='/services' onClick={toggleMenu}>
-            Servicios
-          </Link>
-          <Link to='/about-us' onClick={toggleMenu}>
-            Sobre Nosotros
-          </Link>
-          <Link to='/contact' onClick={toggleMenu}>
-            Contacto
-          </Link>
-          <Link to='/online-dating' onClick={toggleMenu}>
-            Citas en Línea
-          </Link>
-          <Link
-            to={currentUser ? '/' : '/login'}
-            onClick={currentUser ? handleLogout : undefined}
-          >
-            {currentUser ? 'SALIR' : 'INGRESAR'}
-          </Link>
-        </div>
-      </div>
-    </header>
-  )
-}
+    <Box as="header" bg="teal.700" w="100%" py={4} px={6} shadow="md">
+      <Flex maxW="1200px" mx="auto" justify="space-between" align="center">
+        {/* ✅ Logo SIEMPRE visible */}
+        <Logo />
 
-export default Header
+        {/* ✅ Navigation y UserActions solo en desktop (mayor a 1024px) */}
+        <Flex display={{ base: "none", xl: "flex" }} flex="1" justify="center">
+          <Navigation />
+        </Flex>
+
+        <Flex display={{ base: "none", xl: "flex" }}>
+          <UserActions />
+        </Flex>
+
+        {/* ✅ Botón de menú hamburguesa solo en mobile (≤ 1024px), alineado a la derecha */}
+        <Flex display={{ base: "flex", xl: "none" }} ml="auto">
+          <IconButton
+            aria-label={currentUser ? "Cerrar sesión" : "Iniciar sesión"}
+            color="white"
+            bg="transparent"
+            _hover={{ bg: "transparent", color: "gray.300" }}
+            icon={currentUser ? <FaSignOutAlt /> : <FaSignInAlt />}
+            onClick={currentUser ? handleLogout : () => navigate("/login")}
+          />
+
+          <IconButton
+            ref={btnRef}
+            aria-label="Abrir menú"
+            color="white"
+            bg="transparent"
+            _hover={{ bg: "transparent", color: "gray.300" }}
+            icon={isOpen ? <FaTimes /> : <FaBars />}
+            onClick={onOpen}
+          />
+        </Flex>
+      </Flex>
+
+      {/* ✅ Menú lateral (Drawer) solo en pantallas ≤ 1024px */}
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerBody mt={10}>
+            <VStack align="start" spacing={4}>
+              <RouterLink to="/" onClick={onClose}>Inicio</RouterLink>
+              <RouterLink to="/services" onClick={onClose}>Servicios</RouterLink>
+              <RouterLink to="/about-us" onClick={onClose}>Sobre Nosotros</RouterLink>
+              <RouterLink to="/contact" onClick={onClose}>Contacto</RouterLink>
+              <RouterLink to="/online-dating" onClick={onClose}>Citas en Línea</RouterLink>
+              <RouterLink to={currentUser ? "/" : "/login"} onClick={currentUser ? handleLogout : onClose}>
+                {currentUser ? "SALIR" : "INGRESAR"}
+              </RouterLink>
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </Box>
+  );
+};
+
+export default Header;

@@ -1,49 +1,51 @@
-import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
-import { signOut } from 'firebase/auth'
-import { auth } from '../../config/firebase-config'
-import '../../styles/Header.css'
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../config/firebase-config";
+import { Button, Flex } from "@chakra-ui/react";
 
 const UserActions = () => {
-  const navigate = useNavigate()
-  const { currentUser } = useContext(AuthContext)
+  const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
 
   const handleLogin = () => {
-    navigate('/login')
-  }
+    navigate("/login");
+  };
 
   const handleLogout = async () => {
     try {
-      await signOut(auth)
-      console.log('Usuario cerró sesión correctamente')
-      navigate('/home')
+      await signOut(auth);
+      console.log("Usuario cerró sesión correctamente");
+      navigate("/home");
     } catch (error) {
-      console.error('Error al cerrar sesión:', error)
+      console.error("Error al cerrar sesión:", error);
     }
-  }
+  };
 
   return (
-    <div className='user-actions'>
+    <Flex>
       {currentUser ? (
-        <button
-          className='sign-in-button'
-          aria-label='Cerrar sesión'
+        <Button
+          colorScheme="red"
+          variant="solid"
           onClick={handleLogout}
+          aria-label="Cerrar sesión"
         >
           SALIR
-        </button>
+        </Button>
       ) : (
-        <button
-          className='sign-in-button'
-          aria-label='Iniciar sesión'
+        <Button
+          colorScheme="teal"
+          variant="solid"
           onClick={handleLogin}
+          aria-label="Iniciar sesión"
         >
           INGRESAR
-        </button>
+        </Button>
       )}
-    </div>
-  )
-}
+    </Flex>
+  );
+};
 
-export default UserActions
+export default UserActions;

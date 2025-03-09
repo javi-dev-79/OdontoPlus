@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { db } from '../../config/firebase-config'
 import { addDoc, collection, getDocs, Timestamp } from 'firebase/firestore'
 import { useAuth } from '../../contexts/UseAuth'
@@ -133,3 +133,6 @@ const CreateAppointmentForm = () => {
 }
 
 export default CreateAppointmentForm
+
+
+// ***********************************************************************************************

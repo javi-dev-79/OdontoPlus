@@ -1,17 +1,18 @@
-import logo from '../../assets/images/Logo.webp'
-import '../../styles/Header.css'
+import { Link as RouterLink } from "react-router-dom";
+import { Image } from "@chakra-ui/react";
+import logo from "../../assets/images/Logo.webp";
 
-interface LogoProps {
-  className?: string;
-}
-
-const Logo: React.FC<LogoProps> = ({ className }) => {
+const Logo = () => {
   return (
-    <img
-      src={logo}
-      alt='Logotipo de OdontoPlus'
-      className={`${className || ''}`}
-    />
+    <RouterLink to="/">
+      <Image
+        src={logo}
+        alt="Logotipo de OdontoPlus"
+        cursor="pointer"
+        boxSize="70px" // Ajusta el tamaño según sea necesario
+        objectFit="contain"
+      />
+    </RouterLink>
   );
 };
 
