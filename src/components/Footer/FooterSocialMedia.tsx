@@ -1,62 +1,75 @@
-import { Link } from 'react-router-dom'
-import { FaInstagramSquare, FaLinkedin, FaFacebook } from 'react-icons/fa'
-import { IoLogoYoutube } from 'react-icons/io'
-import '../../styles/Footer.css'
+import { Link as RouterLink } from "react-router-dom";
+import { IconButton, Button, VStack, Box, HStack } from "@chakra-ui/react";
+import { FaInstagramSquare, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
 
 const FooterSocialMedia = () => {
   return (
-    <div className='footer-social-media'>
-      <div className='social-icons'>
-        <a
-          href='https://www.instagram.com'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='social-icon'
-          aria-label='Instagram'
+    <VStack spacing={4} align="center" width="100%" mr={{ base: "12px", sm: "16px", md: "0" }}>
+      {/* Contenedor de redes sociales con ancho idéntico al botón */}
+      <Box width="100%" maxW={{ base: "120px", sm: "150px", md: "230px" }}>
+        <HStack
+          width="100%"
+          maxW="100%" // ✅ Se asegura que no sobrepase el ancho del botón
+          spacing={{ base: "5px", sm: "8px", md: "12px" }} // ✅ Espaciado entre iconos
+          justify="space-between"
         >
-          <FaInstagramSquare className='social-media-icon' />
-          <span className='visually-hidden'>Instagram</span>
-        </a>
-        <a
-          href='https://www.facebook.com'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='social-icon'
-          aria-label='Facebook'
-        >
-          <FaFacebook className='social-media-icon-inv' />
-          <span className='visually-hidden'>Facebook</span>
-        </a>
-        <a
-          href='https://www.linkedin.com'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='social-icon'
-          aria-label='LinkedIn'
-        >
-          <FaLinkedin className='social-media-icon-inv' />
-          <span className='visually-hidden'>LinkedIn</span>
-        </a>
-        <a
-          href='https://www.youtube.com'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='social-icon'
-          aria-label='YouTube'
-        >
-          <IoLogoYoutube className='social-media-icon-inv' />
-          <span className='visually-hidden'>YouTube</span>
-        </a>
-      </div>
-      <Link
-        to='/contact'
-        className='cita-button'
-        aria-label='Ir a la página de contacto'
+          {[
+            { href: "https://www.instagram.com", icon: <FaInstagramSquare />, label: "Instagram" },
+            { href: "https://www.facebook.com", icon: <FaFacebook />, label: "Facebook" },
+            { href: "https://www.linkedin.com", icon: <FaLinkedin />, label: "LinkedIn" },
+            { href: "https://www.youtube.com", icon: <IoLogoYoutube />, label: "YouTube" }
+          ].map((social, index) => (
+            <IconButton
+              key={index}
+              as="a"
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              icon={social.icon}
+              fontSize={{ base: "24px", sm: "28px", md: "34px", lg: "40px" }} // ✅ Aumentamos SOLO el tamaño de los iconos
+              color="white"
+              bg="primary.500"
+              borderRadius="5px"
+              flex="1" // ✅ Distribuye los iconos equitativamente dentro del ancho total
+              minW="23%" // ✅ Contenedores cuadrados
+              maxW="23%"
+              h={{ base: "35px", sm: "40px", md: "50px", lg: "55px" }} // ✅ Mantiene el tamaño del contenedor
+              p="0" // ✅ Elimina padding extra dentro del contenedor
+              _hover={{ bg: "white", color: "primary.500" }}
+            />
+          ))}
+        </HStack>
+      </Box>
+
+      {/* Botón con los estilos correctos y tamaño reducido en mobile */}
+      <Button
+        as={RouterLink}
+        to="/contact"
+        fontSize={{ base: "10px", sm: "12px", md: "14px", lg: "18px" }} 
+        px={{ base: "10px", sm: "14px", md: "24px" }}
+        py={{ base: "8px", sm: "12px", md: "18px", lg: "22px" }} 
+        height={{ base: "35px", sm: "45px", md: "55px", lg: "65px" }} // ✅ Mantiene el tamaño del botón sin cambios
+        width="100%"
+        maxW={{ base: "120px", sm: "150px", md: "230px" }} // ✅ No se ha aumentado su tamaño
+        bg="primary.500"
+        color="white"
+        border="3px solid"
+        borderColor="white"
+        borderRadius="15px"
+        _hover={{
+          bg: "white",
+          color: "tertiary.500",
+          borderColor: "primary.500",
+          opacity: 0.9,
+        }}
+        aria-label="Ir a la página de contacto"
       >
         PIDE TU CITA YA
-      </Link>
-    </div>
-  )
-}
+      </Button>
+    </VStack>
+  );
+};
 
-export default FooterSocialMedia
+export default FooterSocialMedia;

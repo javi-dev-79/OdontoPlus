@@ -1,31 +1,14 @@
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from "react-router-dom";
+import { VStack, Link } from "@chakra-ui/react";
 
 const FooterNavigationLinks = () => {
   return (
-    <div className='footer-navigation-links'>
-      <Link
-        to='/services'
-        className='footer-link'
-        aria-label='Ir a la página de servicios'
-      >
-        SERVICIOS
-      </Link>
-      <Link
-        to='/about-us'
-        className='footer-link'
-        aria-label='Ir a la página sobre nosotros'
-      >
-        SOBRE NOSOTROS
-      </Link>
-      <Link
-        to='/contact'
-        className='footer-link'
-        aria-label='Ir a la página de contacto'
-      >
-        CONTACTO
-      </Link>
-    </div>
-  )
-}
+    <VStack spacing={{ base: 1, md: 3 }} textAlign="center">
+      <Link as={RouterLink} to="/services" fontSize={{ base: "8px", md: "14px", lg: "16px" }}>SERVICIOS</Link>
+      <Link as={RouterLink} to="/about-us" fontSize={{ base: "8px", md: "14px", lg: "16px" }}>SOBRE NOSOTROS</Link>
+      <Link as={RouterLink} to="/contact" fontSize={{ base: "8px", md: "14px", lg: "16px" }}>CONTACTO</Link>
+    </VStack>
+  );
+};
 
-export default FooterNavigationLinks
+export default FooterNavigationLinks;
