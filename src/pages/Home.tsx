@@ -1,8 +1,8 @@
 import Carousel from '../components/Home/Carousel'
 import Newsletter from '../components/Home/Newsletter'
 import VideoSection from '../components/Home/VideoSection'
-import '../styles/Home.css'
 import { Helmet } from 'react-helmet-async'
+import { Box } from '@chakra-ui/react'
 
 const Home = () => {
   return (
@@ -25,16 +25,25 @@ const Home = () => {
         <meta property='og:url' content='https://odontoplus.netlify.app/' />
         <meta property='og:type' content='website' />
       </Helmet>
-
       <main>
-        <div className='full-width-section'>
+        <Box
+          display='flex'
+          flexDirection='column'
+          alignItems='center'
+          justifyContent='center'
+          m={0}
+          p={0}
+          gap={10} // Añadido gap={0} para eliminar espacios entre componentes
+          mb={32}
+        >
           <Carousel />
           <VideoSection />
           <Newsletter />
-        </div>
+        </Box>
       </main>
     </>
   )
 }
 
 export default Home
+
