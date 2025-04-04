@@ -1,7 +1,15 @@
 import { Navigate, Outlet, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/UseAuth'
-import '../styles/modal-auth.css'
-
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  Button,
+  Text,
+  Heading
+} from '@chakra-ui/react'
 
 interface PrivateRouteProps {
   adminOnly?: boolean
@@ -19,26 +27,56 @@ const PrivateRoute = ({ adminOnly = false }: PrivateRouteProps) => {
   console.log('   🔹 Datos del usuario en Firestore:', userData)
   console.log('   🔹 Cargando:', loading)
 
-  // if (loading || !userData) {
-  //   return <p>Cargando...</p>
-  // }
-
   if (!currentUser) {
     return (
-      <div className='restricted-access-modal__overlay'>
-        <div className='restricted-access-modal'>
-          <h2 className='restricted-access-modal__title'>Acceso Restringido</h2>
-          <p className='restricted-access-modal__text'>
-            Debes estar registrado e iniciar sesión para acceder a esta sección.
-          </p>
-          <button
-            className='restricted-access-modal__button'
-            onClick={() => navigate('/login')}
-          >
-            Ir a Login
-          </button>
-        </div>
-      </div>
+      <Modal
+        isOpen={true}
+        onClose={() => navigate('/login')}
+        isCentered // Añadimos esta prop para centrar el modal
+      >
+        <ModalOverlay />
+        <ModalContent
+          maxWidth='400px'
+          width='90%' // Añadimos width para asegurar responsividad
+          mx='auto'
+          borderRadius='12px'
+          border='3px solid #004D40'
+          boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'
+          backgroundColor='white'
+          p={6}
+          position='relative' // Aseguramos posicionamiento relativo
+          top='50%' // Ya no es necesario pero lo mantenemos por compatibilidad
+          transform='translateY(-50%)' // Ya no es necesario pero lo mantenemos por compatibilidad
+        >
+          <ModalHeader>
+            <Heading size='lg' color='#004D40' textAlign='center'>
+              Acceso Restringido
+            </Heading>
+          </ModalHeader>
+          <ModalBody textAlign='center' mb={4}>
+            <Text fontSize='16px' color='#333333' mb={4}>
+              Debes estar registrado e iniciar sesión para acceder a esta
+              sección.
+            </Text>
+            <Button
+              onClick={() => navigate('/login')}
+              bg='#004D40'
+              color='white'
+              fontSize='16px'
+              fontWeight='600'
+              borderRadius='8px'
+              border='3px solid #CCCCCC'
+              _hover={{
+                bg: 'white',
+                color: '#333333',
+                borderColor: '#004D40'
+              }}
+            >
+              Ir a Login
+            </Button>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     )
   }
 
@@ -59,3 +97,4 @@ const PrivateRoute = ({ adminOnly = false }: PrivateRouteProps) => {
 }
 
 export default PrivateRoute
+

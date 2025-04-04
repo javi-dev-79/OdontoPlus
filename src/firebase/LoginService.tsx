@@ -3,7 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { doc, getDoc } from 'firebase/firestore'
 import { auth, db } from '../config/firebase-config'
-import '../styles/login-register.css'
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Heading,
+  Text
+} from '@chakra-ui/react'
 
 const LoginService = () => {
   const [email, setEmail] = useState('')
@@ -27,23 +35,24 @@ const LoginService = () => {
 
       if (userDoc.exists()) {
         const userData = userDoc.data()
-        const role = userData.role 
+        const role = userData.role
 
         console.log(`ℹ️ Role obtenido de Firestore: ${role}`)
 
+        // Redirigir según el rol del usuario
         if (role === 'admin') {
           console.log('🔹 Redirigiendo a /admin-panel')
-          navigate('/admin-panel') 
+          navigate('/admin-panel') // Redirigir al panel de administración si es admin
         } else if (role === 'patient') {
-          console.log('🔹 Redirigiendo a página de inicio /')
-          navigate('/') 
+          console.log('🔹 Redirigiendo a página de citas /')
+          navigate('/citas') // Redirigir a la página de citas si es paciente
         } else {
           console.error(`⚠️ Rol desconocido: ${role}`)
-          navigate('/') 
+          navigate('/') // Redirigir al inicio si el rol no es admin ni paciente
         }
       } else {
         console.error('⚠️ No se encontraron datos del usuario en Firestore')
-        navigate('/') 
+        navigate('/') // Redirigir al inicio si no se encuentran datos del usuario
       }
     } catch (error) {
       console.error('❌ Error durante el login:', error)
@@ -51,38 +60,103 @@ const LoginService = () => {
   }
 
   return (
-    <div className='auth-container'>
-      <h2 className='auth-title'>INICIAR SESIÓN</h2>
-      <form onSubmit={handleLogin} className='auth-form'>
-        <div className='input-group'>
-          <label htmlFor='email'>EMAIL:</label>
-          <input
+    <Box
+      display='flex'
+      flexDirection='column'
+      alignItems='center'
+      justifyContent='center'
+      height='100vh'
+      bg='#f5f5f5'
+      p={4}
+    >
+      <Heading color='#004D40' mb={4} fontSize='30px'>
+        INICIAR SESIÓN
+      </Heading>
+      <Box
+        as='form'
+        onSubmit={handleLogin}
+        width='100%'
+        maxWidth='500px'
+        border='3px solid #004D40'
+        borderRadius='15px'
+        padding='20px'
+        transition='background-color 0.3s ease-in-out'
+        _hover={{ backgroundColor: '#CCCCCC' }}
+      >
+        <FormControl mb={4} isRequired>
+          <FormLabel htmlFor='email' fontSize='16px' fontWeight='bold'>
+            EMAIL:
+          </FormLabel>
+          <Input
             id='email'
             type='email'
             placeholder='Ingrese su correo'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
+            border='3px solid #004D40'
+            borderRadius='8px'
+            fontSize='16px'
+            _focus={{ borderColor: '#002D27' }}
+            _hover={{ borderColor: '#002D27' }}
           />
-        </div>
-        <div className='input-group'>
-          <label htmlFor='password'>CONTRASEÑA:</label>
-          <input
+        </FormControl>
+
+        <FormControl mb={4} isRequired>
+          <FormLabel htmlFor='password' fontSize='16px' fontWeight='bold'>
+            CONTRASEÑA:
+          </FormLabel>
+          <Input
             id='password'
             type='password'
             placeholder='Ingrese su contraseña'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            border='3px solid #004D40'
+            borderRadius='8px'
+            fontSize='16px'
+            _focus={{ borderColor: '#002D27' }}
+            _hover={{ borderColor: '#002D27' }}
           />
-        </div>
-        <button type='submit'>ACEPTAR</button>
-      </form>
+        </FormControl>
 
-      <p className='call-to-action'>¿No tienes cuenta?</p>
-      <button onClick={() => navigate('/register')}>Registrarse</button>
-    </div>
+        <Button
+          type='submit'
+          width='full'
+          colorScheme='teal'
+          bg='#004D40'
+          color='white'
+          _hover={{
+            bg: '#FFFFFF',
+            color: '#333333',
+            borderColor: '#004D40'
+          }}
+          mb={4}
+          fontSize='16px'
+          fontWeight='600'
+          border='3px solid #CCCCCC'
+          borderRadius='8px'
+        >
+          ENTRAR
+        </Button>
+      </Box>
+
+      <Text mt={4} fontSize='16px'>
+        ¿No tienes cuenta?
+      </Text>
+      <Button
+        onClick={() => navigate('/register')}
+        colorScheme='teal'
+        variant='outline'
+        borderColor='#004D40'
+        borderRadius='8px'
+        fontWeight='600'
+        fontSize='16px'
+      >
+        Registrarse
+      </Button>
+    </Box>
   )
 }
 
 export default LoginService
+

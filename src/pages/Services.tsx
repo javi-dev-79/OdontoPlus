@@ -1,8 +1,8 @@
+import { Helmet } from 'react-helmet-async'
+import { Box, Heading, Text, Grid, useBreakpointValue } from '@chakra-ui/react'
 import ServiceCard from '../components/Serv/ServiceCard'
-import '../styles/Home.css'
 
 import logoCard from '../assets/images/Logo Card Text.jpg'
-
 import ImageCard1 from '../assets/images/Implantes_dientes.webp'
 import ImageCard2 from '../assets/images/ortodoncia_invisible.webp'
 import ImageCard3 from '../assets/images/blanqueamiento_dental.webp'
@@ -12,7 +12,6 @@ import ImageCard6 from '../assets/images/cirugia-maxilofacial-cabecera.webp'
 import ImageCard7 from '../assets/images/tratamientos_dolor_orofacial.webp'
 import ImageCard8 from '../assets/images/antiage-1.webp'
 import ImageCard9 from '../assets/images/apena_sueno_dispositivo_dia.webp'
-import { Helmet } from 'react-helmet-async'
 
 const images = [
   {
@@ -86,6 +85,12 @@ const images = [
 ]
 
 const Services = () => {
+  const gridTemplateColumns = useBreakpointValue({
+    base: 'repeat(1, 1fr)',
+    sm: 'repeat(2, 1fr)',
+    md: 'repeat(3, 1fr)'
+  })
+
   return (
     <>
       <Helmet>
@@ -110,34 +115,59 @@ const Services = () => {
         <meta property='og:type' content='website' />
       </Helmet>
 
-      <main>
-        <div className='services-text-content'>
-          <h1>NUESTROS TRATAMIENTOS</h1>
-          <h2>ESPECIALIDADES PARA UNA SONRISA PERFECTA</h2>
-          <p>
-            En OdontoPlus, ofrecemos tratamientos de vanguardia, adaptados a tus
-            necesidades y realizados por un equipo de expertos. Con la última
-            tecnología, te ayudamos a lograr una sonrisa saludable y radiante. A
-            continuación, te presentamos las especialidades y tratamientos que
-            ponemos a tu disposición, para que consigas la sonrisa que mereces.
-          </p>
-        </div>
+      <Box textAlign='center' p={8}>
+        <Heading
+          as='h1'
+          fontSize={{ base: '24px', sm: '30px' }}
+          color='#333'
+          mb={4}
+        >
+          NUESTROS TRATAMIENTOS
+        </Heading>
+        <Heading
+          as='h2'
+          fontSize={{ base: '22px', sm: '32px' }}
+          color='#004D40'
+          mb={4}
+        >
+          ESPECIALIDADES PARA UNA SONRISA PERFECTA
+        </Heading>
+        <Text
+          fontSize={{ base: '14px', sm: '16px' }}
+          color='#000000'
+          mb={8}
+          maxWidth='1200px'
+          mx='auto'
+          px={{ base: 4, sm: 6 }}
+        >
+          En OdontoPlus, ofrecemos tratamientos de vanguardia, adaptados a tus
+          necesidades y realizados por un equipo de expertos. Con la última
+          tecnología, te ayudamos a lograr una sonrisa saludable y radiante. A
+          continuación, te presentamos las especialidades y tratamientos que
+          ponemos a tu disposición, para que consigas la sonrisa que mereces.
+        </Text>
+      </Box>
 
-        <div className='service-grid'>
-          {images.map((image, index) => (
-            <ServiceCard
-              key={index}
-              imageUrl={image.imageUrl}
-              hoverImageUrl={image.hoverImageUrl}
-              title={image.title}
-              description={image.description}
-              moreInfoUrl={image.moreInfoUrl}
-            />
-          ))}
-        </div>
-      </main>
+      <Grid
+        templateColumns={gridTemplateColumns}
+        gap={6}
+        justifyItems='center'
+        p={{ base: 4, sm: 8 }}
+      >
+        {images.map((image, index) => (
+          <ServiceCard
+            key={index}
+            imageUrl={image.imageUrl}
+            hoverImageUrl={image.hoverImageUrl}
+            title={image.title}
+            description={image.description}
+            moreInfoUrl={image.moreInfoUrl}
+          />
+        ))}
+      </Grid>
     </>
   )
 }
 
 export default Services
+

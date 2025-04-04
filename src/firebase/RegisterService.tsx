@@ -3,7 +3,15 @@ import { useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { doc, setDoc, Timestamp } from 'firebase/firestore'
 import { auth, db } from '../config/firebase-config'
-import '../styles/login-register.css'
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Heading,
+  Text
+} from '@chakra-ui/react'
 
 const RegisterService = () => {
   const [email, setEmail] = useState('')
@@ -15,14 +23,13 @@ const RegisterService = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
   }
 
-
   const isValidPassword = (password: string) => {
     return password.length >= 6
   }
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
-    setErrorMessage(null) 
+    setErrorMessage(null)
 
     if (!isValidEmail(email)) {
       setErrorMessage(
@@ -88,39 +95,108 @@ const RegisterService = () => {
   }
 
   return (
-    <div className='auth-container'>
-      <h2 className='auth-title'>REGISTRARSE</h2>
-      {errorMessage && <p className='error-message'>{errorMessage}</p>}{' '}
-      {/* ⚠️ Show errors */}
-      <form onSubmit={handleRegister} className='auth-form'>
-        <div className='input-group'>
-          <label htmlFor='email'>EMAIL:</label>
-          <input
+    <Box
+      display='flex'
+      flexDirection='column'
+      alignItems='center'
+      justifyContent='center'
+      height='100vh'
+      bg='#f5f5f5'
+      p={4}
+    >
+      <Heading color='#004D40' mb={4} fontSize='30px'>
+        REGISTRARSE
+      </Heading>
+      {errorMessage && (
+        <Text color='red' fontSize='16px' mb={4} textAlign='center'>
+          {errorMessage}
+        </Text>
+      )}
+      <Box
+        as='form'
+        onSubmit={handleRegister}
+        width='100%'
+        maxWidth='500px'
+        border='3px solid #004D40'
+        borderRadius='15px'
+        padding='20px'
+        transition='background-color 0.3s ease-in-out'
+        _hover={{ backgroundColor: '#CCCCCC' }}
+      >
+        <FormControl mb={4} isRequired>
+          <FormLabel htmlFor='email' fontSize='16px' fontWeight='bold'>
+            EMAIL:
+          </FormLabel>
+          <Input
             id='email'
             type='email'
             placeholder='Ingrese su correo'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
+            border='3px solid #004D40'
+            borderRadius='8px'
+            fontSize='16px'
+            _focus={{ borderColor: '#002D27' }}
+            _hover={{ borderColor: '#002D27' }}
           />
-        </div>
-        <div className='input-group'>
-          <label htmlFor='password'>CONTRASEÑA:</label>
-          <input
+        </FormControl>
+
+        <FormControl mb={4} isRequired>
+          <FormLabel htmlFor='password' fontSize='16px' fontWeight='bold'>
+            CONTRASEÑA:
+          </FormLabel>
+          <Input
             id='password'
             type='password'
             placeholder='Ingrese su contraseña (mín. 6 caracteres)'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            border='3px solid #004D40'
+            borderRadius='8px'
+            fontSize='16px'
+            _focus={{ borderColor: '#002D27' }}
+            _hover={{ borderColor: '#002D27' }}
           />
-        </div>
-        <button type='submit'>REGISTRARSE</button>
-      </form>
-      <p className='call-to-action'>¿Ya tienes cuenta?</p>
-      <button onClick={() => navigate('/login')}>Iniciar sesión</button>
-    </div>
+        </FormControl>
+
+        <Button
+          type='submit'
+          width='full'
+          colorScheme='teal'
+          bg='#004D40'
+          color='white'
+          _hover={{
+            bg: '#FFFFFF',
+            color: '#333333',
+            borderColor: '#004D40'
+          }}
+          mb={4}
+          fontSize='16px'
+          fontWeight='600'
+          border='3px solid #CCCCCC'
+          borderRadius='8px'
+        >
+          REGISTRARSE
+        </Button>
+      </Box>
+
+      <Text mt={4} fontSize='16px'>
+        ¿Ya tienes cuenta?
+      </Text>
+      <Button
+        onClick={() => navigate('/login')}
+        colorScheme='teal'
+        variant='outline'
+        borderColor='#004D40'
+        borderRadius='8px'
+        fontWeight='600'
+        fontSize='16px'
+      >
+        Iniciar sesión
+      </Button>
+    </Box>
   )
 }
 
 export default RegisterService
+

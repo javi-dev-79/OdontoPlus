@@ -1,17 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {
-  collection,
-  getDocs
-  // deleteDoc
-  // doc,
-  // updateDoc
-} from 'firebase/firestore'
+import { collection, getDocs, Timestamp } from 'firebase/firestore'
 import { db } from '../config/firebase-config'
-import { Trash2, Edit, PlusCircle } from 'lucide-react'
-import '../styles/AdminPanel.css'
+import { Trash2, Edit } from 'lucide-react'
+import { Box, Button, Select, Text, Heading, Flex } from '@chakra-ui/react'
 import { AppUser, Dentist } from './types'
-import { Timestamp } from 'firebase/firestore'
 
 const AdminPanel = () => {
   const [appusers, setUsers] = useState<AppUser[]>([])
@@ -61,36 +54,15 @@ const AdminPanel = () => {
     return timestamp ? new Date(timestamp.toDate()).toLocaleString() : 'N/A'
   }
 
-  // ⚠️ Temporalmente desactivado hasta que suba el backend en Netlify Functions
   const handleDeleteUser = async (id: string) => {
     try {
-      console.log(`(Temporal) Eliminar usuario con ID: ${id}`)
-  
-      /*
-      const response = await fetch('https://YOUR_NETLIFY_FUNCTION_URL/delete-user', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ userId: id })
-      });
-
-      if (!response.ok) {
-        throw new Error('Error al eliminar usuario de Authentication');
-      }
-
-      // Eliminar de Firestore
-      await deleteDoc(doc(db, 'app-users', id));
-
-      setUsers(app-users.filter((user) => user.userId !== id));
-      console.log('Usuario eliminado correctamente');
-      */
+      console.log(`Eliminar usuario con ID: ${id}`)
+      // Aquí iría la lógica para eliminar el usuario
     } catch (error) {
       console.error('Error eliminando usuario:', error)
     }
   }
 
-  // ⚠️ Temporalmente desactivado hasta que suba el backend en Netlify Functions
   const handleEditUser = async (
     id: string,
     newRole: string,
@@ -98,31 +70,9 @@ const AdminPanel = () => {
   ) => {
     try {
       console.log(
-        `(Temporal) Editar usuario con ID: ${id}, Nuevo Rol: ${newRole}, Nuevo Estado: ${newStatus}`
+        `Editar usuario con ID: ${id}, Nuevo Rol: ${newRole}, Nuevo Estado: ${newStatus}`
       )
-
-      /*
-      const response = await fetch('https://YOUR_NETLIFY_FUNCTION_URL/edit-user', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ userId: id, role: newRole, status: newStatus })
-      });
-
-      if (!response.ok) {
-        throw new Error('Error al editar usuario en Authentication');
-      }
-
-      // Si la edición es exitosa, actualizarlo en Firestore
-      await updateDoc(doc(db, 'app-users', id), { role: newRole, status: newStatus });
-
-      setUsers(app-users.map((user) =>
-        user.userId === id ? { ...user, role: newRole, status: newStatus } : user
-      ));
-
-      console.log('Usuario actualizado correctamente');
-      */
+      // Aquí iría la lógica para editar el usuario
     } catch (error) {
       console.error('Error editando usuario:', error)
     }
@@ -134,129 +84,241 @@ const AdminPanel = () => {
 
   if (loading) {
     return (
-      <div className='loading-container'>
-        <div className='loading-spinner'></div>
-      </div>
+      <Box textAlign='center' paddingTop='5rem'>
+        <Text>Loading...</Text>
+      </Box>
     )
   }
 
   return (
-    <div className='admin-panel'>
-      <h1 className='admin-title'>PANEL DE ADMINISTRACIÓN</h1>
+    <Box padding='24px' maxWidth='1200px' margin='auto'>
+      <Heading
+        fontSize='40px'
+        fontFamily='Playfair Display'
+        fontWeight='bold'
+        lineHeight='55px'
+        color='#004D40'
+        textAlign='center'
+        marginTop='5rem'
+      >
+        PANEL DE ADMINISTRACIÓN
+      </Heading>
 
-      <div className='admin-panel-header '>
-        <h2>PANEL DE USUARIOS</h2>
-        <select
-          className='filter-select'
+      <Flex
+        justifyContent='space-between'
+        alignItems='center'
+        marginTop='5rem'
+        marginBottom='2rem'
+      >
+        <Heading size='lg'>PANEL DE USUARIOS</Heading>
+        <Select
           value={selectedFilter}
           onChange={(e) =>
             setSelectedFilter(
               e.target.value as 'all' | 'pending' | 'approved' | 'rejected'
             )
           }
+          padding='12px 16px'
+          border='2px solid #004D40'
+          borderRadius='8px'
+          fontSize='16px'
+          fontWeight='bold'
+          outline='none'
+          width='200px'
+          textAlign='center' // Centra el texto dentro del select
+          icon={
+            <Box
+              as='span'
+              fontSize='xl'
+              display='inline-block'
+              textAlign='center'
+            />
+          }
+          sx={{
+            option: {
+              textAlign: 'left' // Alinea el texto dentro de las opciones a la izquierda
+            }
+          }}
         >
           <option value='all'>Todos</option>
           <option value='pending'>Pendientes</option>
           <option value='approved'>Aprobados</option>
           <option value='rejected'>Rechazados</option>
-        </select>
-      </div>
+        </Select>
+      </Flex>
 
-      <div className='user-list'>
+      <Box
+        border='3px solid #004D40'
+        borderRadius='15px'
+        padding='10px'
+        minHeight='100px'
+        marginBottom='5rem'
+        background='white'
+      >
         {filteredUsers.length > 0 ? (
           filteredUsers.map((user) => (
-            <div key={user.userId} className='user-card'>
-              <div className='user-info'>
-                <p className='user-email'>{user.email}</p>
-                <div className='user-details'>
-                  <span>
+            <Box
+              key={user.userId}
+              display='flex'
+              justifyContent='space-between'
+              alignItems='center'
+              padding='16px'
+              borderBottom='1px solid #eee'
+              transition='background 0.3s'
+              gap='15px'
+            >
+              <Box flex='1'>
+                <Text fontSize='28px' fontWeight='bold'>
+                  {user.email}
+                </Text>
+                <Box
+                  display='flex'
+                  flexDirection='column'
+                  gap='10px'
+                  fontSize='14px'
+                  marginTop='5px'
+                  color='#555'
+                >
+                  <Text>
                     <strong>Estado:</strong> {user.status}
-                  </span>
-                  <span>
+                  </Text>
+                  <Text>
                     <strong>Tipo:</strong> {user.role}
-                  </span>
-                </div>
-                <div className='user-dates'>
-                  <span>
+                  </Text>
+                </Box>
+                <Box
+                  display='flex'
+                  gap='20px'
+                  fontSize='14px'
+                  marginTop='5px'
+                  color='#555'
+                >
+                  <Text>
                     <strong>Creado:</strong> {formatDate(user.createdAt)}
-                  </span>
-                  <span>
+                  </Text>
+                  <Text>
                     <strong>Actualizado:</strong> {formatDate(user.updatedAt)}
-                  </span>
-                </div>
-              </div>
+                  </Text>
+                </Box>
+              </Box>
 
-              <div className='user-actions'>
-                <button
-                  className='btn btn-edit'
+              <Box display='flex' gap='15px'>
+                <Button
+                  colorScheme='teal'
                   onClick={() =>
                     handleEditUser(user.userId, 'admin', 'approved')
                   }
                 >
                   <Edit className='icon-btn' />
                   EDITAR
-                </button>
-
-                <button
-                  className='btn btn-delete'
+                </Button>
+                <Button
+                  colorScheme='red'
                   onClick={() => handleDeleteUser(user.userId)}
                 >
                   <Trash2 className='icon-btn' />
                   ELIMINAR
-                </button>
-              </div>
-            </div>
+                </Button>
+              </Box>
+            </Box>
           ))
         ) : (
-          <div className='no-users'>No hay usuarios que mostrar</div>
+          <Text textAlign='center' fontSize='16px' color='#666' padding='20px'>
+            No hay usuarios que mostrar
+          </Text>
         )}
-      </div>
+      </Box>
 
-      <h2 className='admin-panel-header'>GESTIÓN DE DENTISTAS</h2>
+      <Heading size='lg' marginTop='2rem' marginBottom='2rem' color='#004D40'>
+        GESTIÓN DE DENTISTAS
+      </Heading>
 
-      <div className='user-list'>
+      <Box
+        border='3px solid #004D40'
+        borderRadius='15px'
+        padding='10px'
+        minHeight='100px'
+        marginBottom='5rem'
+        background='white'
+      >
         {dentists.length > 0 ? (
           dentists.map((dentist) => (
-            <div key={dentist.id} className='user-card'>
-              <div className='user-info'>
-                <p className='user-email'>{dentist.fullName}</p>
-                <div className='user-details'>
-                  <span>
+            <Box
+              key={dentist.id}
+              display='flex'
+              justifyContent='space-between'
+              alignItems='center'
+              padding='16px'
+              borderBottom='1px solid #eee'
+              transition='background 0.3s'
+              gap='15px'
+            >
+              <Box flex='1'>
+                <Text fontSize='28px' fontWeight='bold'>
+                  {dentist.fullName}
+                </Text>
+                <Box
+                  display='flex'
+                  gap='20px'
+                  fontSize='14px'
+                  marginTop='5px'
+                  color='#555'
+                >
+                  <Text>
                     <strong>Especialidad:</strong> {dentist.specialty}
-                  </span>
-                </div>
-              </div>
+                  </Text>
+                </Box>
+              </Box>
 
-              <div className='user-actions'>
-                <button
-                  className='btn btn-edit'
+              <Box display='flex' gap='15px'>
+                <Button
+                  colorScheme='teal'
                   onClick={() => navigate(`/edit-dentist/${dentist.id}`)}
                 >
                   <Edit className='icon-btn' />
                   EDITAR
-                </button>
-
-                <button
-                  className='btn btn-delete'
+                </Button>
+                <Button
+                  colorScheme='red'
                   onClick={() => handleDeleteUser(dentist.id)}
                 >
                   <Trash2 className='icon-btn' />
                   ELIMINAR
-                </button>
-              </div>
-            </div>
+                </Button>
+              </Box>
+            </Box>
           ))
         ) : (
-          <div className='no-users'>No hay dentistas que mostrar</div>
+          <Text textAlign='center' fontSize='16px' color='#666' padding='20px'>
+            No hay dentistas que mostrar
+          </Text>
         )}
-      </div>
+      </Box>
 
-      <button className='add-dentist' onClick={() => navigate('/add-dentist')}>
-        <PlusCircle className='icon-btn' />
+      <Button
+        onClick={() => navigate('/add-dentist')}
+        margin='auto'
+        display='flex'
+        justifyContent='center'
+        alignItems='center'
+        padding='16px 24px' // Aumentamos el padding para darle más altura al botón
+        fontSize='18px'
+        backgroundColor='#004D40'
+        color='white'
+        borderRadius='8px'
+        border='3px solid #CCCCCC'
+        _hover={{
+          background: 'white',
+          color: '#004D40',
+          borderColor: '#004D40'
+        }}
+        gap='10px' // Añadimos gap entre el icono y el texto
+      >
         AÑADIR DENTISTA
-      </button>
-    </div>
+      </Button>
+    </Box>
   )
 }
 
 export default AdminPanel
+

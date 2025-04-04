@@ -25,61 +25,6 @@ const DatingOptions = () => {
   const navigate = useNavigate()
   const [showAuthModal, setShowAuthModal] = useState(false)
 
-  // useEffect(() => {
-  //   const fetchAppointments = async () => {
-  //     if (currentUser) {
-  //       const q =
-  //         userData?.role === 'admin'
-  //           ? query(collection(db, 'appointments'))
-  //           : query(
-  //               collection(db, 'appointments'),
-  //               where('patientId', '==', currentUser.uid)
-  //             )
-
-  //       const querySnapshot = await getDocs(q)
-  //       const appointmentsData = querySnapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data()
-  //       })) as Appointment[]
-
-  //       setAppointments(appointmentsData)
-
-  //       const uniquePatientIds = [
-  //         ...new Set(appointmentsData.map((appt) => appt.patientId))
-  //       ]
-  //       const uniqueDentistIds = [
-  //         ...new Set(appointmentsData.map((appt) => appt.dentistId))
-  //       ]
-
-  //       const patientsData: { [key: string]: string } = {}
-  //       const dentistsData: { [key: string]: string } = {}
-
-  //       for (const patientId of uniquePatientIds) {
-  //         const patientSnapshot = await getDocs(
-  //           query(collection(db, 'patients'), where('id', '==', patientId))
-  //         )
-  //         patientsData[patientId] = patientSnapshot.empty
-  //           ? 'Desconocido'
-  //           : patientSnapshot.docs[0].data().fullName
-  //       }
-
-  //       for (const dentistId of uniqueDentistIds) {
-  //         const dentistSnapshot = await getDocs(
-  //           query(collection(db, 'dentists'), where('id', '==', dentistId))
-  //         )
-  //         dentistsData[dentistId] = dentistSnapshot.empty
-  //           ? 'Desconocido'
-  //           : dentistSnapshot.docs[0].data().fullName
-  //       }
-
-  //       setPatientsMap(patientsData)
-  //       setDentistsMap(dentistsData)
-  //     }
-  //   }
-
-  //   fetchAppointments()
-  // }, [currentUser, userData])
-
   useEffect(() => {
     // Si el usuario no está autenticado, muestra el modal y redirige a /login
     if (!currentUser) {

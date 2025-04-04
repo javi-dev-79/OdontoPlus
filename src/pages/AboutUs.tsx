@@ -1,8 +1,8 @@
-import '../styles/AboutUs.css'
+import { Box, Heading, Text, Image, Flex } from '@chakra-ui/react'
+import { Helmet } from 'react-helmet-async'
 
 import clinicImage from '../assets/images/Gemini_Generated_Image_3nnf333nnf333nnf.webp'
 import clinicStaff from '../assets/images/Equipo médico OdontoPlus.webp'
-import { Helmet } from 'react-helmet-async'
 
 const AboutUs = () => {
   return (
@@ -29,62 +29,108 @@ const AboutUs = () => {
         <meta property='og:type' content='website' />
       </Helmet>
 
-      <div className='about-us-container'>
-        <h1 className='about-us-title'>Sobre Nosotros</h1>
+      <Box
+        maxW='1200px'
+        m='0 auto'
+        p={{ base: '1rem', sm: '3rem', lg: '5rem' }}
+        textAlign='center'
+      >
+        <Heading as='h1' fontSize={{ base: '1.5rem', sm: '2.5rem' }} mb={5}>
+          Sobre Nosotros
+        </Heading>
 
-        <div className='about-us-description'>
-          <p>
+        <Box
+          bg='#e0e9e7'
+          border='2px solid #004D40'
+          borderRadius='10px'
+          p={5}
+          fontSize={{ base: '0.8rem', sm: '1.3rem' }}
+          lineHeight='1.6'
+          textAlign='justify'
+          color='#333333'
+          mb={10}
+        >
+          <Text>
             En <strong>OdontoPlus</strong>, nos dedicamos a brindar atención
             médica de calidad con un enfoque humano y profesional. Nuestra
             misión es mejorar la salud y el bienestar de nuestros pacientes a
             través de servicios médicos integrales y tecnología de vanguardia.
-          </p>
-          <p>
+          </Text>
+          <Text mt={5}>
             Contamos con un equipo de especialistas altamente capacitados y
             comprometidos con la excelencia en el cuidado de la salud. Nuestras
             instalaciones están diseñadas para ofrecer un ambiente cómodo y
             seguro para todos nuestros pacientes.
-          </p>
-        </div>
+          </Text>
+        </Box>
 
-        <div className='about-us-images'>
-          <img
+        <Flex justify='center' mb={12} pt={{ base: '2rem', sm: '3rem' }}>
+          <Image
             src={clinicStaff}
             alt='Equipo médico de la clínica'
-            className='about-us-image'
+            boxSize={{ base: '250px', sm: '400px' }}
+            borderRadius='10px'
+            boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'
           />
-        </div>
+        </Flex>
 
-        <div className='about-us-team'>
-          <h2>Nuestro Equipo Médico</h2>
-          <p>
+        <Box>
+          <Heading as='h2' fontSize={{ base: '1rem', sm: '2rem' }} mb={4}>
+            Nuestro Equipo Médico
+          </Heading>
+          <Text
+            bg='#e0e9e7'
+            border='2px solid #004D40'
+            borderRadius='10px'
+            p={5}
+            fontSize={{ base: '0.8rem', sm: '1.3rem' }}
+            color='#333333'
+            lineHeight='1.6'
+            textAlign='justify'
+            mb={12}
+          >
             Nuestro equipo está compuesto por profesionales de la salud con
             amplia experiencia en diversas especialidades. Trabajamos juntos
             para ofrecer un enfoque multidisciplinario que garantiza el mejor
             cuidado para nuestros pacientes.
-          </p>
-        </div>
+          </Text>
+        </Box>
 
-        <div className='about-us-images'>
-          <img
+        <Flex justify='center' mb={12} pt={{ base: '2rem', sm: '3rem' }}>
+          <Image
             src={clinicImage}
             alt='Exterior de la clínica'
-            className='about-us-image'
+            boxSize={{ base: '250px', sm: '400px' }}
+            borderRadius='10px'
+            boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)'
           />
-        </div>
+        </Flex>
 
-        <div className='about-us-facilities'>
-          <h2>Nuestras Instalaciones</h2>
-          <p>
+        <Box>
+          <Heading as='h2' fontSize={{ base: '1rem', sm: '2rem' }} mb={4}>
+            Nuestras Instalaciones
+          </Heading>
+          <Text
+            bg='#e0e9e7'
+            border='2px solid #004D40'
+            borderRadius='10px'
+            p={5}
+            fontSize={{ base: '0.8rem', sm: '1.3rem' }}
+            color='#333333'
+            lineHeight='1.6'
+            textAlign='justify'
+            mb={12}
+          >
             Contamos con instalaciones modernas y equipadas con tecnología de
             última generación para garantizar diagnósticos precisos y
             tratamientos efectivos. Nuestras áreas están diseñadas pensando en
             la comodidad y seguridad de nuestros pacientes.
-          </p>
-        </div>
-      </div>
+          </Text>
+        </Box>
+      </Box>
     </>
   )
 }
 
 export default AboutUs
+

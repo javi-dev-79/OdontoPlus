@@ -1,5 +1,13 @@
 import { useState, ChangeEvent, FormEvent } from 'react'
-import '../../styles/Contact.css'
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  FormErrorMessage
+} from '@chakra-ui/react'
 
 interface FormData {
   nombre: string
@@ -65,63 +73,89 @@ const ContactForm = () => {
   }
 
   return (
-    <form className='contact-form' onSubmit={handleSubmit}>
-      <div className='form-group'>
-        <label htmlFor='nombre'>Nombre</label>
-        <input
-          type='text'
+    <Box
+      as='form'
+      onSubmit={handleSubmit}
+      width={{ base: '90%', sm: '80%', lg: '800px' }}
+      mx='auto'
+      p={5}
+      border='3px solid #004D40'
+      borderRadius='15px'
+      backgroundColor='white'
+      mb={10}
+      boxShadow='0px 4px 10px rgba(0, 0, 0, 0.1)'
+    >
+      <FormControl isInvalid={!!errors.nombre} mb={4}>
+        <FormLabel htmlFor='nombre'>Nombre</FormLabel>
+        <Input
           id='nombre'
           name='nombre'
           value={formData.nombre}
           onChange={handleChange}
           placeholder={errors.nombre || 'Ingresa tu nombre'}
-          className={errors.nombre ? 'error' : ''}
+          borderColor={errors.nombre ? 'red.500' : 'gray.300'}
         />
-      </div>
+        <FormErrorMessage>{errors.nombre}</FormErrorMessage>
+      </FormControl>
 
-      <div className='form-group'>
-        <label htmlFor='email'>Email</label>
-        <input
+      <FormControl isInvalid={!!errors.email} mb={4}>
+        <FormLabel htmlFor='email'>Email</FormLabel>
+        <Input
           type='email'
           id='email'
           name='email'
           value={formData.email}
           onChange={handleChange}
           placeholder={errors.email || 'Ingresa tu correo electrónico'}
-          className={errors.email ? 'error' : ''}
+          borderColor={errors.email ? 'red.500' : 'gray.300'}
         />
-      </div>
+        <FormErrorMessage>{errors.email}</FormErrorMessage>
+      </FormControl>
 
-      <div className='form-group'>
-        <label htmlFor='asunto'>Asunto</label>
-        <input
-          type='text'
+      <FormControl isInvalid={!!errors.asunto} mb={4}>
+        <FormLabel htmlFor='asunto'>Asunto</FormLabel>
+        <Input
           id='asunto'
           name='asunto'
           value={formData.asunto}
           onChange={handleChange}
           placeholder={errors.asunto || 'Ingresa el asunto'}
-          className={errors.asunto ? 'error' : ''}
+          borderColor={errors.asunto ? 'red.500' : 'gray.300'}
         />
-      </div>
+        <FormErrorMessage>{errors.asunto}</FormErrorMessage>
+      </FormControl>
 
-      <div className='form-group'>
-        <label htmlFor='mensaje'>Mensaje</label>
-        <textarea
+      <FormControl mb={4}>
+        <FormLabel htmlFor='mensaje'>Mensaje</FormLabel>
+        <Textarea
           id='mensaje'
           name='mensaje'
           rows={6}
           value={formData.mensaje}
           onChange={handleChange}
           placeholder='Escribe tu mensaje (opcional)'
+          borderColor='gray.300'
         />
-      </div>
+      </FormControl>
 
-      <button type='submit' className='send-btn'>
+      <Button
+        type='submit'
+        bg={'#004D40'}
+        color={'white'}
+        variant='solid'
+        width='full'
+        size='lg'
+        borderRadius='10px'
+        _hover={{
+          bg: '#FFFFFF',
+          color: '#333333'
+        }}
+      >
         Enviar
-      </button>
-    </form>
+      </Button>
+    </Box>
   )
 }
 
 export default ContactForm
+

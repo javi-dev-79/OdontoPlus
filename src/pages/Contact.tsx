@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import { Helmet } from 'react-helmet-async'
 import ContactForm from '../components/Contact/ContactForm'
 import ContactHead from '../components/Contact/ContactHead'
@@ -31,17 +32,25 @@ const Contact = () => {
         />
         <meta property='og:type' content='website' />
       </Helmet>
+
       <main>
-        <div className='full-width-section'>
+        <Box
+          display='flex'
+          flexDirection='column'
+          alignItems='center'
+          justifyContent='center'
+          p={4}
+        >
           <ContactHead />
           <ContactForm />
           <ContactInfo />
           <ContactMap />
           <ContactMapButton location={location} />
-        </div>
+        </Box>
       </main>
     </>
   )
 }
 
 export default Contact
+

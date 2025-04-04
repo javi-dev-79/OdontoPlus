@@ -1,8 +1,7 @@
-import React from 'react'
+import { Box } from '@chakra-ui/react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
-import '../../styles/Contact.css'
 
 const defaultIcon = L.icon({
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -15,11 +14,23 @@ const defaultIcon = L.icon({
   shadowSize: [41, 41]
 })
 
-const ContactMap: React.FC = () => {
+const ContactMap = () => {
   const location: [number, number] = [28.112556, -15.510174]
 
   return (
-    <div className='map-container'>
+    <Box
+      display='flex'
+      justifyContent='center'
+      alignItems='center'
+      width='100%'
+      height={{ base: '300px', sm: '450px', md: '600px' }}
+      maxWidth='800px'
+      mx='auto'
+      mb={6}
+      border='3px solid #004D40'
+      borderRadius='15px'
+      overflow='hidden'
+    >
       <MapContainer
         center={location}
         zoom={17}
@@ -27,7 +38,7 @@ const ContactMap: React.FC = () => {
       >
         <TileLayer
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
         />
         <Marker position={location} icon={defaultIcon}>
           <Popup>
@@ -36,8 +47,9 @@ const ContactMap: React.FC = () => {
           </Popup>
         </Marker>
       </MapContainer>
-    </div>
+    </Box>
   )
 }
 
 export default ContactMap
+
